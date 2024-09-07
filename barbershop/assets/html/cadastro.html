@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon_barbershop" href="favicon.ico" type="image/svg+xml">
+        <link rel="icon_barbershop" href="../imgs/icon.png" type="image/svg+xml">
     <meta name="description" content="Página Home - Barbearia">
     <meta name="author" content="DGM developers®">
     <!-- CDN fonts icons -->
@@ -19,113 +19,266 @@
 <!-- ======================================== -->
     <title>JohnBravo Barbearia</title>
 </head>
-<body>
+<body style="background: black;">
     <div>
         <form action="#">
             <h1>Cadastro</h1>
                 <p>Dados Pessoais</p>
-            <br><br>
+            <hr>
+            <br>
+        <!-- Dados pessoais -->
             <label>Nome: </label>
-            <input 
-                required
-                type="text"
-                maxlength="15"
-                minlength="15"
-                placeholder="Digite seu nome">
-             <br><br>
-
-             <label>Sobrenome: </label>
-             <input 
-                required
-                type="text"
-                maxlength="15"
-                minlength="15"
-                placeholder="Digite seu sobrenome">
-              <br><br>
-
+                <input 
+                    required
+                    type="text"
+                    maxlength="15"
+                    minlength="15"
+                    placeholder="Digite seu nome">
+            <br><br>
+        <!-- ---------------------------------------- -->
+            <label>Sobrenome: </label>
+                <input 
+                    required
+                    type="text"
+                    maxlength="15"
+                    minlength="15"
+                    placeholder="Digite seu sobrenome">
+            <br><br>
+        <!-- ---------------------------------------- -->
             <label>Data de Nascimento: </label>
-            <input 
-                required
-                type="date">
-             <br><br>
-
-            <label>Gênero: </label>
-            <input 
-                required
-                type="radio"
-                name="Gênero">
-            <label>Masculino</label>
-             
                 <input 
                     required
-                    type="radio"
-                    name="Gênero">
-                <label>Feminino</label>
-            
-                <input 
-                    required
-                    type="radio"
-                    name="Gênero">
-                <label>Não Declarar</label>
+                    type="date">
+            <br><br>
+        <!-- ---------------------------------------- -->
+            <!-- -- Gênero -- -->
+            <div>
+                <!-- Gen-Title -->
+                    <h3>Gênero</h3>
+                    <!-- Gen-Grupo -->
+                        <div class="gen-group">
+                        <!-- - Masculino - -->
+                            <div class="gen-input">
+                                <label for="masculino">Masculino</label>
+                                    <input 
+                                        id="masculino" 
+                                        name="gen" 
+                                        type="radio" 
+                                        value="masculino"
+                                        data-gender-validate
+                                        required
+                                    >
+                            </div>
+                        <!-- - Feminino - -->
+                            <div class="gen-input">
+                                <label for="feminino">Feminino</label>
+                                    <input 
+                                        id="feminino" 
+                                        name="gen" 
+                                        type="radio" 
+                                        value="feminino"
+                                        data-gender-validate
+                                        required
+                                    >
+                            </div>
+                        <!-- Não declarar -->
+                            <div class="gen-input">
+                                <label for="não-declarado">Não Declarado</label>
+                                    <input 
+                                        id="não-declarado" 
+                                        name="gen" 
+                                        type="radio" 
+                                        value="não-declarado"
+                                        data-gender-validate
+                                        required
+                                    >
+                            </div>
+                        </div>
+                </div>
              <br><br>
-
+        <!-- ---------------------------------------- -->
             <label>CPF: </label>
-            <input 
-                required
-                type="text"
-                maxlength="11"
-                minlength="11"
-                placeholder="Digite seu CPF">
-             <br><br>
+                <input 
+                    required
+                    type="text"
+                    maxlength="11"
+                    minlength="11"
+                    placeholder="Digite seu CPF">
+            <br><br>
+        <!-- ---------------------------------------- -->
             <label>E-mail: </label>
-            <input required
-             type="email"
-             placeholder="Digite seu email">
-             <br><br>
-             <label>Telefone Fixo: </label>
-             <input required
-              type="tel"
-              maxlength="10"
-              minlength="10"
-              placeholder="(00) 0000-0000">
-              <br><br>
+                <input 
+                    required
+                    type="email"
+                    placeholder="Digite seu email">
+            <br><br>
+        <!-- ---------------------------------------- -->
+            <label>Telefone Fixo: </label>
+                <input 
+                    required
+                    type="tel"
+                    maxlength="10"
+                    minlength="10"
+                    placeholder="(00) 0000-0000">
+            <br><br>
+        <!-- ---------------------------------------- -->
             <label>Telefone Celular: </label>
-            <input required
-             type="tel"
-             maxlength="11"
-             minlength="11"
-             placeholder="(00) 0 0000-0000">
-             <br><br>
-             <p>Endereço Completo: </p>
-             <br><br>
-             <label>CEP: </label>
-            <input required
-             type="number"
-             minlength="8"
-             maxlength="8"
-             placeholder="Digite seu CEP">
-             <br><br>
-             <p>Usuário e Login</p>
-             <br><br>
+                <input 
+                    required
+                    type="tel"
+                    maxlength="11"
+                    minlength="11"
+                    placeholder="(00) 0 0000-0000">
+            <br><br>
+        <!-- ---------------------------------------- -->
+            <p>Endereço Completo: </p>
+            <hr>
+            <br>
+        <!-- ---------------------------------------- -->
+        <!-- -- CEP -- -->
+            <div class="input-box">
+                <label for="cep">CEP:</label>
+                    <input 
+                        id="cep" 
+                        name="cep" 
+                        type="text" 
+                        class="form-input"
+                        title="Digite seu CEP."
+                        placeholder="00000-000" required
+                        data-required
+                        data-cep-length="9"
+                        minlength="9"
+                        pattern="[0-9]{5}-[0-9]{3}"
+                    >
+            </div>
+        <!-- -- Endereço completo -- -->
+            <div class="input-box">
+                <label for="end">Endereço:</label>
+                    <input 
+                        id="end"
+                        name="end" 
+                        type="text" 
+                        class="form-input"
+                        title="Digite seu endereço completo."
+                        placeholder="Rua, Avenida, etc." required
+                        data-required
+                        maxlength="50"
+                    >
+            </div>
+        <!-- -- Número -- -->
+            <div class="input-box">
+                <label for="num-end">Número:</label>
+                    <input 
+                        id="num-end"
+                        name="num-end" 
+                        type="number" 
+                        class="form-input"
+                        title="Número da rua, qrd, etc..."
+                        placeholder="Número de onde mora" required
+                        data-required
+                    >
+            </div>
+        <!-- -- Estado -- -->
+            <div class="input-box select-box">
+                <label for="estados">Estado:</label>
+                    <select class="form-input-dst" id="estado" data-state-validate required>
+                        <option value="">Selecione o seu estado</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+            </div>
+        <!-- -- Cidade -- -->
+            <div class="input-box">
+                <label for="cid">Cidade:</label>
+                    <input 
+                        id="cid"
+                        name="cid" 
+                        type="text" 
+                        class="form-input"
+                        title="Digite a cidade onde mora."
+                        placeholder="Digite sua cidade" required
+                        data-required
+                    >
+            </div>
+        <!-- -- Bairro -- -->
+            <div class="input-box">
+                <label for="bairro">Bairro:</label>
+                    <input 
+                        id="bairro"
+                        name="bairro" 
+                        type="text" 
+                        class="form-input"
+                        title="Digite o bairro onde mora."
+                        placeholder="Digite seu bairro" required
+                        data-required
+                    >
+            </div>
+        <!-- -- Complemento -- -->
+            <div class="input-box box">
+                <label for="comp">Complemento:</label>
+                    <textarea required
+                        id="comp"
+                        name="comp" 
+                        class="form-input-dst"
+                        placeholder="(Opcional)"
+                        rows="1"></textarea>
+            </div>
+            <br>
+        <!-- ---------------------------------------- -->
+            <p>Usuário e Login</p>
+            <hr>
+            <br>
+        <!-- ---------------------------------------- -->
             <label>Usuário: </label>
-            <input required
-             type="text"
-             minlength="10"
-             maxlength="10"
-             placeholder="Digite seu usuário">
-             <br><br>
+                <input 
+                    required
+                    type="text"
+                    minlength="10"
+                    maxlength="10"
+                    placeholder="Digite seu usuário">
+            <br><br>
+        <!-- ---------------------------------------- -->
             <label>Senha: </label>
-            <input required
-             type="password"
-             maxlength="8"
-             minlength="8"
-             placeholder="Digite sua senha">
-             <br><br>
+                <input 
+                    required
+                    type="password"
+                    maxlength="8"
+                    minlength="8"
+                    placeholder="Digite sua senha">
+            <br><br>
+        <!-- ---------------------------------------- -->
             <label>Confirme sua senha: </label>
-            <input required
-             type="password"
-             placeholder="Digite sua senha novamente">
+                <input 
+                    required
+                    type="password"
+                    placeholder="Digite sua senha novamente">
              <br><br>
+        <!-- ---------------------------------------- -->
              <button type="submit">Cadastrar</button>
              <button type="reset">Limpar</button>
         </form>        
