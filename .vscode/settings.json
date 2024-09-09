@@ -1,4 +1,5 @@
 {
     "editor.linkedEditing": true,
-    "cSpell.language": "pt-br, en"
+    "cSpell.language": "pt-br, en",
+    "liveServer.settings.port": 5501
 }
