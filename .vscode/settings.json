@@ -1,5 +1,11 @@
 {
     "editor.linkedEditing": true,
     "cSpell.language": "pt-br, en",
-    "liveServer.settings.port": 5502
+    "liveServer.settings.port": 5502,
+    "cSpell.words": [
+        "mstaria",
+        "msthash",
+        "msttexthash",
+        "mstvisible"
+    ]
 }
