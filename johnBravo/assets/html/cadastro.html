@@ -258,8 +258,8 @@
                 <input 
                     required
                     type="text"
-                    minlength="10"
-                    maxlength="10"
+                    minlength="6"
+                    maxlength="6"
                     placeholder="Digite seu usuário">
             <br><br>
         <!-- ---------------------------------------- -->
@@ -270,12 +270,17 @@
                     maxlength="8"
                     minlength="8"
                     placeholder="Digite sua senha">
+              <div id="requisitossenha" class="form-text">
+                        Sua senha deve ter 8 caracteres, conter letras e números
+                         e não deve conter espaços, caracteres especiais ou emojis.
             <br><br>
         <!-- ---------------------------------------- -->
             <label>Confirme sua senha: </label>
                 <input 
                     required
                     type="password"
+                     maxlength="8"
+                    minlength="8"
                     placeholder="Digite sua senha novamente">
              <br><br>
         <!-- ---------------------------------------- -->
