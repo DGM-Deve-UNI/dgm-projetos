@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,50 +13,59 @@
     <!-- Js Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- CSS interno -->
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../css/style.css">
     <!-- Javascript interno -->
         <script src="" defer></script>
 <!-- ======================================== -->
     <title>Login - JohnBravo Barbearia</title>
 </head>
-<body style="background: black;">
-    <div>
+<body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <!-- style="background: black;" -->
+    <main class="w-100 n-auto form-container">
         <form action="#">
         <!-- Logo -->
-            <a href="../../index.html"><img src="../imgs/icon.png" alt="Logo JhonBravo Barbearia" width="200"></a>
+            <a href="../../index.html"><img src="../imgs/icon.png" alt="Logo JohnBravo Barbearia" width="200" class="nb-4"></a>
             <br>
-                <h1>Login</h1>
+                <h1 class="h1 nb-3 fw-normal">Login</h1>
             <br>
-            <div class="lab-input">
+            <div >
         <!-- Campo login -->
-                <label>Usuário: </label>
-            <br>
-            <input 
-                required
-                type="text"
-                maxlength="10"
-                minlength="10"
-                placeholder="Digite seu usuário">
+         <div class="form-floating">
+             <label for="floatingInput">Usuário: </label>
+         
+         <input 
+             required
+             type="text"
+             maxlength="10"
+             minlength="10"
+             placeholder="Digite seu usuário"
+             class="form-control"
+             id="floatingInput">
+         </div>
             <br><br>
         <!-- Campo senha -->
-            <label>Senha: </label>
-            <br>
-            <input 
+         <div class="form-floating">
+             <label for="floatingInput">Senha: </label>
+             
+             <input 
                 required
                 type="password"
                 maxlength="8"
                 minlength="8"
-                placeholder="Digite sua senha">
+                placeholder="Digite sua senha"
+                class="form-control"
+                id="floatingInput">
+         </div>
              <br><br>
             </div>
         <!-- Botões -->
             <div class="buttons">
                 <a href="./recovery-pw.html">Esqueceu a senha?</a>
              <br><br>
-                <button type="submit">Enviar</button>
+                <button class="btn btn-warning w-100 py-2" type="submit">Enviar</button>
                 <button type="submit">Cadastrar</button>  
             </div>             
         </form>
-    </div>
+    </main>
 </body>
 </html>

@@ -1,9 +1,9 @@
-/* Botão mob navbar */
+/* --- Botão Hambúrguer navbar --- */
 .navbar-toggler {
-    width: 20px;
-    height: 20px;
-    position: relative:
-    transform: .5s ease-in-out;
+    width: 30px; 
+    height: 24px;
+    position: relative;
+    transition: .5s ease-in-out;
 }
 
 .navbar-toggler,
@@ -18,51 +18,73 @@
 .navbar-toggler span {
     margin: 0;
     padding: 0;
-}
-
-.toggler-icon {
     display: block;
     position: absolute;
     width: 100%;
     height: 3px;
-    background-color: #ffff;
+    background-color: #fff;
     border-radius: 1px;
     opacity: 1;
     left: 0;
-    transform: rotate(0drg);
     transition: .25s ease-in-out;
 }
 
-.middle-bar {
-    margin-top: 0;
+/* Definindo as três barras do botão (top, middle, bottom) */
+.top-bar {
+    top: 0px;
+    transform: rotate(0deg);
 }
 
+.middle-bar {
+    top: 9px;
+    opacity: 1;
+}
+
+.bottom-bar {
+    top: 18px;
+    transform: rotate(0deg);
+}
+
+/* Estado padrão (menu fechado - ícone de hambúrguer) */
 .navbar-toggler .top-bar {
-    margin-top: 0;
-    transform: rotate(135deg);
+    transform: rotate(0deg);
 }
 
 .navbar-toggler .middle-bar {
-    opacity: 0;
-    filter: alpha(apacity=0);
+    opacity: 1;
 }
 
 .navbar-toggler .bottom-bar {
-    margin-top: 0;
-    transform: rotate(-135deg);
-}
-
-.navbar-toggler .collapsed .top-bar {
-    margin-top: -20px;
     transform: rotate(0deg);
 }
 
-.navbar-toggler .collapsed .middle-bar {
+/* Estado do menu aberto (X) */
+.navbar-toggler:not(.collapsed) .top-bar {
+    transform: rotate(45deg);
+    top: 9px; /* Mover para o centro */
+}
+
+.navbar-toggler:not(.collapsed) .middle-bar {
+    opacity: 0; /* Esconder o traço do meio */
+}
+
+.navbar-toggler:not(.collapsed) .bottom-bar {
+    transform: rotate(-45deg);
+    top: 9px; /* Mover para o centro */
+}
+
+/* Estado do menu fechado (voltar ao ícone de hambúrguer) */
+.navbar-toggler.collapsed .top-bar {
+    top: 0px;
+    transform: rotate(0deg);
+}
+
+.navbar-toggler.collapsed .middle-bar {
     opacity: 1;
-    filter: alpha(opacity=100);
 }
 
-.navbar-toggler .colapsed .bottom-bar {
-    margin-top: 20px;
+.navbar-toggler.collapsed .bottom-bar {
+    top: 18px;
     transform: rotate(0deg);
 }
+/* === Botão Hambúrguer navbar === */
