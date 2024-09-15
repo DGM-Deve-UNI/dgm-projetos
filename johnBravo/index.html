@@ -36,23 +36,23 @@
         const navbar = document.getElementById('navbar');
           const footer = document.getElementById('footer');
 
-            // Função para verificar a posição do footer
-              function checkFooterPosition() {
-                  const footerTop = footer.getBoundingClientRect().top;
-                      const viewportHeight = window.innerHeight;
+      // Função para verificar a posição do footer
+        function checkFooterPosition() {
+          const footerTop = footer.getBoundingClientRect().top;
+            const viewportHeight = window.innerHeight;
 
-                          // Se o footer está visível no viewport, "desfixar" a navbar
-                              if (footerTop <= viewportHeight) {
-                                    navbar.classList.remove('fixed-top');
-                                        } else {
-                                              // Caso contrário, garantir que a navbar continue fixa
-                                                    navbar.classList.add('fixed-top');
-                                                        }
-                                                          }
+      // Se o footer está visível no viewport, "desafixar" a navbar
+          if (footerTop <= viewportHeight) {
+            navbar.classList.remove('fixed-top');
+              } else {
+      // Caso contrário, garantir que a navbar continue fixa
+                navbar.classList.add('fixed-top');
+                  }
+                    }
 
-                                                            // Adicionar um ouvinte de scroll para chamar a função quando o usuário rolar a página
-                                                              window.addEventListener('scroll', checkFooterPosition);
-                                                              </script>
+      // Adicionar um ouvinte de scroll para chamar a função quando o usuário rolar a página
+        window.addEventListener('scroll', checkFooterPosition);
+  </script>
 
     <div class="container-fluid" style="padding: 0; margin: 0;">
     <!-- === NavBar === -->
