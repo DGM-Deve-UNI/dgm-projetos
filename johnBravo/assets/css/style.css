@@ -1,3 +1,10 @@
+root {
+    --bs-warning-rgb: 228, 161, 27;
+    --bs-secondary-color: rgba(79, 79, 79, 0.75);
+    --bs-warning: #e4a11b;
+    --bs-secondary-color: rgba(79, 79, 79, 0.75);
+    --mdb-bg-opacity: 1;
+}
 /* --- Botão Hambúrguer navbar --- */
 .navbar-toggler {
     width: 30px; 
@@ -88,3 +95,15 @@
     transform: rotate(0deg);
 }
 /* === Botão Hambúrguer navbar === */
+
+/* ==== Menu/Botões navbar ==== */
+.nav-link, .btn {
+    font-size: 0.9rem;
+    padding: 0.2rem;
+}
+
+.navbar {
+    border: 1px solid gray;
+    border-radius: 16px;
+    margin-right: 1tem;
+}
