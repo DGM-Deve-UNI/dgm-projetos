@@ -1,0 +1,27 @@
+:root {
+    /* --bs-warning-rgb: 228, 161, 27; */
+    /* --bs-secondary-color: rgba(79, 79, 79, 0.75); */
+    /* --bs-warning: #e4a11b; */
+    /* --bs-secondary-color: rgba(79, 79, 79, 0.75); */
+    --mdb-bg-opacity: 1;
+/* ==== Cores base ==== */
+    --preto: #000;
+    --branco: #fff;
+    --amarelo: #ffc107;
+    --dourado: #e4a11b; 
+    --dourado-escuro: #c9901f;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+.container-base{
+    padding: 0;
+    margin: 0;
+}
