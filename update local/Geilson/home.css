@@ -1,0 +1,24 @@
+* {
+    font-family: "Lalezar", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.textoAmarelo{
+    color: #FFD700;
+}
+.textDiv{
+    background-color: black;
+    font-size: 1%;
+    padding: 20px 0px 20px 20px;
+    padding-right: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    text-align: left;
+    width: 60%;
+}
+.spaceText{
+    font-size: 50px;
+}
