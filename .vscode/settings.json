@@ -7,5 +7,6 @@
         "msthash",
         "msttexthash",
         "mstvisible"
-    ]
+    ],
+    "files.autoSave": "afterDelay"
 }
