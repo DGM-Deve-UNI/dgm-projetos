@@ -1,0 +1,30 @@
+.home-container {
+    height: 1rem;
+    width: 1rem;
+    margin: 0;
+    padding: 0;
+    border: 2px solid;
+}
+
+.textoAmarelo {
+    color: var(--amarelo-font);
+}
+.textDiv {
+    padding: 20px 0px 20px 20px;
+    color: white;
+    text-align: left;
+    width: 60%;
+    /* display: inline-block; */
+
+}
+.spaceText {
+    font-size: 2rem;
+
+}
+
+.sec-page {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    border: 2px solid;
+}
