@@ -58,14 +58,14 @@
     -o-transition: 0.25s ease-in-out;
 }
 /* Transição do elemento ativo */
-.active {
+.ativo-custom {
     transition: 0.25s ease-in-out;
     -webkit-transition: 0.25s ease-in-out;
     -moz-transition: 0.25s ease-in-out;
     -ms-transition: 0.25s ease-in-out;
     -o-transition: 0.25s ease-in-out;
 }
-.active:hover {
+.ativo-custom:hover {
     background: var(--dourado);
     border-radius: 0.5rem;
     -webkit-border-radius: 0.5rem;
