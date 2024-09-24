@@ -1,6 +1,5 @@
-@import url(./style.css);
-
-/* ==== Menu/Botões navbar ==== */
+/* -====- CSS navbar e footer -====- */
+/* -- Menu/Botões navbar -- */
 .nav-link, .btn {
     font-size: 0.9rem;
     padding: 0.2rem;
@@ -41,6 +40,7 @@
     -ms-transition: 0.25s ease-in-out;
     -o-transition: 0.25s ease-in-out;
 }
+/* transição cores do texto */
 .text-white {
     transition: 0.25s ease-in-out;
     -webkit-transition: 0.25s ease-in-out;
@@ -57,6 +57,7 @@
     -ms-transition: 0.25s ease-in-out;
     -o-transition: 0.25s ease-in-out;
 }
+/* Transição do elemento ativo */
 .active {
     transition: 0.25s ease-in-out;
     -webkit-transition: 0.25s ease-in-out;
@@ -105,7 +106,7 @@
     left: 0;
     transition: .25s ease-in-out;
 }
-/* Definindo as três barras do botão (top, middle, bottom) */
+/* Barras do botão hambúrguer (top, middle, bottom) */
 .top-bar {
     top: 0px;
     transform: rotate(0deg);
@@ -131,14 +132,14 @@
 /* Estado do menu aberto (X) */
 .navbar-toggler:not(.collapsed) .top-bar {
     transform: rotate(45deg);
-    top: 9px; /* Mover para o centro */
+    top: 9px;
 }
 .navbar-toggler:not(.collapsed) .middle-bar {
-    opacity: 0; /* Esconder o traço do meio */
+    opacity: 0;
 }
 .navbar-toggler:not(.collapsed) .bottom-bar {
     transform: rotate(-45deg);
-    top: 9px; /* Mover para o centro */
+    top: 9px;
 }
 /* Estado do menu fechado (voltar ao ícone de hambúrguer) */
 .navbar-toggler.collapsed .top-bar {
@@ -152,9 +153,7 @@
     top: 18px;
     transform: rotate(0deg);
 }
-/* === Botão Hambúrguer navbar === */
-
-/* Copyright - Footer */
+/* ---- Copyright - Footer ---- */
 .card-footer {
     background: var(--dourado-escuro) !important;
     color: var(--branco) !important;
