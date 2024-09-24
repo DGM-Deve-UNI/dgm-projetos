@@ -1,40 +1,51 @@
-.home-container {
-    height: 1rem;
-    width: auto;
-    margin: 0;
-    padding: 3.3rem 0 0 0;
-    margin: 50px 0 0;
-}
-
+/* === Imagem de fundo === */
 .background-image {
     content: "";
     position: absolute;
-    background-image: url(../imgs/banner-1.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     top: 50px;
     width: 100%;
     height: 100%;
-    opacity: 0.5;
-    z-index: -1;
+    z-index: 1;
+}
+#section1 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(../imgs/banner-1.png)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
 }
 
+#section2 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(../imgs/banner-2.png)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+/* === "div" global de texto === */
 .text-box {
-    padding: 20px 0px 20px 20px;
-    color: white;
-    text-align: left;
-    width: 60%;
     display: inline-block;
-    
+    z-index: 2;
+    padding: 5rem;
+    height: 100%;
+    width: 100%;
+    color: var(--branco);
 }
-
+/* === "p" Texto da página === */
 .text-home {
-    font-size: 2rem;
+    width: 100%;
+    font-size: 3.5rem;
 }
-
-.textoAmarelo {
-    color: var(--amarelo-font);
+/* === Responsividade da "div" e texto da página === */
+@media (max-width: 768px) {
+    /* class font-size BS personalizada */
+    .fs-md-5 {
+        font-size: 2.5rem;
+    }
+    /* "div" texto global */
+    .text-box {
+        padding: 1.5rem;
+    }
 }
-
-

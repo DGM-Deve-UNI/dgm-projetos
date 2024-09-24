@@ -1,6 +1,6 @@
 /* -====- CSS navbar e footer -====- */
 /* -- Menu/Botões navbar -- */
-.nav-link, .btn {
+.nav-link, .btn-custom {
     font-size: 0.9rem;
     padding: 0.2rem;
 }

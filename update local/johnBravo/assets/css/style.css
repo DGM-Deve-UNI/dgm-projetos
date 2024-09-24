@@ -16,6 +16,9 @@
     --amarelo-font: #FFD700;
     --dourado: #e4a11b; 
     --dourado-escuro: #c9901f;
+    /* ==== Fontes base ==== */
+    --font-Montserrat: "Montserrat", sans-serif; /* Fonte Padrão */
+    --font-Lalezar: "Lalezar", system-ui; /* Fonte adicional */
 }
 /* -=- Config global -=- */
 * {
@@ -23,7 +26,7 @@
     margin: 0;
     box-sizing: border-box;
     /* font-family: 'Quicksand', sans-serif; */
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--font-Montserrat);
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
@@ -36,12 +39,20 @@
 /* ---- Config "section" (Conteúdos das páginas) ---- */
 .section-page {
     display: inline-block;
-    width: auto;
-    height: auto;
+    min-height: 100vh;
+    position: relative;
+    /* width: auto; */
+    /* height: auto; */
 }
 /* ============================================== */
 /* --= "div" Página principal - 'index' (nav, main, footer) =-- */
 .container-base{
     padding: 0;
     margin: 0;
+}
+/* ++ Classe personalizada para fonte Lalezar ++ */
+.jb-font-Lalezar {
+    font-family: var(--font-Lalezar);
+    font-weight: 400;
+    font-style: normal;
 }
