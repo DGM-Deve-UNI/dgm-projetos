@@ -31,5 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Carrega a página inicial ou o conteúdo padrão
-    loadPage('assets/html/home.html');
+    loadPage('assets/html/pages/home.html');
 });
