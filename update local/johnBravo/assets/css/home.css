@@ -38,6 +38,11 @@
     width: 100%;
     font-size: 3.5rem;
 }
+.texto-descricao {
+    font-weight: 300;
+    max-width: 540px;
+    margin: 2rem 0 3rem 0;
+}
 /* === Responsividade da "div" e texto da página === */
 @media (max-width: 768px) {
     /* class font-size BS personalizada */
