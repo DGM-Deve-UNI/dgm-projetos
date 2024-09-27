@@ -34,6 +34,12 @@
   <!-- ==== CDN MDB ==== -->
       <!-- MDB - css -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet">
+  <!-- Flatpickr CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+        
+  <!-- Flatpickr para português -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
 
   <!-- === CSS interno === -->
         <link rel="stylesheet" href="../../css/login.css">
@@ -43,92 +49,155 @@
     <title>Cadastro</title>
 </head>
 <body>
+  <style>
+    /* Estilizando o input[type="date"] */
+    input[type="date"] {
+      position: relative;
+    }
+    /* Adicionando um padding extra para o ícone */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      right: 10px;
+      color: #333;
+      cursor: pointer;
+    }
+  </style>
+  
   <!-- Botão voltar (mini navbar) -->
-    <div class="button-back navbar navbar-expand-lg p-2 ">
+    <div class="button-back navbar navbar-expand-lg p-2">
       <a href="../../../index.html" class="voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
     </div>
   <!-- Formulário -->
     <div id="docsTabsOverview" role="tabpanel" aria-labelledby="docs-tab-overview" 
         class="d-flex row m-3 justify-content-center align-items-center tab-pane fade in show active" >
-
-      <div class="card p-4 p-lg-5 shadow-lg col-md-6 col-lg-7 d-flex">
-
-        <form>
+      <!-- "div" Form -->
+        <div class="card p-4 mb-5 p-lg-5 shadow-lg col-md-6 col-lg-7 d-flex">
+          <form>
             <!-- Logo -->
-            <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
-                <img class="mb-0" src="../../imgs/icons/dark/icon-txt.png" alt="JohnBravo Barbearia" width="200">
-            </div>
+              <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
+                  <img class="mb-0" src="../../imgs/icons/dark/icon-txt.png" alt="JohnBravo Barbearia" width="200">
+              </div>
             <!-- Título -->
-                <h5 class="fw-normal text-center mb-3 pb-3" style="letter-spacing: 1px;">Crie seu cadastro</h5>
+              <h5 class="fw-normal text-center mb-3 pb-3" style="letter-spacing: 1px;">Crie seu cadastro</h5>
 
-            <!-- 2 column grid layout with text inputs for the first and last names -->
-            <div class="row mb-4">
-            <!-- Sub título -->
+            <!-- "div" coluna Nome e Sobrenome -->
+              <div class="row mb-4">
+              <!-- Sub título -->
                 <p class="fw-normal text-center mb-0 pb-0" style="letter-spacing: 1px;">Dados Pessoais</p>
-                <hr>
-            <!-- Nome -->
-              <div class="col">
-                <div data-mdb-input-init class="form-outline">
-                  <input 
-                        class="form-control"
-                        id="form6Example1" 
-                        type="text"
+                  <hr>
+              <!-- Nome -->
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <input class="form-control"
+                          required
+                          id="form6Example1" 
+                          type="text"
+                          maxlength="15"
+                          minlength="15">
+
+                      <label class="form-label" for="form6Example1">Digite seu nome</label>
+                  </div>
+                </div>
+              <!-- Sobrenome -->
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <input class="form-control"
+                          required
+                          id="form6Example2" 
+                          type="text"
+                          maxlength="15"
+                          minlength="15">
+
+                      <label class="form-label" for="form6Example2">Digite seu sobrenome</label>
+                  </div>
+                </div>
+              </div>
+        <!-- ---------------------------------------- -->
+          <!-- Data de nascimento -->
+            <div class="d-flex flex-row align-items-center mb-4">
+                <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                  <input class="form-control"
                         required
-                        maxlength="15"
-                        minlength="15"
-                        >
-                    <label class="form-label" for="form6Example1">Digite seu nome</label>
+                        id="date" 
+                        type="date" 
+                        placeholder="dd/mm/aaaa">
+
+                    <label class="form-label" for="date">Data de Nascimento</label>
+
+                  <!-- <span class="input-group-text">
+                    <i class="fa-regular fa-calendar"></i>
+                  </span> -->
                 </div>
-              </div>
-            <!-- Sobrenome -->
-              <div class="col">
-                <div data-mdb-input-init class="form-outline">
-                  <input 
-                        class="form-control"
-                        id="form6Example2" 
-                        type="text"
-                        maxlength="15"
-                        minlength="15"
-                        >
-                    <label class="form-label" for="form6Example2">Digite seu sobrenome</label>
+            </div>
+        <!-- ---------------------------------------- -->
+          <!-- Gênero -->
+            <div class="col-md-6 mb-4">
+              <!-- Label -->
+              <h6 class="mb-2 pb-1">Gênero: </h6>              
+              <!-- Masculino -->
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                    value="option1">
+                  <label class="form-check-label" for="maleGender">Masculino</label>
                 </div>
-              </div>
+              <!-- Feminino -->
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                    value="option2">
+                  <label class="form-check-label" for="femaleGender">Feminino</label>
+                </div>
+              <!-- Não declarado -->
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                    value="option3">
+                  <label class="form-check-label" for="otherGender">Não declarar</label>
+                </div>
             </div>
         <!-- ---------------------------------------- -->
-            <!-- Text input -->
-             
+          <!-- CPF -->
             <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="form6Example3" class="form-control" />
-              <label class="form-label" for="form6Example3">Company name</label>
-              <input type="text" class="form-control form-icon-trailing" id="exampleDatepicker1">
+              <input type="number" id="form6Example4" class="form-control" />
+              <label class="form-label" for="form6Example4">CPF</label>
             </div>
         <!-- ---------------------------------------- -->
-            <!-- Text input -->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="form6Example4" class="form-control" />
-              <label class="form-label" for="form6Example4">Address</label>
-            </div>
-        <!-- ---------------------------------------- -->
-            <!-- Email input -->
+          <!-- Email input -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input type="email" id="form6Example5" class="form-control" />
-              <label class="form-label" for="form6Example5">Email</label>
+              <label class="form-label" for="form6Example5">E-mail</label>
             </div>
         <!-- ---------------------------------------- -->
-            <!-- Number input -->
+          <!-- Celular -->
             <div data-mdb-input-init class="form-outline mb-4">
-              <input type="number" id="form6Example6" class="form-control" />
-              <label class="form-label" for="form6Example6">Phone</label>
+              <input type="tel" id="form6Example6" class="form-control" />
+              <label class="form-label" for="form6Example6">Telefone Celular</label>
+            </div>
+          <!-- Fixo -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="tel" id="form6Example6" class="form-control" >
+              <label class="form-label" for="form6Example6">Telefone Fixo</label>
             </div>
         <!-- ---------------------------------------- -->
-            <!-- Message input -->
-            <div data-mdb-input-init class="form-outline mb-4">
+          <!-- Sub título -->
+            <p class="fw-normal text-center mb-0 pb-0" style="letter-spacing: 1px;">Endereço</p>
+              <hr style="margin: 0px 0px 16px; padding: 0px 12px;">
+        <!-- ---------------------------------------- -->
+          <!-- CEP -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="form3Example3" class="form-control form-control-lg" />
+            <label class="form-label" for="form3Example3">Zip</label>
+          </div>
+        <!-- ---------------------------------------- -->
+
+
+        <!-- ---------------------------------------- -->
+          <!-- Message input -->
+            <!-- <div data-mdb-input-init class="form-outline mb-4">
               <textarea class="form-control" id="form6Example7" rows="4"></textarea>
               <label class="form-label" for="form6Example7">Additional information</label>
-            </div>
+            </div> -->
         <!-- ---------------------------------------- -->
-            <!-- Checkbox -->
-            <div class="form-check d-flex justify-content-center mb-4">
+          <!-- Checkbox -->
+            <!-- <div class="form-check d-flex justify-content-center mb-4">
               <input
                 class="form-check-input me-2"
                 type="checkbox"
@@ -137,16 +206,16 @@
                 checked
               />
               <label class="form-check-label" for="form6Example8"> Create an account? </label>
-            </div>
+            </div> -->
         <!-- ---------------------------------------- -->
-            <!-- Submit button -->
-            <button data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4">Place order</button>
-        </form>
-      </div>
+          <!-- Submit button -->
+            <button data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4 bg-warning text-black">Cadastrar</button>
+          </form>
+        </div>
     </div>
 
   <!-- === Footer === -->
-    <footer id="footer" class="footer fixed-bottom text-center text-lg-start">    
+    <footer id="footer" class="footer text-center text-lg-start">    
       <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-dark text-bg-warning">
       <!--/ Left -->
         <div class="me-5 ms-5 d-none d-lg-block">
@@ -167,6 +236,29 @@
     </footer>
   
   <!-- ==== JavaScript MDB ==== -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
+  
+  <!-- Flatpickr JS para inicializar o calendário -->
+  <!-- <script>
+    // Inicializa o Flatpickr com o idioma português
+    flatpickr("#birthdate", {
+      dateFormat: "d/m/Y",  // Formato da data (dd/mm/yyyy)
+      locale: "pt",         // Idioma do calendário
+      allowInput: true      // Permite digitação manual
+    });
+
+    // Função para adicionar as barras automaticamente
+    const input = document.getElementById('birthdate');
+    input.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não for número
+      if (value.length >= 2) {
+        value = value.slice(0, 2) + '/' + value.slice(2);
+      }
+      if (value.length >= 5) {
+        value = value.slice(0, 5) + '/' + value.slice(5, 9);
+      }
+      e.target.value = value;
+    });
+  </script> -->
 </body>
 </html>
