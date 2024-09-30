@@ -9,6 +9,7 @@
     <meta name="description" content="Página Home - JohnBravo Barbearia">
     <!-- === Autor do site === -->
     <meta name="author" content="DGM Web Developer®">
+
   <!-- === CDN fonts icons Awesome === -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
@@ -45,14 +46,19 @@
                       p-0
                       m-0
                       bg-black
-                      shadow-lg">
+                      shadow-sm">
               <div class="container-fluid">
               <!-- Logo -->
                   <a class="navbar-brand p-0 m-0" 
                       href="./assets/html/pages/home.html" 
                       _msttexthash="378430" 
                       _msthash="256">
-                      <img class="p-2" src="./assets/imgs/logos/white/logo-white.png" alt="JohnBravo" title="JohnBravo Barbearia" width="160">
+
+                    <img class="p-2" 
+                          src="./assets/imgs/logos/white/logo-white.png" 
+                          alt="JohnBravo" 
+                          title="JohnBravo Barbearia" 
+                          width="160">
                   </a>
               <!-- Menu Hambúrguer -->
                   <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around mx-2" 
@@ -62,6 +68,7 @@
                           aria-controls="navbarNav" 
                           aria-expanded="false" 
                           aria-label="Toggle navigation">
+
                       <span class="toggler-icon top-bar"></span>
                       <span class="toggler-icon middle-bar"></span>
                       <span class="toggler-icon bottom-bar"></span>
@@ -69,83 +76,86 @@
               <!-- Menus -->
                   <div class="collapse navbar-collapse" id="navbarNav">
                       <ul class="navbar-nav
-                              justify-content-center 
-                              flex-grow-1">
+                                  justify-content-center 
+                                  flex-grow-1">
                       <!-- L1 - Home -->
                           <li class="nav-item
                                       bg-warning 
                                       rounded-2
                                       mx-1">
                               <a class="nav-link 
-                                      text-black  
-                                      fw-bold 
-                                      
-                                      ativo-custom" 
+                                        text-black
+                                        fw-bold                                      
+                                        ativo-custom" 
                                   href="./assets/html/pages/home.html" aria-current="page" _msttexthash="42250" _msthash="258">Home</a>
                           </li>
                       <!-- L2 -Sobre -->
                           <li class="nav-item mx-1">
                               <a class="nav-link 
-                                      text-white active" 
+                                        text-white
+                                        jb-text-white-hover" 
                                   href="./assets/html/pages/sobre.html" _msttexthash="313612" _msthash="259">Sobre</a>
                           </li>
                       <!-- L3 - Serviços -->
                           <li class="nav-item mx-1">
                               <a class="nav-link 
-                                      text-white" 
+                                        text-white
+                                        jb-text-white-hover"
                                   href="./assets/html/pages/services.html" _msttexthash="253617" _msthash="260">Serviços</a>
                           </li>
                       <!-- L4 - Agendar -->
                           <li class="nav-item mx-1">
                               <a class="nav-link 
-                                      text-white" 
+                                        text-white
+                                        jb-text-white-hover"
                                   href="./assets/html/pages/agendar.html" _msttexthash="253617" _msthash="260">Agendar</a>
                           </li>
                       <!-- L5 - Contatos -->
                           <li class="nav-item mx-1">
                               <a class="nav-link 
-                                      text-white" 
+                                        text-white
+                                        jb-text-white-hover"
                                   href="./assets/html/pages/contatos.html" _msttexthash="253617" _msthash="260">Contatos</a>
                           </li>
                       </ul>
-                  <!-- === Botoes === -->
+                  <!-- === Botões === -->
                       <div class="p-3 ps-0">
                           <!-- Botão "Entrar" -->
                           <a id="login-btn" href="./assets/html/auth/login.html" 
-                                  class="login-button 
-                                          btn 
-                                          btn-warning
-                                          btn-sm 
-                                          fw-bold
-                                          rounded-2" 
-                                  type="button"
-                                  role="button">Entrar</a>
+                              class="login-button 
+                                      btn 
+                                      btn-warning
+                                      btn-sm 
+                                      fw-bold
+                                      rounded-2"
+                              type="button"
+                              role="button">Entrar</a>
                           <!-- Botão "Registre-se" -->
                           <a id="registro-btn" href="./assets/html/auth/cadastro.html" 
-                                  class="login-button 
-                                          btn 
-                                          btn-secondary
-                                          btn-sm 
-                                          ms-2 
-                                          fw-bold
-                                          rounded-2" 
-                                  type="button"
-                                  role="button">Registre-se</a>
+                              class="login-button 
+                                      btn 
+                                      btn-secondary
+                                      btn-sm 
+                                      ms-2 
+                                      fw-bold
+                                      rounded-2"
+                              type="button"
+                              role="button">Registre-se</a>
                       </div>
                   </div>
               </div>
           </nav>
       </header>
+      
     <!-- === Main === -->
       <main id="content" class=""></main>
+
     <!-- === Footer === -->
       <footer id="footer" class="footer bg-black rounded-4 text-center text-lg-start text-muted">
         <!--/ Section: Social media -->
-          <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-dark text-bg-warning rounded-bottom-4">
+          <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-dark text-bg-warning">
             <!--/ Left -->
-            <div class="me-5 d-none d-lg-block">
-              <span>Conecte-se conosco nas redes sociais:</span>
-            </div>
+            <div class="me-5 d-none d-lg-block"><span>Conecte-se conosco nas redes sociais:</span></div>
             <!-- Left \-->
         
             <!--/ Right -->
@@ -162,8 +172,7 @@
                   <i class="fa-brands fa-x-twitter"></i>
               </a>                
             </div>
-            <!-- Right \-->
-             
+            <!-- Right \-->             
           </section>
         <!-- Section: Social media \-->
         
@@ -175,54 +184,32 @@
                 <!--/ Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                   <!-- Content -->
-                  <h6 class="text-uppercase fw-bold mb-4">
-                    <img src="./assets/imgs/logos/white/logo-white.png" width="200" alt="">
-                  </h6>
-                      <p class="fs-6">
-                          Na johnBravo Barbearia, tradição e estilo se encontram para oferecer a melhor experiência de cuidado masculino. Com uma equipe dedicada e especializada, garantimos serviços de alta qualidade para que você se sinta sempre no seu melhor.
-                      </p>
+                  <div class=" fw-bold mb-4"><img src="./assets/imgs/logos/white/logo-white.png" width="200" alt=""></div>
+                      <p class="fs-6">Na johnBravo Barbearia, tradição e estilo se encontram para oferecer a melhor experiência de cuidado masculino. Com uma equipe dedicada e especializada, garantimos serviços de alta qualidade para que você se sinta sempre no seu melhor.</p>
                 </div>
                 <!-- Grid column \-->
         
                 <!-- Grid column -->
                 <div class="col-md-2 col-lg-2 col-xl-2  mx-auto mb-4">
                   <!-- Links -->
-                  <h6 class="text-uppercase fw-bold mb-4">
-                    Produtos
-                  </h6>
-                  <p>
-                    <a href="#!" class="text-reset">Corte de Cabelo</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-reset">Barba</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-reset">Bigode</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-reset">Limpeza</a>
-                  </p>
+                  <h6 class="text-uppercase fw-bold mb-4">Produtos</h6>
+                  
+                    <p><a href="#!" class="text-reset">Corte de Cabelo</a></p>
+                    <p><a href="#!" class="text-reset">Barba</a></p>
+                    <p><a href="#!" class="text-reset">Bigode</a></p>
+                    <p><a href="#!" class="text-reset">Limpeza</a></p>
                 </div>
                 <!-- Grid column -->
         
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                   <!-- Links -->
-                  <h6 class="text-uppercase fw-bold mb-4">
-                    Links
-                  </h6>
-                  <p>
-                    <a href="#!" class="text-reset">Sobre</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-reset">Serviços</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-reset">Agendar</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-reset">Contatos</a>
-                  </p>
+                  <h6 class="text-uppercase fw-bold mb-4">Links</h6>
+
+                    <p><a href="./assets/html/pages/sobre.html" class="text-reset">Sobre</a></p>
+                    <p><a href="./assets/html/pages/agendar.html" class="text-reset">Agendar</a></p>
+                    <p><a href="./assets/html/pages/services.html" class="text-reset">Serviços</a></p>
+                    <p><a href="./assets/html/pages/contatos.html" class="text-reset">Contatos</a></p>
                 </div>
                 <!-- Grid column -->
         
@@ -230,15 +217,10 @@
                 <div class="col-md-4 col-lg-3 col-xl-4 mx-auto mb-md-0 mb-4 py-5">
                   <!-- Links -->
                   <h6 class="text-uppercase fw-bold mb-4">Contatos</h6>
-                  <p>
-                      <i class="fas fa-home me-3"></i> Rua São João, 456 - Rio de Janeiro - RJ
-                  </p>                    
-                  <p>
-                      <i class="fas fa-envelope me-3"></i> johnbravo@email.com.br
-                  </p>
-                  <p>
-                      <i class="fas fa-phone me-3"></i> (21) 98765-4321
-                  </p>
+
+                    <p><i class="fas fa-home me-3"></i>Rua São João, 456 - Rio de Janeiro - RJ</p>                    
+                    <p><i class="fas fa-envelope me-3"></i> johnbravo@email.com.br</p>
+                    <p><i class="fas fa-phone me-3"></i> (21) 98765-4321</p>
                 </div>
                 <!-- Grid column -->
               </div>
@@ -248,9 +230,7 @@
         <!-- Section: Links \-->
         
         <!--/ Copyright -->
-          <div class="card-footer text-center p-2  text-bg-light rounded-top-4">
-              Copyright &copy; 2024 | DGM Web developer&reg;
-          </div>
+          <div class="card-footer text-center p-2 text-bg-light">Copyright &copy; 2024 | DGM Web developer&reg;</div>
         <!-- Copyright \-->
       </footer>
     </div>

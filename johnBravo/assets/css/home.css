@@ -1,4 +1,4 @@
-/* === Imagem de fundo === */
+/* === Config padrão Imagem de fundo === */
 .background-image {
     content: "";
     position: absolute;
@@ -7,6 +7,7 @@
     height: 100%;
     z-index: 1;
 }
+/* -- Imagem de fundo "section 1" -- */
 #section1 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
@@ -15,7 +16,7 @@
         top /* position */
         center/cover /* size */;
 }
-
+/* -- Imagem de fundo "section 2" -- */
 #section2 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
@@ -33,7 +34,7 @@
     width: 100%;
     color: var(--branco);
 }
-/* === "p" Texto da página === */
+/* === Texto da página === */
 .text-home {
     width: 100%;
     font-size: 3.5rem;

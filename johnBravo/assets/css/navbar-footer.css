@@ -5,7 +5,7 @@
     padding: 0.2rem;
 }
 /* Bordas navbar */
-.navbar {
+/* .navbar {
     border: 1px solid var(--dourado);
     border-top: none;
     border-radius: 0 0 16px 16px;
@@ -13,7 +13,7 @@
     -moz-border-radius: 0 0 16px 16px;
     -ms-border-radius: 0 0 16px 16px;
     -o-border-radius: 0 0 16px 16px;
-}
+} */
 /* Hover(Efeito ao passar o mouse) Navbar */
 .nav-item {
     border-radius: 0.5rem;
@@ -41,14 +41,14 @@
     -o-transition: 0.25s ease-in-out;
 }
 /* transição cores do texto */
-.text-white {
+.jb-text-white-hover {
     transition: 0.25s ease-in-out;
     -webkit-transition: 0.25s ease-in-out;
     -moz-transition: 0.25s ease-in-out;
     -ms-transition: 0.25s ease-in-out;
     -o-transition: 0.25s ease-in-out;
 }
-.text-white:hover {
+.jb-text-white-hover:hover {
     color: var(--preto) !important;
     font-weight: bold;
     transition: 0.25s ease-in-out;

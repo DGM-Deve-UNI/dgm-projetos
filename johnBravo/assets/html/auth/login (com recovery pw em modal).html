@@ -36,7 +36,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet">
 
   <!-- === CSS interno === -->
-        <link rel="stylesheet" href="../../css/login.css">
+        <link rel="stylesheet" href="../../css/style.css">
   <!-- === Javascript interno === -->
         <script src="" defer></script>
 <!-- ======================================== -->
@@ -45,13 +45,13 @@
 <body>
   <!-- Botão voltar (mini navbar) -->
     <div class="button-back navbar navbar-expand-lg p-2 ">
-      <a href="../../../index.html" class="voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
+      <a href="javascript:history.back()" class="voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
     </div>
   <!-- Formulário -->
     <div id="docsTabsOverview" role="tabpanel" aria-labelledby="docs-tab-overview" 
         class="d-flex row m-3 justify-content-center align-items-center tab-pane fade in show active" >
 
-      <div class="card p-4 p-lg-5 shadow-lg col-md-6 col-lg-7 d-flex">
+      <div class="card p-4 p-lg-5 shadow-lg col-md-6 col-lg-7 d-flex mt-lg-5 mb-10">
 
           <form data-bitwarden-watching="1">
           <!-- Logo -->
@@ -82,12 +82,67 @@
             </div>
 
             <div class="pt-1 mb-4">
-              <button data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-dark btn-lg btn-block" type="button" data-mdb-button-initialized="true">Entrar</button>
-            </div>
+              <button data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-dark btn-lg btn-block rounded-pill" type="button" data-mdb-button-initialized="true">Entrar</button>
+            </div>              
+            <!-- Button trigger modal -->
+              <a
+                data-mdb-button-init 
+                data-mdb-ripple-init 
+                class="small text-muted" 
+                data-mdb-modal-init 
+                data-mdb-target="#exampleModal">
+                  Esqueceu a senha?
+              </a>
+              <!-- Modal -->
+                <div class="modal top fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+                    <div class="modal-dialog" style="width: 300px;">
+                        <div class="modal-content text-center rounded-top-5 rounded-bottom-5">
+                            <div class="modal-header h5 text-white bg-black justify-content-center rounded-top-5">Redefinição de senha</div>
 
-              <a class="small text-muted" href="./recovery-pw.html">Esqueceu a senha?</a>
-                <p class="mb-3 pb-lg-2">Não tem conta? <a href="./cadastro.html">Registre-se</a></p>
-              </form>
+                            <div class="modal-body px-5">
+                                <p class="py-2">Insira seu e-mail cadastrado e lhe enviaremos instruções para redefinir sua senha.</p>
+                                
+                                <div data-mdb-input-init class="form-outline">
+                                    <input type="email" id="typeEmail" class="form-control my-3" />
+                                      <label class="form-label" for="typeEmail">Informe o seu email</label>
+                                </div>
+                                
+                                <a href="#" data-mdb-ripple-init class="btn btn-warning w-100 mb-2 rounded-pill">Recuperar senha</a>
+                                
+                                <div class="d-flex justify-content-between mt-3 mb-3">
+                                    <!-- Link para voltar à página anterior -->
+                                    <a href="javascript:void(0)" class="" data-mdb-dismiss="modal">Voltar</a>
+                                    <!-- Link para cancelar, fechar o modal e limpar o campo -->
+                                    <a href="javascript:void(0)" class="" data-mdb-dismiss="modal" onclick="limparCampos()">Cancelar</a>
+                                    
+                                    <script>
+                                        // Função para fechar o modal e depois voltar para a página anterior
+                                        function fecharEVoltar() {
+                                            var modalElement = document.querySelector('.modal.show');
+                                            if (modalElement) {
+                                                var modalInstance = bootstrap.Modal.getInstance(modalElement);
+                                                modalInstance.hide();
+                                            }
+                                            
+                                            // Usar um pequeno atraso para garantir que o modal feche primeiro
+                                            setTimeout(function() {
+                                                history.back();
+                                            }, 300);
+                                        }
+
+                                        // Função para limpar os campos do modal
+                                        function limparCampos() {
+                                            document.getElementById("typeEmail").value = "";
+                                        }
+                                    </script>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mb-3 my-2 pb-lg-2">Não tem conta? <a href="./cadastro.html">Registre-se</a></p>
+          </form>
       </div>
     </div>
   <!-- === Footer === -->
@@ -103,15 +158,13 @@
     
       <!--/ Right -->
         <!--/ Copyright -->
-        <div class="small mx-5 text-center text-bg-light bg-warning">
-            Copyright &copy; 2024 | DGM Web developer&reg;
-        </div>
+        <div class="small mx-5 text-center text-bg-light bg-warning">Copyright &copy; 2024 | DGM Web developer&reg;</div>
         <!-- Copyright \-->
       <!-- Right \-->         
       </section>
     </footer>
   
   <!-- ==== JavaScript MDB ==== -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
 </body>
 </html>
