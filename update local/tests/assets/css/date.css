@@ -1,0 +1,30 @@
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.datepicker-modal-container {
+    border-radius: 1.8rem !important;
+    border: 1px solid #e4a11b !important;
+}
+
+.datepicker-header, .datepicker-title {
+    border-radius: 1.8rem 1.8rem 0 0 !important;
+}
+
+.datepicker-header {
+    display: flex;
+    align-items: center !important;
+    background-color: #e4a11b !important;
+}
+
+.datepicker-footer-btn {
+    color: #e4a11b !important;
+}
+
+.datepicker-cell.selected .datepicker-cell-content {
+    background-color: #e4a11b !important;
+}
+
+body {
+    color: #e4a11b !important;
+}

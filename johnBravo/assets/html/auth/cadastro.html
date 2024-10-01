@@ -44,7 +44,7 @@
   <!-- === CSS interno === -->
         <link rel="stylesheet" href="../../css/style.css">
   <!-- === Javascript interno === -->
-        <script src="" defer></script>
+        <script src="../../js/api-cep.js" defer></script>
 <!-- ======================================== -->
     <title>Cadastro</title>
 </head>
@@ -224,7 +224,7 @@
           <div data-mdb-input-init class="form-outline mb-4">
             <input 
                 type="text" 
-                id="form3Example3" 
+                id="cep" 
                 class="form-control form-control"
                 title="Digite seu CEP."
                 placeholder="00000-000" required
@@ -233,40 +233,40 @@
                 minlength="9"
                 maxlength="9"
                 pattern="[0-9]{5}-[0-9]{3}">
-            <label class="form-label" for="form3Example3">CEP</label>
+            <label class="form-label" for="cep">CEP</label>
           </div>
         <!-- ---------------------------------------- -->
           <!-- Endereço -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input 
                 type="text" 
-                id="form3Example8" 
+                id="endereco" 
                 class="form-control"
                 placeholder="Rua, Avenida, etc." 
                 required
                 data-required
                 maxlength="50">
                 
-              <label class="form-label" for="form3Example8">Endereço</label>
+              <label class="form-label" for="endereco">Endereço</label>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Número -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input 
                   type="number" 
-                  id="form6Example5" 
+                  id="numero" 
                   class="form-control"
                   placeholder="Número da rua, qrd, etc..." 
                   required
                   data-required>
                   
-              <label class="form-label" for="form6Example5">Número</label>
+              <label class="form-label" for="numero">Número</label>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Estado -->
               <div class="row">
                 <div class="col-md-6 mb-4">
-                  <select data-mdb-select-init class="form-control rounded" data-state-validate required>
+                  <select id="estado" data-mdb-select-init class="form-control rounded" data-state-validate required>
                     <option value="">Selecione o seu estado</option>
                     <option value="AC">Acre</option>
                     <option value="AL">Alagoas</option>
@@ -303,24 +303,24 @@
             <div data-mdb-input-init class="form-outline mb-4">
               <input 
                 type="text" 
-                id="form3Example8" 
+                id="cidade" 
                 class="form-control"
                 required
                 data-required>
                 
-              <label class="form-label" for="form3Example8">Cidade</label>
+              <label class="form-label" for="cidade">Cidade</label>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Bairro -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input 
                 type="text" 
-                id="form3Example8" 
+                id="bairro" 
                 class="form-control"
                 required
                 data-required>
                 
-              <label class="form-label" for="form3Example8">Bairro</label>
+              <label class="form-label" for="bairro">Bairro</label>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Complemento -->
