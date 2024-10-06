@@ -45,12 +45,14 @@
         <link rel="stylesheet" href="../../css/style.css">
   <!-- === Javascript interno === -->
         <script src="../../js/api-cep.js" defer></script>
+        <script src="../../js/valid-cpf.js" defer></script>
 <!-- ======================================== -->
     <title>Cadastro</title>
 </head>
 <body>
   <!-- Botão voltar (mini navbar) -->
     <div class="button-back navbar navbar-expand-lg p-2"><a href="javascript:history.back()" class="voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a></div>
+  
   <!-- Formulário -->
     <div id="docsTabsOverview" role="tabpanel" aria-labelledby="docs-tab-overview" 
         class="d-flex row m-3 justify-content-center align-items-center tab-pane fade in show active" >
@@ -63,7 +65,7 @@
               </div>
             <!-- Título -->
               <h5 class="fw-normal text-center mb-3 pb-3" style="letter-spacing: 1px;">Crie seu cadastro</h5>
-
+        <!-- ---------------------------------------- -->
             <!-- "div" coluna Nome e Sobrenome -->
               <div class="row mb-4">
               <!-- Sub título -->
@@ -74,12 +76,12 @@
                   <div data-mdb-input-init class="form-outline">
                     <input class="form-control"
                           required
-                          id="form6Example1" 
+                          id="nome" 
                           type="text"
                           maxlength="15"
                           minlength="15">
 
-                      <label class="form-label" for="form6Example1">Digite seu nome</label>
+                      <label class="form-label" for="nome">Digite seu nome</label>
                   </div>
                 </div>
               <!-- Sobrenome -->
@@ -87,12 +89,12 @@
                   <div data-mdb-input-init class="form-outline">
                     <input class="form-control"
                           required
-                          id="form6Example2" 
+                          id="sobrenome" 
                           type="text"
                           maxlength="15"
                           minlength="15">
 
-                      <label class="form-label" for="form6Example2">Digite seu sobrenome</label>
+                      <label class="form-label" for="sobrenome">Digite seu sobrenome</label>
                   </div>
                 </div>
               </div>
@@ -102,12 +104,12 @@
                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
                   <input class="form-control"
                         required
-                        id="date" 
+                        id="data" 
                         type="date"
                         maxlength="8"
                         placeholder="dd/mm/aaaa">
 
-                    <label class="form-label" for="date">Data de Nascimento</label>
+                    <label class="form-label" for="data">Data de Nascimento</label>
                 </div>
             </div>
         <!-- ---------------------------------------- -->
@@ -159,23 +161,25 @@
           <!-- CPF -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input 
-                  type="number" 
-                  id="form6Example4" 
+                  type="text" 
+                  id="cpf" 
                   class="form-control"
-                  data-cpf-length="14"
-                  minlength="14"
-                  placeholder="000.000.000-00" required
-                  data-required
+                  placeholder="000.000.000-00"
+                  onkeydown="ajustaCpf(this)" 
+                  onkeyup="ajustaCpf(this)"
+                  onkeydown="ajustaCpf(this)" 
+                  onblur="validarCPF(this)"
+                  required
+                  maxlength="14" required
                   autocomplete="none">
-                  
-              <label class="form-label" for="form6Example4">CPF</label>
+              <label class="form-label" for="cpf">CPF</label>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Email input -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input 
                   type="email" 
-                  id="form6Example5" 
+                  id="email" 
                   class="form-control"
                   required
                   data-required
@@ -183,14 +187,14 @@
                   autocomplete="off"
                   maxlength="50">
                   
-              <label class="form-label" for="form6Example5">E-mail</label>
+              <label class="form-label" for="email">E-mail</label>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Celular -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input 
                   type="tel" 
-                  id="form6Example6" 
+                  id="celular" 
                   class="form-control"
                   placeholder="(+55) xx-xxxxx-xxxx" 
                   required
@@ -198,13 +202,13 @@
                   minlength="18"
                   data-required>
                   
-              <label class="form-label" for="form6Example6">Telefone Celular</label>
+              <label class="form-label" for="celular">Telefone Celular</label>
             </div>
           <!-- Fixo -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input 
                   type="tel" 
-                  id="form6Example6" 
+                  id="telFixo" 
                   class="form-control"
                   placeholder="(+55) xx-xxxx-xxxx" 
                   required
@@ -213,7 +217,7 @@
                   minlength="17"
                   data-required>
                   
-              <label class="form-label" for="form6Example6">Telefone Fixo</label>
+              <label class="form-label" for="telFixo">Telefone Fixo</label>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Sub título -->
@@ -265,8 +269,8 @@
         <!-- ---------------------------------------- -->
           <!-- Estado -->
               <div class="row">
-                <div class="col-md-6 mb-4">
-                  <select id="estado" data-mdb-select-init class="form-control rounded" data-state-validate required>
+                <div class="col mb-4">
+                  <select id="estado" data-mdb-select-init class="form-select jb-rounded" data-state-validate required>
                     <option value="">Selecione o seu estado</option>
                     <option value="AC">Acre</option>
                     <option value="AL">Alagoas</option>
@@ -327,11 +331,11 @@
             <div data-mdb-input-init class="form-outline mb-4">
               <textarea 
                 class="form-control" 
-                id="form6Example7"
+                id="complemento"
                 placeholder="(Opcional)"
                 rows="2"></textarea>
                 
-              <label class="form-label" for="form6Example7">Complemento</label>
+              <label class="form-label" for="complemento">Complemento</label>
             </div>
        <!-- ---------------------------------------- -->
           <!-- Sub título -->
@@ -342,17 +346,17 @@
             <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
               <input 
                 type="email" 
-                id="form2Example17" 
+                id="login" 
                 class="inputs- form-control">
                 
-              <label class="form-label" for="form2Example17" style="margin-left: 0px;">Login</label>
+              <label class="form-label" for="login" style="margin-left: 0px;">Login</label>
             </div>
        <!-- ---------------------------------------- -->
           <!-- Senha -->
             <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
               <input 
                 type="password" 
-                id="form2Example27" 
+                id="senha" 
                 class="form-control"
                 required
                 data-required
@@ -361,14 +365,14 @@
                 minlength="6"
                 maxlength="6">
                 
-              <label class="form-label" for="form2Example27" style="margin-left: 0px;">Senha</label>
+              <label class="form-label" for="senha" style="margin-left: 0px;">Senha</label>
             </div>
        <!-- ---------------------------------------- -->
           <!-- Confirmar Senha -->
             <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
               <input 
                 type="password" 
-                id="form2Example27" 
+                id="confirSenha" 
                 class="form-control"
                 required
                 data-required
@@ -377,7 +381,7 @@
                 minlength="6"
                 maxlength="6">
                 
-              <label class="form-label" for="form2Example27" style="margin-left: 0px;">Confirme sua senha</label>
+              <label class="form-label" for="confirSenha" style="margin-left: 0px;">Confirme sua senha</label>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Checkbox -->
@@ -386,10 +390,10 @@
                 class="form-check-input me-2"
                 type="checkbox"
                 value=""
-                id="form6Example8"
+                id="checkbox"
                 required>
                 
-              <label class="form-check-label" for="form6Example8"> Aceito os <a href="#">Termos e condições</a> e autorizo o uso de meus dados de acordo com a <a href="#">Declaração de privacidade</a>.
+              <label class="form-check-label" for="checkbox"> Aceito os <a href="#">Termos e condições</a> e autorizo o uso de meus dados de acordo com a <a href="#">Declaração de privacidade</a>.
               </label>
             </div>
         <!-- ---------------------------------------- -->
@@ -407,15 +411,14 @@
             </div>
           <!-- - Voltar a página de Login - -->
             <p>Já possui uma conta? <a href="./login.html">Fazer login</a>.</p>
-            <!-- Modal de erro -->
-            <!-- <dialog id="cepModal">
-              <p>CEP não encontrado.</p>
-              <button id="closeModal">Fechar</button>
-          </dialog> -->
-          <dialog id="cepModal">
-            <p id="modalMessage"></p>
-            <button id="closeModal">Fechar</button>
-        </dialog>
+          
+          <!-- Modal de erro -->
+            <dialog class="shadow-4-strong p-4 rounded-8" id="modal">
+              <p id="modalMessage"> </p>            
+              <div class="d-flex justify-content-center align-items-center">
+                <button class="btn btn-danger btn-rounded" id="closeModal">Fechar</button>
+            </div>
+            </dialog>
           </form>
         </div>
     </div>

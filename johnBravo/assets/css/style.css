@@ -4,19 +4,17 @@
 @import url(./auth.css);
 /* ==== Padronização do site ==== */
 :root {
-    /* --bs-warning-rgb: 228, 161, 27; */
-    /* --bs-secondary-color: rgba(79, 79, 79, 0.75); */
-    /* --bs-warning: #e4a11b; */
-    /* --bs-secondary-color: rgba(79, 79, 79, 0.75); */
-    --mdb-bg-opacity: 1;
-    /* ==== Cores base ==== */
+/* ==== Cores base ==== */
     --preto: #000;
+    --preto-transparente: rgb(0 0 0 / .5);
     --branco: #fff;
+    --cinza-claro: #e0e0e0;
+    --cinza-escuro: #6c757d;
     --amarelo: #ffc107;
     --amarelo-font: #FFD700;
     --dourado: #e4a11b; 
     --dourado-escuro: #c9901f;
-    /* ==== Fontes base ==== */
+/* ==== Fontes base ==== */
     --font-Montserrat: "Montserrat", sans-serif; /* Fonte Padrão */
     --font-Lalezar: "Lalezar", system-ui; /* Fonte adicional */
 }
@@ -25,7 +23,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    /* font-family: 'Quicksand', sans-serif; */
     font-family: var(--font-Montserrat);
     font-optical-sizing: auto;
     font-weight: weight;

@@ -1,7 +1,4 @@
 @import url(./style.css);
-/* @import url(./mdb.main.css); */
-/* @import url(./new-prism.css); */
-/* @import url(./all.css); */
 
 .card {
     max-width: 600px;
@@ -13,13 +10,16 @@
     -o-border-radius: 2rem;
 }
 
-.form-control {
-    outline: none;
-    border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    -o-border-radius: 1rem;
+.form-notch-leading {
+    border-radius: 1rem 0 0 1rem !important;
+    /* width: 18px !important; */
+}
+.form-notch-trailing {
+    border-radius: 0 0.5rem 0.5rem 0 !important;
+}
+.jb-rounded {
+    border-radius: 0.6rem;
+    border: 1px solid var(--mdb-form-control-border-color);
 }
 
 .form-control.filled ~ .form-label {
@@ -27,16 +27,16 @@
 }
 
 .button-back {
-    background: #000;
+    background: var(--preto);
 }
 .fa-solid {
     margin-left: 1rem;
-    color: #fff;
+    color: var(--branco);
     font-weight: bold;
     font-size: 15px;
 }
 .voltar {
-    color: #fff;
+    color: var(--branco);
     font-weight: bold;
     font-size: 15px;
 }
@@ -44,7 +44,17 @@
 .jb-fa-8x {
     font-size: 8em;
 }
-
+/* ==== Modal "dialog" ==== */
+/* Fundo do modal */
+dialog::backdrop {
+    background-color: var(--preto-transparente);
+}
+/* Modal */
+dialog {
+    border: none;
+    margin: auto !important;
+}
+/* == Mobile texto == */
 @media (min-width: 992px) {
     .p-lg-5 {
         padding: 4rem !important;

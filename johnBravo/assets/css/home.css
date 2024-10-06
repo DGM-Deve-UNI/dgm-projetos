@@ -7,6 +7,11 @@
     height: 100%;
     z-index: 1;
 }
+
+.jb-card {
+  border-radius: 1rem !important;
+  z-index: 2;
+}
 /* -- Imagem de fundo "section 1" -- */
 #section1 .background-image {
     background: 
@@ -54,4 +59,8 @@
     .text-box {
         padding: 1.5rem;
     }
+}
+
+.jb-fs-7 {
+  font-size: 0.7rem;
 }

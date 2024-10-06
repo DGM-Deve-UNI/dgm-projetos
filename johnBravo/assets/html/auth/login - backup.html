@@ -40,68 +40,55 @@
   <!-- === Javascript interno === -->
         <script src="" defer></script>
 <!-- ======================================== -->
-    <title>Recuperar senha</title>
+    <title>Login</title>
 </head>
 <body>
   <!-- Botão voltar (mini navbar) -->
-    <div class="button-back navbar navbar-expand-lg p-2 ">
-      <a href="javascript:history.back()" class="voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
-    </div>
-
-  <!-- Formulário -->
+    <div class="button-back navbar navbar-expand-lg p-2 "><a href="javascript:history.back()" class="voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a></div>
+  <!-- Contêiner Formulário -->
     <div id="docsTabsOverview" role="tabpanel" aria-labelledby="docs-tab-overview" 
-        class="d-flex row m-3 justify-content-center align-items-center tab-pane fade in show active">
+        class="d-flex row m-3 justify-content-center align-items-center tab-pane fade in show active" >
 
-      <div class="card rounded-top-5 shadow-lg col-md-6 col-lg-7 d-flex mt-lg-5 mb-10">
-        <!-- Título -->
-        <div class="card-header rounded-top-5 card-header-tabs h5 text-white bg-black text-center">Redefinição de senha</div>
-          <!-- Formulário -->
-          <form id="formResetPW" data-bitwarden-watching="1"class="p-4 p-lg-5">
-            <!-- Logo -->
-              <i class="m-3 d-flex justify-content-center fa-solid fa-unlock-keyhole jb-fa-8x text-black"></i>
-          
-            <!-- Descrição -->
-              <p class="py-2 text-center">Digite sua nova senha</p>
-
-            <!-- Input Nova senha -->
-              <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
-                  <input type="password" id="form2Example17" class="inputs- form-control form-control-lg" required>
-                <label class="form-label" for="form2Example17" style="margin-left: 0px;">Nova senha</label>
-                  <div class="form-notch">
-                    <div class="form-notch-leading" style="width: 9px;"></div>
-                    <div class="form-notch-middle" style="width: 88.8px;"></div>
-                    <div class="form-notch-trailing"></div>
-                  </div>
-              </div>
-            <!-- Input Confirmar senha -->
-              <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
-                  <input type="password" id="form2Example17" class="inputs- form-control form-control-lg" required>
-                <label class="form-label" for="form2Example17" style="margin-left: 0px;">Confirmar senha</label>
-                  <div class="form-notch">
-                    <div class="form-notch-leading" style="width: 9px;"></div>
-                    <div class="form-notch-middle" style="width: 88.8px;"></div>
-                    <div class="form-notch-trailing"></div>
-                  </div>
-              </div>
-            <!-- Botões -->
-            <div class="pt-1 mb-4">
-              <!-- Botão "Recuperar senha" -->
-              <button data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-warning btn-lg mb-3 btn-block rounded-pill" type="button" data-mdb-button-initialized="true">Redefinir senha</button>
-              
-              <!-- Botão "Cancelar" -->
-              <button type="button" class="btn btn-lg btn-block btn-danger rounded-pill" onclick="cancelarFormulario()">Cancelar</button>
-              <!-- Script Botão Cancelar -->
-                <script>
-                  // Função para limpar os campos do formulário
-                    function cancelarFormulario() {
-                      document.getElementById("formResetPW").reset();
-                    }
-                </script>
+      <div class="card p-4 p-lg-5 shadow-lg col-md-6 col-lg-7 d-flex mt-lg-5 mb-10">
+        <!-- Formulário -->
+          <form data-bitwarden-watching="1">
+          <!-- Logo -->
+            <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
+              <img class="mb-0" src="../../imgs/icons/dark/icon-txt.png" alt="JohnBravo Barbearia" width="200">
             </div>
+              <!-- Título -->
+                <h5 class="fw-normal text-center mb-3 pb-3" style="letter-spacing: 1px;">Entre na sua conta</h5>
+            <!-- Input E-mail -->
+            <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
+              <input type="email" id="form2Example17" class="inputs- form-control form-control-lg">
+                <label class="form-label" for="form2Example17" style="margin-left: 0px;">E-mail ou usuário</label>
+                  <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px;"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                  </div>
+            </div>
+            <!-- Input Senha -->
+            <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
+              <input type="password" id="form2Example27" class="form-control form-control-lg">
+                <label class="form-label" for="form2Example27" style="margin-left: 0px;">Senha</label>
+                  <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px;"></div>
+                    <div class="form-notch-middle" style="width: 64.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                  </div>
+            </div>
+            <!-- Botão "Entrar" -->
+            <div class="pt-1 mb-4">
+              <button data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-dark btn-lg btn-block rounded-pill" type="button" data-mdb-button-initialized="true">Entrar</button>
+            </div>
+            <!-- Link "Esqueceu a senha?" -->
+              <a class="small text-muted" href="./recovery-pw.html">Esqueceu a senha?</a>
+            <!-- Link "Restre-se" -->
+              <p class="mb-3 py-2 pb-lg-2">Não tem conta? <a href="./cadastro.html">Registre-se</a></p>
           </form>
       </div>
     </div>
-    
   <!-- === Footer === -->
     <footer id="footer" class="footer fixed-bottom text-center text-lg-start">    
       <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-dark text-bg-warning">
@@ -115,13 +102,15 @@
     
       <!--/ Right -->
         <!--/ Copyright -->
-        <div class="small mx-5 text-center text-bg-light bg-warning">Copyright &copy; 2024 | DGM Web developer&reg;</div>
+        <div class="small mx-5 text-center text-bg-light bg-warning">
+            Copyright &copy; 2024 | DGM Web developer&reg;
+        </div>
         <!-- Copyright \-->
       <!-- Right \-->         
       </section>
     </footer>
   
   <!-- ==== JavaScript MDB ==== -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>  
 </body>
 </html>

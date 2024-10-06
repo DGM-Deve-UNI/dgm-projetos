@@ -153,6 +153,74 @@
     top: 18px;
     transform: rotate(0deg);
 }
+/* ==== Botão modo escuro/claro ==== */
+.btn-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    height: 30px;
+    background-color: var(--amarelo);
+    border-radius: 30px;
+    padding: 0;
+    border: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-toggle .toggle-slider {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: var(--branco);
+    border-radius: 50%;
+    left: 4px;
+    transition: left 0.3s ease;
+    z-index: 2;
+}
+
+.btn-toggle.active {
+    background-color: var(--cinza-escuro);
+}
+
+.btn-toggle.active .toggle-slider {
+    left: 32px;
+}
+
+/* Ícones */
+.btn-toggle i {
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease;
+}
+
+.btn-toggle .fa-sun {
+    color: var(--amarelo);
+    left: -8px;
+    opacity: 1;
+    z-index: 3;
+}
+
+.btn-toggle .fa-moon {
+    color: var(--cinza-escuro);
+    right: 10px;
+    opacity: 0;
+    z-index: 2;
+    
+}
+
+/* Alternância entre os ícones no modo escuro */
+[data-bs-theme="dark"] .btn-toggle .fa-sun {
+    opacity: 0; /* Ícone do sol some no modo escuro */
+}
+
+[data-bs-theme="dark"] .btn-toggle .fa-moon {
+    opacity: 1; /* Ícone da lua aparece no modo escuro */
+}
+
 /* ---- Copyright - Footer ---- */
 .card-footer {
     background: var(--dourado-escuro) !important;

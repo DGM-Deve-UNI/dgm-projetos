@@ -44,7 +44,7 @@
   <!-- === CSS interno === -->
         <link rel="stylesheet" href="../../css/style.css">
   <!-- === Javascript interno === -->
-        <script src="scripts.js" defer></script>
+        <script src="./Script.js" defer></script>
 <!-- ======================================== -->
     <title>Cadastro</title>
 </head>
@@ -162,9 +162,13 @@
                 type="text" 
                 id="form6Example4" 
                 class="form-control"
-                placeholder="000.000.000-00" 
+                placeholder="000.000.000-00"
+                onkeydown="ajustaCpf(this)" 
+                onkeyup="ajustaCpf(this)"
+                onkeydown="ajustaCpf(this)" 
+                onblur="validarCPF(this)"
                 required
-                data-required
+                maxlength="14" required
                 autocomplete="none">
               <label class="form-label" for="form6Example4">CPF</label>
             </div>
