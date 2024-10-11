@@ -1,44 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const contentDiv = document.getElementById('content');
+
     // Função para carregar conteúdo da página
     function loadPage(url) {
         fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('content').innerHTML = data;
-            loadCSS(url); // Carrega o CSS correspondente
-        })
-        .catch(error => console.error('Erro ao carregar a página:', error));
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar a página');
+                }
+                return response.text();
+            })
+            .then(data => {
+                contentDiv.innerHTML = data; // Carrega a seção
+                window.scrollTo(0, 0); // Rola para o topo
+            })
+            .catch(error => console.error('Erro:', error));
     }
 
-    // Função para carregar o CSS correspondente
-    function loadCSS(url) {
-        const cssUrl = url.replace('.html', '.css'); // Supondo que o CSS tenha o mesmo nome do HTML
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = cssUrl;
-        document.head.appendChild(link);
-    }
-
-    document.querySelectorAll('nav a').forEach(link => {
-        const url = link.getAttribute('href'); // Obtém o URL da página
-
-        if (!link.id) {
+    // Função para configurar os links
+    function setupLinks() {
+        const links = document.querySelectorAll('nav a, footer a');
+        links.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault(); // Evita o comportamento padrão do link
-                loadPage(url); // Carrega a página
-            });
-        }
-    });
+                e.preventDefault(); 
+                
+                if (link.id === 'login-btn' || link.id === 'registro-btn') {
+                    window.location.href = link.getAttribute('href');
+                    return;
+                }
 
-    // Carrega a página inicial ou o conteúdo padrão
-    loadPage('assets/html/pages/home.html');
+                const url = link.getAttribute('href');
+                loadPage(url);
+                highlightMenu(link);
+                sessionStorage.setItem('currentPage', url);
+            });
+        });
+    }
+
+    function highlightMenu(selectedLink) {
+        const navItems = document.querySelectorAll('.jb-nav-item');
+        navItems.forEach(item => {
+            item.classList.remove('bg-warning', 'text-black', 'fw-bold');
+            item.querySelector('.jb-nav-link').classList.add('text-white');
+            item.querySelector('.jb-nav-link').classList.remove('fw-bold');
+        });
+        const selectedItem = selectedLink.closest('li');
+        if (selectedItem) {
+            selectedItem.classList.add('bg-warning', 'text-black', 'fw-bold');
+            selectedItem.querySelector('.jb-nav-link').classList.add('text-black');
+            selectedItem.querySelector('.jb-nav-link').classList.remove('text-white');
+        }
+    }
+
+    const initialPage = sessionStorage.getItem('currentPage') || 'assets/html/pages/home.html';
+    loadPage(initialPage);
+    setupLinks();
+    const currentLink = [...document.querySelectorAll('nav a, footer a')].find(link => link.getAttribute('href') === initialPage);
+    if (currentLink) {
+        highlightMenu(currentLink);
+    }
 
     // --- Seção de Dark Mode ---
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const htmlTag = document.documentElement;
-    const darkModeIcon = darkModeToggle.querySelector('i'); // Referência ao ícone dentro do botão
+    const darkModeIcon = darkModeToggle.querySelector('i');
 
-    // Função para alternar entre temas claro e escuro
     function setTheme(mode) {
         if (mode === 'dark') {
             htmlTag.setAttribute('data-bs-theme', 'dark');
@@ -53,13 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
             darkModeIcon.classList.add('fa-sun');
             document.querySelector('link[rel="icon"]').setAttribute('href', './assets/imgs/icons/light/icon.png');
         }
+        localStorage.setItem('theme', mode); // Armazena a preferência do tema
     }
 
-    // Detectar o tema do navegador e aplicá-lo automaticamente
-    const userPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    setTheme(userPreference);
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(savedTheme);
 
-    // Alternar entre modo claro e escuro ao clicar no botão
     darkModeToggle.addEventListener('click', () => {
         const currentTheme = htmlTag.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
         setTheme(currentTheme);
@@ -68,15 +93,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Seção de Acessibilidade (Aumentar e diminuir o texto) ---
     const increaseFontBtn = document.getElementById('increase-font-btn');
     const decreaseFontBtn = document.getElementById('decrease-font-btn');
-    let fontSize = 16; // Tamanho padrão
+    let fontSize = localStorage.getItem('fontSize') ? parseInt(localStorage.getItem('fontSize')) : 16;
+
+    document.body.style.fontSize = `${fontSize}px`; // Aplica o tamanho da fonte salvo
 
     increaseFontBtn.addEventListener('click', () => {
         fontSize += 2;
         document.body.style.fontSize = `${fontSize}px`;
+        localStorage.setItem('fontSize', fontSize); // Armazena o tamanho da fonte
     });
 
     decreaseFontBtn.addEventListener('click', () => {
-        fontSize = Math.max(12, fontSize - 2); // Não permitir que a fonte fique muito pequena
+        fontSize = Math.max(12, fontSize - 2);
         document.body.style.fontSize = `${fontSize}px`;
+        localStorage.setItem('fontSize', fontSize); // Armazena o tamanho da fonte
     });
 });
