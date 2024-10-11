@@ -8,8 +8,6 @@ Repositório de projetos do grupo DGM Unisuam 2024.2
 
 # Projeto UNISUAM do Site "JahnBravo Barbearia"
 
-----------------------------------------------
-
 ### --= Analise e desenvolvimento de sistemas =--
 
 ----------------------------------------------
