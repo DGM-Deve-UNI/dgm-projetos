@@ -1,0 +1,228 @@
+/* -====- CSS navbar e footer -====- */
+/* -- Menu/Botões navbar -- */
+.nav-link, .btn-custom {
+    font-size: 0.9rem;
+    padding: 0.2rem;
+}
+/* Bordas navbar */
+/* .navbar {
+    border: 1px solid var(--dourado);
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    -webkit-border-radius: 0 0 16px 16px;
+    -moz-border-radius: 0 0 16px 16px;
+    -ms-border-radius: 0 0 16px 16px;
+    -o-border-radius: 0 0 16px 16px;
+} */
+/* Hover(Efeito ao passar o mouse) Navbar */
+.nav-item {
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    transition: 0.25s ease-in-out;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -ms-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+}
+.nav-item:hover {
+    background: var(--amarelo);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    transition: 0.25s ease-in-out;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -ms-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+}
+/* transição cores do texto */
+.jb-text-white-hover {
+    transition: 0.25s ease-in-out;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -ms-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+}
+.jb-text-white-hover:hover {
+    color: var(--preto) !important;
+    font-weight: bold;
+    transition: 0.25s ease-in-out;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -ms-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+}
+/* Transição do elemento ativo */
+.ativo-custom {
+    transition: 0.25s ease-in-out;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -ms-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+}
+.ativo-custom:hover {
+    background: var(--dourado);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    transition: 0.25s ease-in-out;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -ms-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+}
+/* --- Botão Hambúrguer navbar --- */
+.navbar-toggler {
+    width: 30px; 
+    height: 24px;
+    position: relative;
+    transition: .5s ease-in-out;
+}
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+    border: 0;
+}
+.navbar-toggler span {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--branco);
+    border-radius: 1px;
+    opacity: 1;
+    left: 0;
+    transition: .25s ease-in-out;
+}
+/* Barras do botão hambúrguer (top, middle, bottom) */
+.top-bar {
+    top: 0px;
+    transform: rotate(0deg);
+}
+.middle-bar {
+    top: 9px;
+    opacity: 1;
+}
+.bottom-bar {
+    top: 18px;
+    transform: rotate(0deg);
+}
+/* Estado padrão (menu fechado - ícone de hambúrguer) */
+.navbar-toggler .top-bar {
+    transform: rotate(0deg);
+}
+.navbar-toggler .middle-bar {
+    opacity: 1;
+}
+.navbar-toggler .bottom-bar {
+    transform: rotate(0deg);
+}
+/* Estado do menu aberto (X) */
+.navbar-toggler:not(.collapsed) .top-bar {
+    transform: rotate(45deg);
+    top: 9px;
+}
+.navbar-toggler:not(.collapsed) .middle-bar {
+    opacity: 0;
+}
+.navbar-toggler:not(.collapsed) .bottom-bar {
+    transform: rotate(-45deg);
+    top: 9px;
+}
+/* Estado do menu fechado (voltar ao ícone de hambúrguer) */
+.navbar-toggler.collapsed .top-bar {
+    top: 0px;
+    transform: rotate(0deg);
+}
+.navbar-toggler.collapsed .middle-bar {
+    opacity: 1;
+}
+.navbar-toggler.collapsed .bottom-bar {
+    top: 18px;
+    transform: rotate(0deg);
+}
+/* ==== Botão modo escuro/claro ==== */
+.btn-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    height: 30px;
+    background-color: var(--amarelo);
+    border-radius: 30px;
+    padding: 0;
+    border: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-toggle .toggle-slider {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: var(--branco);
+    border-radius: 50%;
+    left: 4px;
+    transition: left 0.3s ease;
+    z-index: 2;
+}
+
+.btn-toggle.active {
+    background-color: var(--cinza-escuro);
+}
+
+.btn-toggle.active .toggle-slider {
+    left: 32px;
+}
+
+/* Ícones */
+.btn-toggle i {
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease;
+}
+
+.btn-toggle .fa-sun {
+    color: var(--amarelo);
+    left: -8px;
+    opacity: 1;
+    z-index: 3;
+}
+
+.btn-toggle .fa-moon {
+    color: var(--cinza-escuro);
+    right: 10px;
+    opacity: 0;
+    z-index: 2;
+    
+}
+
+/* Alternância entre os ícones no modo escuro */
+[data-bs-theme="dark"] .btn-toggle .fa-sun {
+    opacity: 0; /* Ícone do sol some no modo escuro */
+}
+
+[data-bs-theme="dark"] .btn-toggle .fa-moon {
+    opacity: 1; /* Ícone da lua aparece no modo escuro */
+}
+
+/* ---- Copyright - Footer ---- */
+.card-footer {
+    background: var(--dourado-escuro) !important;
+    color: var(--branco) !important;
+}

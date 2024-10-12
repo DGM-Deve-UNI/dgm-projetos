@@ -1,0 +1,62 @@
+@import url(./style.css);
+
+.card {
+    max-width: 600px;
+    min-width: 300px;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+}
+
+.form-notch-leading {
+    border-radius: 1rem 0 0 1rem !important;
+    /* width: 18px !important; */
+}
+.form-notch-trailing {
+    border-radius: 0 0.5rem 0.5rem 0 !important;
+}
+.jb-rounded {
+    border-radius: 0.6rem;
+    border: 1px solid var(--mdb-form-control-border-color);
+}
+
+.form-control.filled ~ .form-label {
+    transform: translateY(-95%);
+}
+
+.button-back {
+    background: var(--preto);
+}
+.fa-solid {
+    margin-left: 1rem;
+    color: var(--branco);
+    font-weight: bold;
+    font-size: 15px;
+}
+.voltar {
+    color: var(--branco);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.jb-fa-8x {
+    font-size: 8em;
+}
+/* ==== Modal "dialog" ==== */
+/* Fundo do modal */
+dialog::backdrop {
+    background-color: var(--preto-transparente);
+}
+/* Modal */
+dialog {
+    border: none;
+    margin: auto !important;
+}
+/* == Mobile texto == */
+@media (min-width: 992px) {
+    .p-lg-5 {
+        padding: 4rem !important;
+    }
+}

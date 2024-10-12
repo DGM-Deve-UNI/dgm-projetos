@@ -1,0 +1,66 @@
+/* === Config padrão Imagem de fundo === */
+.background-image {
+    content: "";
+    position: absolute;
+    /* top: 50px; */
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.jb-card {
+  border-radius: 1rem !important;
+  z-index: 2;
+}
+/* -- Imagem de fundo "section 1" -- */
+#section1 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(../imgs/banner-1.png)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+/* -- Imagem de fundo "section 2" -- */
+#section2 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(../imgs/banner-2.png)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+/* === "div" global de texto === */
+.text-box {
+    display: inline-block;
+    z-index: 2;
+    padding: 5rem;
+    height: 100%;
+    width: 100%;
+    color: var(--branco);
+}
+/* === Texto da página === */
+.text-home {
+    width: 100%;
+    font-size: 3.5rem;
+}
+.texto-descricao {
+    font-weight: 300;
+    max-width: 540px;
+    margin: 2rem 0 3rem 0;
+}
+/* === Responsividade da "div" e texto da página === */
+@media (max-width: 768px) {
+    /* class font-size BS personalizada */
+    .fs-md-5 {
+        font-size: 2.5rem;
+    }
+    /* "div" texto global */
+    .text-box {
+        padding: 1.5rem;
+    }
+}
+
+.jb-fs-7 {
+  font-size: 0.7rem;
+}

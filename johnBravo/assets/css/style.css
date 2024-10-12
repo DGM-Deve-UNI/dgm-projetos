@@ -1,109 +1,56 @@
-root {
-    --bs-warning-rgb: 228, 161, 27;
-    --bs-secondary-color: rgba(79, 79, 79, 0.75);
-    --bs-warning: #e4a11b;
-    --bs-secondary-color: rgba(79, 79, 79, 0.75);
-    --mdb-bg-opacity: 1;
+/* --== Imports do css das página ==-- */
+@import url(./navbar-footer.css);
+@import url(./home.css);
+@import url(./auth.css);
+/* ==== Padronização do site ==== */
+:root {
+/* ==== Cores base ==== */
+    --preto: #000;
+    --preto-transparente: rgb(0 0 0 / .5);
+    --branco: #fff;
+    --cinza-claro: #e0e0e0;
+    --cinza-escuro: #6c757d;
+    --amarelo: #ffc107;
+    --amarelo-font: #FFD700;
+    --dourado: #e4a11b; 
+    --dourado-escuro: #c9901f;
+/* ==== Fontes base ==== */
+    --font-Montserrat: "Montserrat", sans-serif; /* Fonte Padrão */
+    --font-Lalezar: "Lalezar", system-ui; /* Fonte adicional */
 }
-/* --- Botão Hambúrguer navbar --- */
-.navbar-toggler {
-    width: 30px; 
-    height: 24px;
-    position: relative;
-    transition: .5s ease-in-out;
-}
-
-.navbar-toggler,
-.navbar-toggler:focus,
-.navbar-toggler:active,
-.navbar-toggler-icon:focus {
-    outline: none;
-    box-shadow: none;
-    border: 0;
-}
-
-.navbar-toggler span {
-    margin: 0;
+/* -=- Config global -=- */
+* {
     padding: 0;
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 1px;
-    opacity: 1;
-    left: 0;
-    transition: .25s ease-in-out;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-Montserrat);
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
 }
-
-/* Definindo as três barras do botão (top, middle, bottom) */
-.top-bar {
-    top: 0px;
-    transform: rotate(0deg);
+/* ---- Config "main" (index) ---- */
+#content {
+    position: relative;
+    overflow: hidden; 
 }
-
-.middle-bar {
-    top: 9px;
-    opacity: 1;
+/* ---- Config "section" (Conteúdos das páginas) ---- */
+.section-page {
+    display: inline-block;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: relative;
+    /* width: auto; */
+    /* height: auto; */
 }
-
-.bottom-bar {
-    top: 18px;
-    transform: rotate(0deg);
+/* ============================================== */
+/* --= "div" Página principal - 'index' (nav, main, footer) =-- */
+.container-base{
+    padding: 0;
+    margin: 0;
 }
-
-/* Estado padrão (menu fechado - ícone de hambúrguer) */
-.navbar-toggler .top-bar {
-    transform: rotate(0deg);
-}
-
-.navbar-toggler .middle-bar {
-    opacity: 1;
-}
-
-.navbar-toggler .bottom-bar {
-    transform: rotate(0deg);
-}
-
-/* Estado do menu aberto (X) */
-.navbar-toggler:not(.collapsed) .top-bar {
-    transform: rotate(45deg);
-    top: 9px; /* Mover para o centro */
-}
-
-.navbar-toggler:not(.collapsed) .middle-bar {
-    opacity: 0; /* Esconder o traço do meio */
-}
-
-.navbar-toggler:not(.collapsed) .bottom-bar {
-    transform: rotate(-45deg);
-    top: 9px; /* Mover para o centro */
-}
-
-/* Estado do menu fechado (voltar ao ícone de hambúrguer) */
-.navbar-toggler.collapsed .top-bar {
-    top: 0px;
-    transform: rotate(0deg);
-}
-
-.navbar-toggler.collapsed .middle-bar {
-    opacity: 1;
-}
-
-.navbar-toggler.collapsed .bottom-bar {
-    top: 18px;
-    transform: rotate(0deg);
-}
-/* === Botão Hambúrguer navbar === */
-
-/* ==== Menu/Botões navbar ==== */
-.nav-link, .btn {
-    font-size: 0.9rem;
-    padding: 0.2rem;
-}
-
-.navbar {
-    border: 1px solid gray;
-    border-radius: 16px;
-    margin-right: 1tem;
+/* ++ Classe personalizada para fonte Lalezar ++ */
+.jb-font-Lalezar {
+    font-family: var(--font-Lalezar);
+    font-weight: 400;
+    font-style: normal;
 }
