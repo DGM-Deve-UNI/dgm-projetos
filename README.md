@@ -33,13 +33,13 @@ Bem-vindo ao projeto do site JonBravo Barbearia desenvolvido pelo grupo DGM Web 
 
 ## Objetivo
 
-O objetivo principal do projeto era construir a parte do Front-End de um site que fosse funcional e responsivo e que tivesse identidade própria e personalizada e com serviços exclusivos, oferecendo uma experiência agradável aos usuários. Foram implementadas as seguintes funcionalidades:
+O objetivo principal do projeto é construir a parte do Front-End de um site que fosse funcional e responsivo e que tivesse identidade própria e personalizada e com serviços exclusivos, oferecendo uma experiência agradável aos usuários. Foram implementadas as seguintes funcionalidades:
 
 - Página de Cadastro: Uma página intuitiva e fácil de usar, com campos de preenchimento obrigatório, validação de formato, limites de caracteres e feedback visual ao usuário.
 
 - Página de Login: Uma interface segura e amigável que permite aos usuários fazer login de forma rápida e eficiente. Além disso, oferecemos a opção de recuperação de senha para fornecer suporte adicional aos usuários em caso de esquecimento de suas credenciais.
 
-- Tela Principal: A página principal do site, projetada para impressionar os visitantes com um layout moderno e atraente. Além disso, incluímos um recurso de modo escuro para uma experiência de visualização personalizada e a opção de tamanho de texto onde o usuário pode aumentar e diminuir o texto conforme o desejado para a melhor visualização do conteúdo do site.
+- Tela Principal: A página principal do site, projetada para impressionar os visitantes com um layout moderno e atraente. Além disso, incluímos um recurso de modo escuro para uma experiência de visualização personalizada e a opção de tamanho de texto onde o usuário pode aumentar ou diminuir o texto conforme o desejado para a melhor visualização do conteúdo do site.
 
 - Design Moderno: Foi dado destaque a um design moderno e estilizado, com uma identidade visual única e exclusiva. Utilizamos elementos visuais atraentes, cores harmoniosas e layout responsivo para garantir uma experiência de usuário agradável em diferentes dispositivos.
 
@@ -49,7 +49,7 @@ O objetivo principal do projeto era construir a parte do Front-End de um site qu
 
 - CSS3: Utilizado para a estilização e layout do site, garantindo uma aparência visualmente atraente.
 
-- JavaScript: Utilizado para adicionar interatividade e funcionalidades dinâmicas ao site.
+- JavaScript: Utilizado para adicionar interatividade e funcionalidades dinâmicas ao site como o SPA (Single Page Application) para carregar as páginas do site dinamicamente deixando o site mais fluído e rápido.
 
 - Frameworks (Bootstrap e MDB): Utilizado para acelerar o desenvolvimento e fornece recursos adicionais ao projeto.
 
