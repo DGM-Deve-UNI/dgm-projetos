@@ -14,6 +14,14 @@
     --amarelo-font: #FFD700;
     --dourado: #e4a11b; 
     --dourado-escuro: #c9901f;
+/* ==== Cores modo claro/escuro ==== */
+    --custom-bg-black: #000000;
+    --custom-text-muted: #6c757d;
+    
+    --custom-bg-light: #ffffff;
+    --custom-bg-dark: #212529;
+    --custom-text-light: #000000;
+    --custom-text-dark: #f8f9fa;
 /* ==== Fontes base ==== */
     --font-Montserrat: "Montserrat", sans-serif; /* Fonte Padrão */
     --font-Lalezar: "Lalezar", system-ui; /* Fonte adicional */
@@ -53,4 +61,40 @@
     font-family: var(--font-Lalezar);
     font-weight: 400;
     font-style: normal;
+}
+
+/* ===- Config Modo Claro/Escuro -=== */
+/* custom global */
+[data-bs-theme="light"] .text-bg-custom {
+    background-color: var(--custom-bg-light);
+    color: var(--custom-text-light);
+}
+[data-bs-theme="dark"] .text-bg-custom {
+    background-color: var(--custom-bg-black);
+}
+/* menus navbar */
+[data-bs-theme="light"] .text-white {
+    color: var(--custom-text-light) !important;
+}
+/* Menu Hambúrguer */
+[data-bs-theme="light"] .navbar-toggler span {
+    background-color: var(--custom-bg-black);
+}
+/* custom footer */
+[data-bs-theme="light"] .text-bg-footer-custom {
+  background-color: var(--custom-bg-light);
+  color: var(--custom-text-light) !important;
+}
+[data-bs-theme="dark"] .text-bg-footer-custom {
+    background-color: var(--custom-bg-black);
+    color: var(--custom-text-muted);
+}
+/* ===- Modo claro/escuro imagem logo -=== */
+/* Imagem para o tema claro */
+[data-bs-theme="light"] .img-custom {
+    content: url('../imgs/logos/dark/logo.png');
+}
+/* Imagem para o tema escuro */
+[data-bs-theme="dark"] .img-custom {
+    content: url('../imgs/logos/white/logo-white.png');
 }

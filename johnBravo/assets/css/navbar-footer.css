@@ -211,16 +211,20 @@
     z-index: 2;
     
 }
-
+/* Icons social */
+.fa-brands {
+    font-size: 1.3rem !important;
+}
+.fa-brands:hover {
+    color: var(--branco);
+}
 /* Alternância entre os ícones no modo escuro */
 [data-bs-theme="dark"] .btn-toggle .fa-sun {
     opacity: 0; /* Ícone do sol some no modo escuro */
 }
-
 [data-bs-theme="dark"] .btn-toggle .fa-moon {
     opacity: 1; /* Ícone da lua aparece no modo escuro */
 }
-
 /* ---- Copyright - Footer ---- */
 .card-footer {
     background: var(--dourado-escuro) !important;
