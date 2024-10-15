@@ -8,20 +8,19 @@
     --preto: #000;
     --preto-transparente: rgb(0 0 0 / .5);
     --branco: #fff;
+    --branco-escuro: #f0f1f3;
     --cinza-claro: #e0e0e0;
     --cinza-escuro: #6c757d;
     --amarelo: #ffc107;
     --amarelo-font: #FFD700;
-    --dourado: #e4a11b; 
+    --dourado: #e4a11b;
     --dourado-escuro: #c9901f;
-/* ==== Cores modo claro/escuro ==== */
-    --custom-bg-black: #000000;
-    --custom-text-muted: #6c757d;
     
-    --custom-bg-light: #ffffff;
+/* ==== Cores modo claro/escuro ==== */
     --custom-bg-dark: #212529;
-    --custom-text-light: #000000;
     --custom-text-dark: #f8f9fa;
+    --custom-text-muted: #6c757d;
+
 /* ==== Fontes base ==== */
     --font-Montserrat: "Montserrat", sans-serif; /* Fonte Padrão */
     --font-Lalezar: "Lalezar", system-ui; /* Fonte adicional */
@@ -63,30 +62,43 @@
     font-style: normal;
 }
 
+[data-bs-theme="dark"] .jb-text-black {
+    color: var(--preto);
+}
+
 /* ===- Config Modo Claro/Escuro -=== */
 /* custom global */
 [data-bs-theme="light"] .text-bg-custom {
-    background-color: var(--custom-bg-light);
+    background-color: var(--branco-escuro) !important;
     color: var(--custom-text-light);
 }
 [data-bs-theme="dark"] .text-bg-custom {
-    background-color: var(--custom-bg-black);
+    background-color: var(--preto);
 }
 /* menus navbar */
-[data-bs-theme="light"] .text-white {
+[data-bs-theme="light"] .jb-text-white {
     color: var(--custom-text-light) !important;
 }
 /* Menu Hambúrguer */
 [data-bs-theme="light"] .navbar-toggler span {
-    background-color: var(--custom-bg-black);
+    background-color: var(--preto);
+}
+/* Botão "A+ / A-" */
+[data-bs-theme="light"] .js-border-text-warning {
+    border: solid var(--cinza-escuro) !important;
+    color: var(--cinza-escuro) !important;
+}
+[data-bs-theme="dark"] .js-border-text-warning {
+    border: solid var(--amarelo) !important;
+    color: var(--amarelo) !important;
 }
 /* custom footer */
 [data-bs-theme="light"] .text-bg-footer-custom {
-  background-color: var(--custom-bg-light);
+  background-color: var(--branco-escuro) !important;
   color: var(--custom-text-light) !important;
 }
 [data-bs-theme="dark"] .text-bg-footer-custom {
-    background-color: var(--custom-bg-black);
+    background-color: var(--preto);
     color: var(--custom-text-muted);
 }
 /* ===- Modo claro/escuro imagem logo -=== */

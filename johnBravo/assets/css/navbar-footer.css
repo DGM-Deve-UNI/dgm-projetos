@@ -41,6 +41,10 @@
     -o-transition: 0.25s ease-in-out;
 }
 /* transição cores do texto */
+.jb-text-white {
+    color: var(--branco);
+}
+
 .jb-text-white-hover {
     transition: 0.25s ease-in-out;
     -webkit-transition: 0.25s ease-in-out;
@@ -168,7 +172,6 @@
     transition: background-color 0.3s ease;
     cursor: pointer;
 }
-
 .btn-toggle .toggle-slider {
     position: absolute;
     width: 24px;
@@ -179,11 +182,9 @@
     transition: left 0.3s ease;
     z-index: 2;
 }
-
 .btn-toggle.active {
     background-color: var(--cinza-escuro);
 }
-
 .btn-toggle.active .toggle-slider {
     left: 32px;
 }
@@ -196,14 +197,12 @@
     transform: translateY(-50%);
     transition: opacity 0.3s ease;
 }
-
 .btn-toggle .fa-sun {
     color: var(--amarelo);
     left: -8px;
     opacity: 1;
     z-index: 3;
 }
-
 .btn-toggle .fa-moon {
     color: var(--cinza-escuro);
     right: 10px;
@@ -218,6 +217,16 @@
 .fa-brands:hover {
     color: var(--branco);
 }
+
+.js-border-text-warning:hover {
+    background: var(--dourado);
+    color: var(--preto) !important;
+}
+
+[data-bs-theme="dark"] .js-border-text-warning:hover {
+    background: var(--cinza-claro);
+    color: var(--preto) !important;
+}
 /* Alternância entre os ícones no modo escuro */
 [data-bs-theme="dark"] .btn-toggle .fa-sun {
     opacity: 0; /* Ícone do sol some no modo escuro */
@@ -225,6 +234,7 @@
 [data-bs-theme="dark"] .btn-toggle .fa-moon {
     opacity: 1; /* Ícone da lua aparece no modo escuro */
 }
+
 /* ---- Copyright - Footer ---- */
 .card-footer {
     background: var(--dourado-escuro) !important;
