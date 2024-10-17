@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const contentDiv = document.getElementById('content');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const navbarToggler = document.querySelector('.navbar-toggler');
 
     // Função para carregar conteúdo da página
     function loadPage(url) {
@@ -13,8 +15,36 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 contentDiv.innerHTML = data; // Carrega a seção
                 window.scrollTo(0, 0); // Rola para o topo
+
+                // Verifica se a página de contatos foi carregada
+                if (url.includes('contatos.html')) {
+                    loadMap(); // Chama a função para carregar o mapa
+                }
             })
             .catch(error => console.error('Erro:', error));
+    }
+
+    function loadMap() {
+        // Inicializa o mapa com OpenStreetMap e Leaflet.js
+        var map = L.map('map').setView([-22.9068, -43.1729], 13); // Localização fictícia no Rio de Janeiro
+
+        // Adiciona o tile do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Adiciona um marcador no local fictício
+        L.marker([-22.9068, -43.1729]).addTo(map)
+            .bindPopup('Rua São João, 456 - Endereço Fictício')
+            .openPopup();
+    }
+
+    // Função para fechar o menu de navegação (colapso)
+    function closeNavbar() {
+        if (navbarCollapse.classList.contains('show')) {
+            navbarCollapse.classList.remove('show'); // Fecha o menu
+            navbarToggler.classList.add('collapsed'); // Volta o ícone ao estado inicial
+        }
     }
 
     // Função para configurar os links
@@ -22,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const links = document.querySelectorAll('nav a, footer a');
         links.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                
+                e.preventDefault();
+
                 if (link.id === 'login-btn' || link.id === 'registro-btn') {
                     window.location.href = link.getAttribute('href');
                     return;
@@ -33,6 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 loadPage(url);
                 highlightMenu(link);
                 sessionStorage.setItem('currentPage', url);
+
+                // Fecha o menu se estiver em modo mobile
+                closeNavbar();
             });
         });
     }
@@ -59,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentLink) {
         highlightMenu(currentLink);
     }
-
+  
     // --- Seção de Dark Mode ---
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const htmlTag = document.documentElement;
