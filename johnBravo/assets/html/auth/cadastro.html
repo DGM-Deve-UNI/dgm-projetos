@@ -411,7 +411,27 @@
             </div>
           <!-- - Voltar a página de Login - -->
             <p>Já possui uma conta? <a href="./login.html">Fazer login</a>.</p>
-          
+                <!-- Botão "Voltar ao topo (seta)" -->
+      <button id="scrollToTopBtn" class="btn btn-warning rounded-pill shadow border-1 border-dark" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+      <!-- Script do botão -->
+      <script>
+      // Exibir o botão após rolar 300px
+        window.onscroll = function() {
+          const btn = document.getElementById('scrollToTopBtn');
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btn.style.display = 'block';
+          } else {
+            btn.style.display = 'none';
+          }
+        };
+
+        // Função para rolar até o topo
+        function scrollToTop() {
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+      </script>
           <!-- Modal de erro -->
             <dialog class="shadow-4-strong p-4 rounded-8" id="modal">
               <p id="modalMessage"> </p>            

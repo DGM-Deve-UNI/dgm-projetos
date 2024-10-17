@@ -11,6 +11,8 @@
 .jb-card {
   border-radius: 1rem !important;
   z-index: 2;
+  max-width: 360px !important; 
+  min-height: 200px !important;
 }
 /* -- Imagem de fundo "section 1" -- */
 #section1 .background-image {
@@ -68,10 +70,3 @@
 .jb-fs-7 {
   font-size: 0.9rem;
 }
-
-.card {
-    max-width: 360px !important; 
-    min-height: 200px !important;
-}
-
-/* === Mapa === */
