@@ -5,7 +5,7 @@
     /* top: 50px; */
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: -1;
 }
 
 .jb-card {
@@ -61,6 +61,15 @@
     }
 }
 
+.fa-xmark {
+    color: red;
+}
+
 .jb-fs-7 {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
+}
+
+.card {
+    max-width: 360px !important; 
+    min-height: 200px !important;
 }
