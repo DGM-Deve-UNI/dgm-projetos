@@ -58,7 +58,7 @@
         class="d-flex row m-3 justify-content-center align-items-center tab-pane fade in show active" >
       <!-- "div" Form -->
         <div class="card p-4 p-lg-5 shadow-lg col-md-6 col-lg-7 d-flex mt-lg-5 mt-md-5 mb-10">
-          <form>
+          <form class="">
             <!-- Logo -->
               <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
                   <img class="mb-0" src="../../imgs/icons/dark/icon-txt.png" alt="JohnBravo Barbearia" width="200">
@@ -170,9 +170,11 @@
                   onkeydown="ajustaCpf(this)" 
                   onblur="validarCPF(this)"
                   required
-                  maxlength="14" required
-                  autocomplete="none">
+                  maxlength="14"
+                  minlength="14"
+                  autocomplete="off">
               <label class="form-label" for="cpf">CPF</label>
+              <span class="" style="font-size: 12px;" id="feedback"></span>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Email input -->
@@ -406,32 +408,12 @@
           <!-- ---------------------------------------- -->
             <!-- Botão Limpar -->
               <div class="col">
-                <button data-mdb-ripple-init type="reset" class="btn btn-primary btn-block mb-4 bg-danger rounded-pill">Limpar</button>
+                <button data-mdb-ripple-init type="reset" class="btn btn-primary btn-block mb-4 bg-danger rounded-pill" onclick="limparValid()">Limpar</button>
               </div>
             </div>
           <!-- - Voltar a página de Login - -->
             <p>Já possui uma conta? <a href="./login.html">Fazer login</a>.</p>
-                <!-- Botão "Voltar ao topo (seta)" -->
-      <button id="scrollToTopBtn" class="btn btn-warning rounded-pill shadow border-1 border-dark" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-      </button>
-      <!-- Script do botão -->
-      <script>
-      // Exibir o botão após rolar 300px
-        window.onscroll = function() {
-          const btn = document.getElementById('scrollToTopBtn');
-          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            btn.style.display = 'block';
-          } else {
-            btn.style.display = 'none';
-          }
-        };
 
-        // Função para rolar até o topo
-        function scrollToTop() {
-          window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-      </script>
           <!-- Modal de erro -->
             <dialog class="shadow-4-strong p-4 rounded-8" id="modal">
               <p id="modalMessage"> </p>            
@@ -442,7 +424,27 @@
           </form>
         </div>
     </div>
+          <!-- Botão "Voltar ao topo (seta)" -->
+          <button id="scrollToTopBtn" class="btn btn-warning rounded-pill shadow border-1 border-dark" onclick="scrollToTop()">
+            <i class="fas fa-arrow-up"></i>
+          </button>
+        <!-- Script do botão -->
+          <script>
+          // Exibir o botão após rolar 300px
+            window.onscroll = function() {
+              const btn = document.getElementById('scrollToTopBtn');
+              if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = 'block';
+              } else {
+                btn.style.display = 'none';
+              }
+            };
 
+            // Função para rolar até o topo
+            function scrollToTop() {
+              window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+          </script>
   <!-- === Footer === -->
     <footer id="footer" class="footer fixed-bottom text-center text-lg-start">    
       <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-dark text-bg-warning">

@@ -6,61 +6,69 @@ function ajustaCpf(v) {
     v.value = v.value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
 }
 
-// Função para validar CPF com modal
+// Função para validar CPF sem modal
 function validarCPF(cpf) {	
-    cpf = cpf.value.replace(/[^\d]+/g,'');	
-    if (cpf === '') return false;
+    let valorCPF = cpf.value.replace(/[^\d]+/g,'');	
+    
+    // Resetar a validação quando o campo for vazio
+    if (valorCPF === '') {
+        cpf.classList.remove('is-invalid', 'is-valid');
+        return;
+    }
 
-    // Referência ao modal e à mensagem
-    let modal = document.getElementById('modal');
-    let modalMessage = document.getElementById('modalMessage');
-	
     // Elimina CPFs inválidos conhecidos	
-    if (cpf.length != 11 || 
-        cpf == "00000000000" || 
-        cpf == "11111111111" || 
-        cpf == "22222222222" || 
-        cpf == "33333333333" || 
-        cpf == "44444444444" || 
-        cpf == "55555555555" || 
-        cpf == "66666666666" || 
-        cpf == "77777777777" || 
-        cpf == "88888888888" || 
-        cpf == "99999999999") {
-        modalMessage.textContent = "CPF inválido.";
-        modal.showModal(); // Exibe o modal
+    if (valorCPF.length != 11 || 
+        valorCPF == "00000000000" || 
+        valorCPF == "11111111111" || 
+        valorCPF == "22222222222" || 
+        valorCPF == "33333333333" || 
+        valorCPF == "44444444444" || 
+        valorCPF == "55555555555" || 
+        valorCPF == "66666666666" || 
+        valorCPF == "77777777777" || 
+        valorCPF == "88888888888" || 
+        valorCPF == "99999999999") {
+        cpf.classList.add('is-invalid', 'mb-2');
+        feedback.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        feedback.textContent = "CPF inválido!";
+        cpf.classList.remove('is-valid', 'mb-2');
         return false;
     }
 
     // Valida o 1º dígito	
     let add = 0;
     for (let i = 0; i < 9; i++) {
-        add += parseInt(cpf.charAt(i)) * (10 - i);
+        add += parseInt(valorCPF.charAt(i)) * (10 - i);
     }
     let rev = 11 - (add % 11);
     if (rev === 10 || rev === 11) rev = 0;
-    if (rev != parseInt(cpf.charAt(9))) {
-        modalMessage.textContent = "CPF inválido.";
-        modal.showModal(); // Exibe o modal
+    if (rev != parseInt(valorCPF.charAt(9))) {
+        cpf.classList.add('is-invalid');
+        cpf.classList.remove('is-valid');
         return false;
     }
 
     // Valida o 2º dígito	
     add = 0;
     for (let i = 0; i < 10; i++) {
-        add += parseInt(cpf.charAt(i)) * (11 - i);
+        add += parseInt(valorCPF.charAt(i)) * (11 - i);
     }
     rev = 11 - (add % 11);
     if (rev === 10 || rev === 11) rev = 0;
-    if (rev != parseInt(cpf.charAt(10))) {
-        modalMessage.textContent = "CPF inválido.";
-        modal.showModal(); // Exibe o modal
+    if (rev != parseInt(valorCPF.charAt(10))) {
+        cpf.classList.add('is-invalid');
+        cpf.classList.remove('is-valid');
         return false;
     }
+
+    // Se for válido, adiciona a classe de sucesso
+    cpf.classList.remove('is-invalid');
+    cpf.classList.add('is-valid');
     return true;
 }
 
-// Fechar o modal ao clicar no botão "Fechar"
-document.getElementById("closeModal").addEventListener("click", function() {
-    document.getElementById("modal").close(); // Fecha o modal
-});
+// Função para limpar a validação ao clicar em "Limpar"
+function limparValid() {
+    let cpfInput = document.getElementById('cpf');
+    cpfInput.classList.remove('is-invalid', 'is-valid');
+}
