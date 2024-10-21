@@ -68,3 +68,15 @@ dialog {
         padding: 4rem !important;
     }
 }
+
+
+/* Ícone de olho - senha */
+/* .fa-solid {
+    position: absolute;
+    color: var(--cor-label);
+    margin: 5px -24px;
+    cursor: pointer;
+  }
+  .fa-solid:hover {
+    color: var(--cor-label-hover);
+  }  */
