@@ -28,10 +28,10 @@ function validarCPF(cpf) {
         valorCPF == "77777777777" || 
         valorCPF == "88888888888" || 
         valorCPF == "99999999999") {
-        cpf.classList.add('is-invalid', 'mb-2');
+        cpf.classList.add('is-invalid');
         feedback.classList.add('invalid-feedback', 'ms-2', 'pt-1');
         feedback.textContent = "CPF inválido!";
-        cpf.classList.remove('is-valid', 'mb-2');
+        cpf.classList.remove('is-valid');
         return false;
     }
 

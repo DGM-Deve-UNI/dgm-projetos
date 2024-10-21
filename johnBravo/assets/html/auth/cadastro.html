@@ -46,6 +46,8 @@
   <!-- === Javascript interno === -->
         <script src="../../js/api-cep.js" defer></script>
         <script src="../../js/valid-cpf.js" defer></script>
+        <script src="../../js/form-valid.js" defer></script>
+
 <!-- ======================================== -->
     <title>Cadastro</title>
 </head>
@@ -74,12 +76,18 @@
               <!-- Nome -->
                 <div class="col">
                   <div data-mdb-input-init class="form-outline">
-                    <input class="form-control"
+                    <input class="form-control mb-2"
                           required
                           id="nome" 
                           type="text"
-                          maxlength="15"
-                          minlength="15">
+                          data-required
+                          autocomplete="off"
+                          data-min-length="15"
+                          data-max-length="60"
+                          data-only-letters
+                          minlength="15"
+                          maxlength="60"
+                          pattern="[a-zA-Z\s]+">
 
                       <label class="form-label" for="nome">Digite seu nome</label>
                   </div>
@@ -87,7 +95,7 @@
               <!-- Sobrenome -->
                 <div class="col">
                   <div data-mdb-input-init class="form-outline">
-                    <input class="form-control"
+                    <input class="form-control mb-2"
                           required
                           id="sobrenome" 
                           type="text"
@@ -159,11 +167,11 @@
             </div>
         <!-- ---------------------------------------- -->
           <!-- CPF -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                   type="text" 
                   id="cpf" 
-                  class="form-control"
+                  class="form-control mb-2"
                   placeholder="000.000.000-00"
                   onkeydown="ajustaCpf(this)" 
                   onkeyup="ajustaCpf(this)"
@@ -178,11 +186,11 @@
             </div>
         <!-- ---------------------------------------- -->
           <!-- Email input -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                   type="email" 
                   id="email" 
-                  class="form-control"
+                  class="form-control mb-2"
                   required
                   data-required
                   data-email-validate
@@ -193,11 +201,11 @@
             </div>
         <!-- ---------------------------------------- -->
           <!-- Celular -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                   type="tel" 
                   id="celular" 
-                  class="form-control"
+                  class="form-control mb-2"
                   placeholder="(+55) xx-xxxxx-xxxx" 
                   required
                   autocomplete="off"
@@ -207,11 +215,11 @@
               <label class="form-label" for="celular">Telefone Celular</label>
             </div>
           <!-- Fixo -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                   type="tel" 
                   id="telFixo" 
-                  class="form-control"
+                  class="form-control mb-2"
                   placeholder="(+55) xx-xxxx-xxxx" 
                   required
                   autocomplete="off"
@@ -227,11 +235,11 @@
               <hr style="margin: 0px 0px 16px; padding: 0px 12px;">
         <!-- ---------------------------------------- -->
           <!-- CEP -->
-          <div data-mdb-input-init class="form-outline mb-4">
+          <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
             <input 
                 type="text" 
                 id="cep" 
-                class="form-control form-control"
+                class="form-control mb-2"
                 title="Digite seu CEP."
                 placeholder="00000-000" required
                 data-required
@@ -243,11 +251,11 @@
           </div>
         <!-- ---------------------------------------- -->
           <!-- Endereço -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                 type="text" 
                 id="endereco" 
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Rua, Avenida, etc." 
                 required
                 data-required
@@ -257,11 +265,11 @@
             </div>
         <!-- ---------------------------------------- -->
           <!-- Número -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                   type="number" 
                   id="numero" 
-                  class="form-control"
+                  class="form-control mb-2"
                   placeholder="Número da rua, qrd, etc..." 
                   required
                   data-required>
@@ -306,11 +314,11 @@
               </div>
         <!-- ---------------------------------------- -->
           <!-- Cidade -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                 type="text" 
                 id="cidade" 
-                class="form-control"
+                class="form-control mb-2"
                 required
                 data-required>
                 
@@ -318,11 +326,11 @@
             </div>
         <!-- ---------------------------------------- -->
           <!-- Bairro -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                 type="text" 
                 id="bairro" 
-                class="form-control"
+                class="form-control mb-2"
                 required
                 data-required>
                 
@@ -330,9 +338,9 @@
             </div>
         <!-- ---------------------------------------- -->
           <!-- Complemento -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <textarea 
-                class="form-control" 
+                class="form-control mb-2" 
                 id="complemento"
                 placeholder="(Opcional)"
                 rows="2"></textarea>
@@ -345,43 +353,45 @@
               <hr style="margin: 0px 0px 16px; padding: 0px 12px;">
        <!-- ---------------------------------------- -->
           <!-- Login -->
-            <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
+            <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
               <input 
                 type="email" 
                 id="login" 
-                class="inputs- form-control">
+                class="inputs- form-control mb-2">
                 
               <label class="form-label" for="login" style="margin-left: 0px;">Login</label>
             </div>
        <!-- ---------------------------------------- -->
           <!-- Senha -->
-            <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
+            <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
               <input 
                 type="password" 
                 id="senha" 
-                class="form-control"
+                class="form-control mb-2"
                 required
                 data-required
                 data-login-length="6"
                 data-only-letters
                 minlength="6"
                 maxlength="6">
+                <i class="fa-solid fa-eye" id="eye-icon"></i>
                 
               <label class="form-label" for="senha" style="margin-left: 0px;">Senha</label>
             </div>
        <!-- ---------------------------------------- -->
           <!-- Confirmar Senha -->
-            <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
+            <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
               <input 
                 type="password" 
                 id="confirSenha" 
-                class="form-control"
+                class="form-control mb-2"
                 required
                 data-required
                 data-login-length="6"
                 data-only-letters
                 minlength="6"
                 maxlength="6">
+                <i class="fa-solid fa-eye" id="eye-icon"></i>
                 
               <label class="form-label" for="confirSenha" style="margin-left: 0px;">Confirme sua senha</label>
             </div>

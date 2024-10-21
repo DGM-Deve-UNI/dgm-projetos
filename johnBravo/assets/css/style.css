@@ -66,6 +66,10 @@
     color: var(--preto);
 }
 
+.jb-mb-4-2 {
+    margin-bottom: 1.9rem !important;
+}
+
 /* ===- Config Modo Claro/Escuro -=== */
 /* custom global */
 [data-bs-theme="light"] .text-bg-custom {
