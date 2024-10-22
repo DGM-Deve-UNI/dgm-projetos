@@ -29,15 +29,14 @@
       <!-- Js Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-        <!-- === API Map - CSS === -->
+      <!-- === API Map - CSS === -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  
+
   <!-- === CSS interno === -->
         <link rel="stylesheet" href="./assets/css/style.css">
   <!-- === Javascript interno === -->
-        <script src="./assets/js/index.js" defer></script>
-        <!-- <script src="./assets/js/api-cep.js" defer></script> -->
-<!-- ======================================== -->
+
+  <!-- ======================================== -->
     <title>JohnBravo Barbearia</title>
 </head>
 <body>
@@ -175,27 +174,11 @@
       
     <!-- === Main === -->
       <main id="content" class=""></main>
-      <!-- Botão "Voltar ao topo (seta)" -->
-      <button id="scrollToTopBtn" class="btn btn-warning rounded-pill shadow border-1 border-dark" onclick="scrollToTop()">
+
+    <!-- Botão "Voltar ao topo (seta)" -->
+      <button id="scrollToTopBtn" class="btn btn-warning rounded-pill shadow" onclick="scrollToTop()">
         <i class="fas fa-arrow-up"></i>
       </button>
-      <!-- Script do botão -->
-      <script>
-      // Exibir o botão após rolar 300px
-        window.onscroll = function() {
-          const btn = document.getElementById('scrollToTopBtn');
-          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            btn.style.display = 'block';
-          } else {
-            btn.style.display = 'none';
-          }
-        };
-
-        // Função para rolar até o topo
-        function scrollToTop() {
-          window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-      </script>
 
     <!-- === Footer === -->
       <footer id="footer" class="footer text-bg-footer-custom rounded-4 text-center text-lg-start text-muted">
@@ -282,6 +265,8 @@
       </footer>
     </div>
     
+    <!-- === Script Global === -->
+     <script type="module" src="./assets/js/script.js"></script>
     <!-- === API Map - JS === -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </body>
