@@ -114,3 +114,7 @@
 [data-bs-theme="dark"] .img-custom {
     content: url('../imgs/logos/white/logo-white.png');
 }
+
+[data-bs-theme="dark"] .invert-dark {
+    filter: invert(1);
+}

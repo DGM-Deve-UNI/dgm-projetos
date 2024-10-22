@@ -41,6 +41,11 @@
     width: 100%;
     color: var(--branco);
 }
+
+.text-box-title {
+    z-index: 2;
+    padding: 5rem 0 0 0;
+}
 /* === Texto da página === */
 .text-home {
     width: 100%;
