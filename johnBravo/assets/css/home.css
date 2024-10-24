@@ -27,10 +27,42 @@
 #section2 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://img.freepik.com/fotos-premium/uma-tabua-preta-com-tesouras-e-uma-taboa-preta-com-um-rotulo-que-diz-cabelo_955834-53974.jpg)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+/* -- Imagem de fundo "section 3" -- */
+#section3 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://d1muf25xaso8hp.cloudfront.net/https://img.criativodahora.com.br/2024/03/criativo-660976974a019img-2024-03-31660976974a01e.jpg?w=1000&h=&auto=compress&dpr=1&fit=max)
+        no-repeat /* repeat */
+        center /* position */
+        center/cover /* size */;
+}
+
+/* -- Imagem de fundo "section 4" -- */
+#section4 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
         url(../imgs/banner-2.png)
         no-repeat /* repeat */
         top /* position */
         center/cover /* size */;
+}
+/* -- Imagem de fundo "section 5" -- */
+#section5 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://img.freepik.com/fotos-premium/palo-de-barbeiro-classico-em-fundo-de-madeira_1258195-1207.jpg?semt=ais_hybrid)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+/* Efeito desfoque imagem de fundo */
+.img-dfc {
+    filter: blur(5px); /* Aplica o efeito de desfoque */
 }
 /* === "div" global de texto === */
 .text-box {
@@ -64,23 +96,15 @@
     margin: 2rem 0 3rem 0;
 }
 
-.barber-pole {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin: -1px 0; /* remove o espaço abaixo do SVG */
+.hr-custom {
+    border: none;
+    height: 8px;
+    /* width: 20px; */
+    background: linear-gradient(135deg, #ffc107 33%, #ffffff 33%, #ffffff 66%, #ffc107 66%);
+    /* border-radius: 10px; */
+    box-shadow: 2px 10px 16px 7px #212529b3;
+    margin: 0;
 }
-
-
-.wave-divider {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 50%;
-    margin: -1px 0; /* remove o espaço abaixo do SVG */
-}
-
 
 /* === Responsividade da "div" e texto da página === */
 @media (max-width: 768px) {
