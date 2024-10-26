@@ -38,7 +38,8 @@
   <!-- === CSS interno === -->
         <link rel="stylesheet" href="../../css/style.css">
   <!-- === Javascript interno === -->
-        <script src="" defer></script>
+        <script src="../../js/passView.js" defer></script>
+        <!-- <script src="../../js/form-valid.js" defer></script> -->
 <!-- ======================================== -->
     <title>Login</title>
 </head>
@@ -72,14 +73,21 @@
                 </div>
             </div>
 
-            <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
-              <input type="password" id="form2Example27" class="form-control form-control-lg" required>
-              <label class="form-label" for="form2Example27" style="margin-left: 0px;">Senha</label>
-                <div class="form-notch">
-                  <div class="form-notch-leading" style="width: 9px;"></div>
-                  <div class="form-notch-middle" style="width: 64.8px;"></div>
-                  <div class="form-notch-trailing"></div>
-                </div>
+          <!-- Senha -->
+            <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
+              <input 
+                type="password" 
+                id="senha" 
+                class="form-control form-control-lg"
+                required
+                data-required
+                data-login-length="6"
+                data-only-letters
+                minlength="6"
+                maxlength="6">
+                
+              <label class="form-label" for="senha" style="margin-left: 0px;">Senha</label>
+              <i class="fa-solid fa-eye" id="eye-icon" style="top: 15px;" data-target="senha"></i>
             </div>
 
             <div class="pt-1 mb-4">

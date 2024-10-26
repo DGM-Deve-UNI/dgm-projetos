@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br"  data-mdb-theme="dark>
+<html lang="pt-br"  data-mdb-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +51,7 @@
 <!-- ======================================== -->
     <title>Cadastro</title>
 </head>
-<body data-mdb-theme="dark>
+<body>
   <!-- Botão voltar (mini navbar) -->
     <div class="button-back navbar navbar-expand-lg p-2"><a href="javascript:history.back()" class="voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a></div>
   
@@ -82,14 +82,11 @@
                           type="text"
                           data-required
                           autocomplete="off"
-                          data-min-length="15"
-                          data-max-length="60"
-                          data-only-letters
                           minlength="15"
-                          maxlength="60"
-                          pattern="[a-zA-Z\s]+">
+                          maxlength="60">
 
                       <label class="form-label" for="nome">Digite seu nome</label>
+                      <span class="" style="font-size: 12px;" id="feedbackNome"></span>
                   </div>
                 </div>
               <!-- Sobrenome -->
@@ -103,6 +100,7 @@
                           minlength="15">
 
                       <label class="form-label" for="sobrenome">Digite seu sobrenome</label>
+                      <span class="" style="font-size: 12px;" id="feedbackSobrenome"></span>
                   </div>
                 </div>
               </div>
@@ -182,7 +180,7 @@
                   minlength="14"
                   autocomplete="off">
               <label class="form-label" for="cpf">CPF</label>
-              <span class="" style="font-size: 12px;" id="feedback"></span>
+              <span class="" style="font-size: 12px;" id="feedbackCPF"></span>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Email input -->
@@ -347,11 +345,11 @@
                 
               <label class="form-label" for="complemento">Complemento</label>
             </div>
-       <!-- ---------------------------------------- -->
+        <!-- ---------------------------------------- -->
           <!-- Sub título -->
             <p class="fw-normal text-center mb-0 pb-0" style="letter-spacing: 1px;">Login e senha</p>
               <hr style="margin: 0px 0px 16px; padding: 0px 12px;">
-       <!-- ---------------------------------------- -->
+        <!-- ---------------------------------------- -->
           <!-- Login -->
             <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
               <input 
@@ -361,7 +359,7 @@
                 
               <label class="form-label" for="login" style="margin-left: 0px;">Login</label>
             </div>
-       <!-- ---------------------------------------- -->
+        <!-- ---------------------------------------- -->
           <!-- Senha -->
             <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
               <input 
@@ -374,16 +372,16 @@
                 data-only-letters
                 minlength="6"
                 maxlength="6">
-                <!-- <i class="fa-solid fa-eye" id="eye-icon"></i> -->
                 
               <label class="form-label" for="senha" style="margin-left: 0px;">Senha</label>
+              <i class="fa-solid fa-eye" id="eye-icon" data-target="senha"></i>
             </div>
-       <!-- ---------------------------------------- -->
+        <!-- ---------------------------------------- -->
           <!-- Confirmar Senha -->
             <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
               <input 
                 type="password" 
-                id="confirSenha" 
+                id="confiSenha" 
                 class="form-control mb-2"
                 required
                 data-required
@@ -391,19 +389,10 @@
                 data-only-letters
                 minlength="6"
                 maxlength="6">
-                <!-- <i class="fa-solid fa-eye" id="eye-icon"></i> -->
                 
               <label class="form-label" for="confirSenha" style="margin-left: 0px;">Confirme sua senha</label>
+              <i class="fa-solid fa-eye eye-jb" id="eye-icon" data-target="confiSenha"></i>
             </div>
-
-            <!-- <div class="input-group mb-3">
-              <input type="password" class="form-control" id="password" placeholder="Senha">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                  <i class="bi bi-eye"></i>
-                </button>
-              </div>
-            </div> -->
         <!-- ---------------------------------------- -->
           <!-- Checkbox -->
             <div class="form-check d-flex justify-content-center mb-4">
@@ -422,7 +411,7 @@
             <div class="row mb-2">
             <!-- Botão Castrar -->
               <div class="col">
-                <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4 bg-success rounded-pill">Cadastrar</button>
+                <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4 bg-success rounded-pill" onclick="cadastrar()">Cadastrar</button>
               </div>
           <!-- ---------------------------------------- -->
             <!-- Botão Limpar -->
@@ -430,9 +419,10 @@
                 <button data-mdb-ripple-init type="reset" class="btn btn-primary btn-block mb-4 bg-danger rounded-pill" onclick="limparValid()">Limpar</button>
               </div>
             </div>
-          <!-- - Voltar a página de Login - -->
+        <!-- ---------------------------------------- -->
+          <!-- -= Voltar a página de Login =- -->
             <p>Já possui uma conta? <a href="./login.html">Fazer login</a>.</p>
-
+        <!-- ---------------------------------------- -->
           <!-- Modal de erro -->
             <dialog class="shadow-4-strong p-4 rounded-8" id="modal">
               <p id="modalMessage"> </p>            

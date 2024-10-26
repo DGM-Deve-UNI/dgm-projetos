@@ -29,8 +29,8 @@ function validarCPF(cpf) {
         valorCPF == "88888888888" || 
         valorCPF == "99999999999") {
         cpf.classList.add('is-invalid');
-        feedback.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-        feedback.textContent = "CPF inválido!";
+        feedbackCPF.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        feedbackCPF.textContent = "CPF inválido!";
         cpf.classList.remove('is-valid');
         return false;
     }

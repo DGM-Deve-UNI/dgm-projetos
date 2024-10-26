@@ -70,14 +70,24 @@ dialog {
     }
 }
 
+/* Para ocultar o ícone de visualização padrão */
+input[type="password"] {
+    position: relative;
+}
 
+input[type="password"]::-ms-reveal, 
+input[type="password"]::-ms-clear {
+    display: none; /* Para navegadores que suportam */
+}
 /* Ícone de olho - senha */
-/* .fa-solid {
+#eye-icon {
     position: absolute;
+    top: 11px;
+    right: 17px;
     color: var(--cor-label);
-    margin: 5px -24px;
+    /* margin: 5px -24px; */
     cursor: pointer;
   }
-  .fa-solid:hover {
+  #eye-icon:hover {
     color: var(--cor-label-hover);
-  }  */
+  } 
