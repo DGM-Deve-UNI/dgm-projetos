@@ -35,6 +35,9 @@
     font-weight: weight;
     font-style: normal;
 }
+body, footer, div, section, i, a, ul, li {
+    transition: background 0.1s linear;
+}
 /* ---- Config "main" (index) ---- */
 #content {
     position: relative;
@@ -89,11 +92,11 @@
 }
 /* Botão "A+ / A-" */
 [data-bs-theme="light"] .js-border-text-warning {
-    border: solid var(--cinza-escuro) !important;
+    border: 2px solid var(--cinza-escuro) !important;
     color: var(--cinza-escuro) !important;
 }
 [data-bs-theme="dark"] .js-border-text-warning {
-    border: solid var(--amarelo) !important;
+    border: 2px solid var(--amarelo) !important;
     color: var(--amarelo) !important;
 }
 /* custom footer */

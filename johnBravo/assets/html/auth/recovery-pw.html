@@ -44,9 +44,32 @@
 </head>
 <body>
   <!-- Botão voltar (mini navbar) -->
-    <div class="button-back navbar navbar-expand-lg p-2 ">
-      <a href="javascript:history.back()" class="voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
-    </div>
+    <nav class="button-back navbar text-bg-footer-custom navbar-expand-lg p-2">
+      <div class="container-fluid">
+        <a href="javascript:history.back()" class="jb-fa-arrow jb-text-white"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
+
+      <!-- Botões de acessibilidade -->
+        <div class="p-3 ps-0 d-flex">
+          <!-- Botão Theme Mode -->
+            <div class="d-flex align-items-center p-0 m-0  me-2">
+              <input class="chk" type="checkbox" name="theme-mode" id="dark-mode-toggle">
+
+              <label class="btn-toggle fs-6 d-flex justify-content-between align-items-center bg-black rounded-pill" for="dark-mode-toggle">
+                <i class="fa-solid fa-sun d-flex align-items-center justify-content-center"></i>
+                <span class="toggle-slider"></span>
+                <i class="fa-solid fa-moon d-flex align-items-center justify-content-center"></i>
+              </label>
+            </div>
+      
+          <!-- Botão para aumentar o texto -->
+            <button id="increase-font-btn" class="btn btn-outline-warning p-0 btn-sm me-2 rounded-pill border-2 js-border-text-warning" type="button"><i class="fa-solid fa-magnifying-glass-plus p-2"></i></button>
+          <!-- Botão para diminuir o texto -->
+            <button id="decrease-font-btn" class="btn btn-outline-warning p-0 btn-sm rounded-pill border-2 js-border-text-warning" type="button"><i class="fa-solid fa-magnifying-glass-minus p-2"></i></button>
+        </div>
+
+        </div>
+      </div>
+    </nav>
 
   <!-- Formulário -->
     <div id="docsTabsOverview" role="tabpanel" aria-labelledby="docs-tab-overview" 
@@ -101,6 +124,11 @@
           </form>
       </div>
     </div>
+
+  <!-- Botão "Voltar ao topo (seta)" -->
+    <button id="scrollToTopBtn" class="btn mb-8 mb-md-6 p-0 btn-warning rounded-pill shadow text-dark" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up p-3"></i>
+    </button>
     
   <!-- === Footer === -->
     <footer id="footer" class="footer fixed-bottom text-center text-lg-start">    
@@ -120,8 +148,10 @@
       <!-- Right \-->         
       </section>
     </footer>
-  
+
+  <!-- Script Global auth -->
+    <script type="module" src="/johnBravo/assets/js/authScript.js"></script>
   <!-- ==== JavaScript MDB ==== -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
 </body>
 </html>

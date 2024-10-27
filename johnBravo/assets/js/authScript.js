@@ -1,25 +1,9 @@
-import { loadPage } from './utils/loadPage.js';
-import { setupLinks } from './utils/setupLinks.js';
-import { highlightMenu } from './utils/highlightMenu.js';
 import { setTheme } from './utils/theme.js';
-import { setupAccessibility } from './utils/accessibility.js';
+import { fecharEVoltar, limparCampos } from './utils/modalUtils.js';
 import { handleScrollToTopButton, scrollToTop } from './utils/scrollToTop.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const contentDiv = document.getElementById('content');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-    const navbarToggler = document.querySelector('.navbar-toggler');
 
-    const initialPage = sessionStorage.getItem('currentPage') || 'assets/html/pages/home.html';
-    loadPage(initialPage, contentDiv);
-    // setupLinks(contentDiv);
-
-    setupLinks(contentDiv, navbarCollapse, navbarToggler);
-    
-    const currentLink = [...document.querySelectorAll('nav a, footer a')].find(link => link.getAttribute('href') === initialPage);
-    if (currentLink) {
-        highlightMenu(currentLink);
-    }
 
     // --- Seção de Dark Mode ---
     const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -36,10 +20,36 @@ document.addEventListener('DOMContentLoaded', () => {
     handleScrollToTopButton();
     document.getElementById('scrollToTopBtn').addEventListener('click', scrollToTop);
 
-
     // --- Seção de Acessibilidade ---
     const increaseFontBtn = document.getElementById('increase-font-btn');
     const decreaseFontBtn = document.getElementById('decrease-font-btn');
     let fontSize = localStorage.getItem('fontSize') ? parseInt(localStorage.getItem('fontSize')) : 16;
-    setupAccessibility(fontSize, increaseFontBtn, decreaseFontBtn);
+    
+    // Configurar tamanho da fonte, se necessário
+    document.body.style.fontSize = `${fontSize}px`;
+    increaseFontBtn.addEventListener('click', () => {
+        fontSize += 2;
+        document.body.style.fontSize = `${fontSize}px`;
+        localStorage.setItem('fontSize', fontSize);
+    });
+    decreaseFontBtn.addEventListener('click', () => {
+        fontSize = Math.max(12, fontSize - 2);
+        document.body.style.fontSize = `${fontSize}px`;
+        localStorage.setItem('fontSize', fontSize);
+    });
+
+    // Chamar fecharEVoltar ao clicar em um botão de fechar o modal
+    const closeButton = document.getElementById('closeModalButton');
+    if (closeButton) {
+        closeButton.addEventListener('click', fecharEVoltar);
+    }
+
+    // Chamar limparCampos ao abrir o modal
+    // Adiciona o listener ao botão de cancelar
+    const cancelButton = document.getElementById('cancelButton');
+    if (cancelButton) {
+        cancelButton.addEventListener('click', () => {
+            limparCampos(); // Chama a função para limpar os campos
+        });
+    }
 });

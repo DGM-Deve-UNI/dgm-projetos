@@ -1,16 +1,12 @@
-export function setTheme(mode, darkModeToggle, darkModeIcon, htmlTag) {
+export function setTheme(mode, darkModeToggle, htmlTag) {
     if (mode === 'dark') {
         htmlTag.setAttribute('data-bs-theme', 'dark');
-        darkModeToggle.classList.add('active');
-        darkModeIcon.classList.remove('fa-sun');
-        darkModeIcon.classList.add('fa-moon');
-        // document.querySelector('link[rel="icon"]').setAttribute('href', '../assets/imgs/icons/dark/icon.png');
+        htmlTag.setAttribute('data-mdb-theme', 'dark'); // Adiciona o atributo para MDB
+        darkModeToggle.checked = false; // Marca o checkbox como ativo
     } else {
         htmlTag.setAttribute('data-bs-theme', 'light');
-        darkModeToggle.classList.remove('active');
-        darkModeIcon.classList.remove('fa-moon');
-        darkModeIcon.classList.add('fa-sun');
-        // document.querySelector('link[rel="icon"]').setAttribute('href', '../assets/imgs/icons/light/icon.png');
+        htmlTag.setAttribute('data-mdb-theme', 'light'); // Adiciona o atributo para MDB
+        darkModeToggle.checked = true; // Desmarca o checkbox
     }
     localStorage.setItem('theme', mode); // Armazena a preferência do tema
 }
