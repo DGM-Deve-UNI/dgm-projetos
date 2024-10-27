@@ -7,10 +7,14 @@ import { handleScrollToTopButton, scrollToTop } from './utils/scrollToTop.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const contentDiv = document.getElementById('content');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const navbarToggler = document.querySelector('.navbar-toggler');
 
     const initialPage = sessionStorage.getItem('currentPage') || 'assets/html/pages/home.html';
     loadPage(initialPage, contentDiv);
-    setupLinks(contentDiv);
+    // setupLinks(contentDiv);
+
+    setupLinks(contentDiv, navbarCollapse, navbarToggler);
     
     const currentLink = [...document.querySelectorAll('nav a, footer a')].find(link => link.getAttribute('href') === initialPage);
     if (currentLink) {
@@ -40,11 +44,5 @@ document.addEventListener('DOMContentLoaded', () => {
     let fontSize = localStorage.getItem('fontSize') ? parseInt(localStorage.getItem('fontSize')) : 16;
     setupAccessibility(fontSize, increaseFontBtn, decreaseFontBtn);
 
-    // --- Fechar o menu ao clicar e alternar o ícone ---
-    const links = document.querySelectorAll('nav a, footer a');
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            closeNavbar(navbarCollapse, navbarToggler); // Fecha o menu e alterna o ícone
-        });
-    });
+
 });

@@ -1,8 +1,10 @@
 import { loadPage } from './loadPage.js';
 import { highlightMenu } from './highlightMenu.js';
+import { closeNavbar } from './closeNavMenu.js';
 
-export function setupLinks(contentDiv) {
+export function setupLinks(contentDiv, navbarCollapse, navbarToggler) {
     const links = document.querySelectorAll('nav a, footer a');
+    
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -16,6 +18,8 @@ export function setupLinks(contentDiv) {
             loadPage(url, contentDiv);
             highlightMenu(link);
             sessionStorage.setItem('currentPage', url);
+
+            closeNavbar(navbarCollapse, navbarToggler);
         });
     });
 }
