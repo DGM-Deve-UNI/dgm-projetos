@@ -51,11 +51,11 @@
 
 /* ===- Modo claro/escuro imagem logo -=== */
 /* Imagem para o tema claro */
-[data-mdb-theme="light"] .img-custom {
+[data-mdb-theme="light"] .  {
     content: url('../../assets/imgs/icons/dark/icon-txt.png') !important;
 }
 /* Imagem para o tema escuro */
-[data-mdb-theme="dark"] .img-custom {
+[data-mdb-theme="dark"] .logo-txt-custom {
     content: url('../../assets/imgs/icons/white/icon-txt-white.png') !important;
 }
 

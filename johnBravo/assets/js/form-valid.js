@@ -54,6 +54,35 @@ function validarCampo(input, feedback) {
     }
 }
 //  ===================================================================
+// function validatorEmail(email) {
+//     let emailPattern =
+//       /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+//     return emailPattern.test(email);
+//   }
+
+email.addEventListener('keyup', () => {
+
+    if (email.value.length === 0) {
+        email.classList.remove('is-invalid', 'is-valid');
+        feedbackEmail.textContent = ""; // Limpa a mensagem de feedback
+        validEmail = false
+        return;
+    }
+
+    if(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/.test(email.value)) {
+        email.classList.add('is-invalid');
+        feedbackEmail.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        feedbackEmail.textContent = "Use um email válido!";
+        validEmail = false
+    } else {
+        email.classList.remove('is-invalid');
+        feedbackEmail.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
+        feedbackEmail.textContent = ""; // Limpa a mensagem de feedback
+        e0mail.classList.add('is-valid'); // Adiciona classe se válido
+        validEmail = true
+    }
+})
+//  ===================================================================
 // Validação de login
 login.addEventListener('keyup', () => {
 
