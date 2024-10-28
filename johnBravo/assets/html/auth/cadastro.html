@@ -107,7 +107,7 @@
                           type="text"
                           data-required
                           autocomplete="off"
-                          minlength="15"
+                          minlength="3"
                           maxlength="60">
 
                       <label class="form-label" for="nome">Digite seu nome</label>
@@ -121,8 +121,8 @@
                           required
                           id="sobrenome" 
                           type="text"
-                          maxlength="15"
-                          minlength="15">
+                          minlength="3"
+                          maxlength="60">
 
                       <label class="form-label" for="sobrenome">Digite seu sobrenome</label>
                       <span class="" style="font-size: 12px;" id="feedbackSobrenome"></span>
@@ -378,11 +378,14 @@
           <!-- Login -->
             <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
               <input 
-                type="email" 
+                type="text" 
                 id="login" 
+                minlength="6"
+                maxlength="8"
                 class="inputs- form-control mb-2">
                 
               <label class="form-label" for="login" style="margin-left: 0px;">Login</label>
+              <span class="" style="font-size: 12px;" id="feedbackLogin"></span>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Senha -->
@@ -392,14 +395,12 @@
                 id="senha" 
                 class="form-control mb-2"
                 required
-                data-required
-                data-login-length="6"
-                data-only-letters
-                minlength="6"
+                minlength="3"
                 maxlength="6">
                 
               <label class="form-label" for="senha" style="margin-left: 0px;">Senha</label>
               <i class="fa-solid fa-eye" id="eye-icon" data-target="senha"></i>
+              <span class="" style="font-size: 12px;" id="feedbackSenha"></span>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Confirmar Senha -->
@@ -409,14 +410,12 @@
                 id="confiSenha" 
                 class="form-control mb-2"
                 required
-                data-required
-                data-login-length="6"
-                data-only-letters
                 minlength="6"
                 maxlength="6">
                 
               <label class="form-label" for="confirSenha" style="margin-left: 0px;">Confirme sua senha</label>
               <i class="fa-solid fa-eye eye-jb" id="eye-icon" data-target="confiSenha"></i>
+              <span class="" style="font-size: 12px;" id="feedbackConfiSenha"></span>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Checkbox -->
@@ -449,7 +448,7 @@
             <p>Já possui uma conta? <a href="./login.html">Fazer login</a>.</p>
         <!-- ---------------------------------------- -->
           <!-- Modal de erro -->
-            <dialog class="shadow-4-strong p-4 rounded-8" id="modal">
+            <dialog class="shadow-4-strong p-4 rounded-8 border border-2 border-danger-subtle bg-danger-subtle" id="modal">
               <p id="modalMessage"> </p>            
               <div class="d-flex justify-content-center align-items-center">
                 <button class="btn btn-danger btn-rounded" id="closeModal">Fechar</button>
