@@ -150,3 +150,44 @@
 .jb-fs-7 {
   font-size: 0.9rem;
 }
+
+[data-bs-theme="dark"] .carousel .carousel-indicators [data-bs-target] {
+    background-color: var(--branco);
+}
+/* [data-bs-theme="light"] .carousel .carousel-indicators [data-bs-target] {
+    background-color: var(--branco);
+} */
+/* [data-bs-theme="light"] .carousel .carousel-indicators [data-bs-target] {
+    background-color: var(--preto);
+} */
+
+/* [data-bs-theme=light] .carousel .fa-chevron-left, 
+[data-bs-theme=light] .carousel .fa-chevron-right {
+    color: var(--preto);
+} */
+
+.carousel {
+    height: 360px !important;
+}
+
+
+@media (min-width: 344px) {
+    .carousel {
+        height: 540px !important;
+    }
+}
+@media (min-width: 375px) {
+    .carousel {
+        height: 500px !important;
+    }
+}
+@media (min-width: 360px) {
+    .carousel {
+        height: 500px !important;
+    }
+}
+@media (min-width: 768px) {
+    .carousel {
+        height: 400px !important;
+    }
+}
