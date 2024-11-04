@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- === Icon do site === -->
-        <link rel="icon" href="../../imgs/icons/dark/icon.png" type="image/svg+xml">
+    <link rel="icon" href="../../imgs/icons/dark/icon.png" type="image/svg+xml">
   <!-- === Descrição do site ===  -->  
     <meta name="description" content="Página de Cadastro - JohnBravo Barbearia">
     <!-- === Autor do site === -->
     <meta name="author" content="DGM Web Developer®">
 
   <!-- === CDN fonts icons Awesome === -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
   <!-- === Fonts Google === -->
-      <!-- Font Montserrat -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-      <!-- Font Lalezar -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
-      <!-- MDB Font - Roboto -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- Font Montserrat -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Font Lalezar -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <!-- MDB Font - Roboto -->
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
   <!-- === CDN Bootstrap === -->
       <!-- CSS Bootstrap -->
@@ -32,24 +32,24 @@
         <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
 
   <!-- ==== CDN MDB ==== -->
-      <!-- MDB - css -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet">
+    <!-- MDB - css -->
+      <link href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.0.0/css/mdb.min.css" rel="stylesheet">
   <!-- Flatpickr CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
         
   <!-- Flatpickr para português -->
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
 
   <!-- === CSS interno === -->
-        <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
   <!-- === Javascript interno === -->
-        <script src="../../js/api-cep.js" defer></script>
-        <script src="../../js/valid-cpf.js" defer></script>
-        <script src="../../js/form-valid.js" defer></script>
+    <script src="../../js/api-cep.js" defer></script>
+    <script src="../../js/valid-cpf.js" defer></script>
+    <script src="../../js/form-valid.js" defer></script>
 
 <!-- ======================================== -->
-    <title>Cadastro</title>
+  <title>Cadastro</title>
 </head>
 <body>
   <!-- Botão voltar (mini navbar) -->
@@ -85,7 +85,7 @@
         class="d-flex row m-3 justify-content-center align-items-center tab-pane fade in show active" >
       <!-- "div" Form -->
         <div class="card p-4 p-lg-5 shadow-lg col-md-6 col-lg-7 d-flex mt-lg-5 mt-md-5 mb-10">
-          <form class="">
+          <form onsubmit="cadastrar(event)">
             <!-- Logo -->
               <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
                   <img class="mb-0 logo-txt-custom" src="../../imgs/icons/dark/icon-txt.png" alt="JohnBravo Barbearia" width="200">
@@ -138,9 +138,12 @@
                         id="data" 
                         type="date"
                         maxlength="8"
-                        placeholder="dd/mm/aaaa">
+                        placeholder="dd/mm/aaaa"
+                        pattern="dd/mm/aaaa"
+                        >
 
                     <label class="form-label" for="data">Data de Nascimento</label>
+                    <span class="" style="font-size: 12px;" id="feedbackData"></span>
                 </div>
             </div>
         <!-- ---------------------------------------- -->
@@ -159,7 +162,7 @@
                       data-gender-validate
                       required>
                       
-                  <label class="form-check-label" for="maleGender">Masculino</label>
+                  <label class="form-check-label m-0" for="maleGender">Masculino</label>
                 </div>
               <!-- Feminino -->
                 <div class="form-check form-check-inline">
@@ -172,7 +175,7 @@
                       data-gender-validate
                       required>
                       
-                  <label class="form-check-label" for="femaleGender">Feminino</label>
+                  <label class="form-check-label m-0" for="femaleGender">Feminino</label>
                 </div>
               <!-- Não declarado -->
                 <div class="form-check form-check-inline">
@@ -185,7 +188,7 @@
                       data-gender-validate
                       required>
                       
-                  <label class="form-check-label" for="otherGender">Não declarar</label>
+                  <label class="form-check-label m-0" for="otherGender">Não declarar</label>
                 </div>
             </div>
         <!-- ---------------------------------------- -->
@@ -230,13 +233,13 @@
                   type="tel" 
                   id="celular" 
                   class="form-control mb-2"
-                  placeholder="(+55) xx-xxxxx-xxxx" 
+                  placeholder="(xx) Xxxxx-xxxx" 
                   required
                   autocomplete="off"
-                  minlength="18"
-                  data-required>
+                  minlength="16">
                   
               <label class="form-label" for="celular">Telefone Celular</label>
+              <span class="" style="font-size: 12px;" id="feedbackCel"></span>
             </div>
           <!-- Fixo -->
             <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
@@ -244,14 +247,13 @@
                   type="tel" 
                   id="telFixo" 
                   class="form-control mb-2"
-                  placeholder="(+55) xx-xxxx-xxxx" 
+                  placeholder="(xx) xxxx-xxxx" 
                   required
                   autocomplete="off"
-                  data-tel-length="17"
-                  minlength="17"
-                  data-required>
+                  minlength="15">
                   
               <label class="form-label" for="telFixo">Telefone Fixo</label>
+              <span class="" style="font-size: 12px;" id="feedbackTel"></span>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Sub título -->
@@ -272,6 +274,7 @@
                 maxlength="9"
                 pattern="[0-9]{5}-[0-9]{3}">
             <label class="form-label" for="cep">CEP</label>
+            <span class="" style="font-size: 12px;" id="feedbackCep"></span>
           </div>
         <!-- ---------------------------------------- -->
           <!-- Endereço -->
@@ -414,7 +417,7 @@
                 minlength="6"
                 maxlength="6">
                 
-              <label class="form-label" for="confirSenha" style="margin-left: 0px;">Confirme sua senha</label>
+              <label class="form-label" for="confiSenha" style="margin-left: 0px;">Confirme sua senha</label>
               <i class="fa-solid fa-eye eye-jb" id="eye-icon" data-target="confiSenha"></i>
               <span class="" style="font-size: 12px;" id="feedbackConfiSenha"></span>
             </div>
@@ -436,12 +439,12 @@
             <div class="row mb-2">
             <!-- Botão Castrar -->
               <div class="col">
-                <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4 bg-success rounded-pill" onclick="cadastrar()">Cadastrar</button>
+                <button data-mdb-ripple-init type="submit" id="submitBtn" class="btn btn-primary btn-block mb-4 bg-success rounded-pill" onclick="cadastrar()">Cadastrar</button>
               </div>
           <!-- ---------------------------------------- -->
             <!-- Botão Limpar -->
               <div class="col">
-                <button data-mdb-ripple-init type="reset" class="btn btn-primary btn-block mb-4 bg-danger rounded-pill" onclick="limparValid()">Limpar</button>
+                <button data-mdb-ripple-init type="reset" id="clearBtn" class="btn btn-primary btn-block mb-4 bg-danger rounded-pill" onclick="limparSelecionados()">Limpar</button>
               </div>
             </div>
         <!-- ---------------------------------------- -->
@@ -486,6 +489,6 @@
   <!-- Script Global auth -->
     <script type="module" src="../../js/authScript.js"></script>
   <!-- ==== JavaScript MDB ==== -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.0.0/js/mdb.umd.min.js"></script>
 </body>
 </html>

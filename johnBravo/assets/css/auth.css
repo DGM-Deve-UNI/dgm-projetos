@@ -48,10 +48,12 @@
     z-index: 99;
     /* padding: 0.6rem 0.9rem !important; */
 }
-
+.is-valid {
+    --mdb-form-select-bg-icon: none !important;
+}
 /* ===- Modo claro/escuro imagem logo -=== */
 /* Imagem para o tema claro */
-[data-mdb-theme="light"] .  {
+[data-mdb-theme="light"] .logo-txt-custom  {
     content: url('../../assets/imgs/icons/dark/icon-txt.png') !important;
 }
 /* Imagem para o tema escuro */

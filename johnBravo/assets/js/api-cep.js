@@ -8,47 +8,86 @@ document.getElementById("cep").addEventListener("blur", function() {
         this.value = cep; // Atualiza o valor do input com o CEP formatado
     }
 
-    // Referência ao modal e à mensagem
-    let modal = document.getElementById('modal');
-    let modalMessage = document.getElementById('modalMessage');
+    // Referências aos campos de feedback
+    let feedbackCep = document.querySelector('#feedbackCep');
+    let fields = ['endereco', 'bairro', 'cidade', 'estado'];
 
     // Chama a API apenas se o CEP tiver 8 números (sem o hífen)
-    if (cep.length === 9) {
-        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    if (cep.replace('-', '').length === 8) {
+        fetch(`https://viacep.com.br/ws/${cep.replace('-', '')}/json/`)
         .then(response => response.json())
-            .then(data => {
-                if (!("erro" in data)) {
-                    // Preencher os campos com os valores retornados pela API
-                    document.getElementById("endereco").value = data.logradouro;
-                    document.getElementById("bairro").value = data.bairro;
-                    document.getElementById("cidade").value = data.localidade;
-                    document.getElementById("estado").value = data.uf;
+        .then(data => {
+            if (!("erro" in data)) {
+                // Preencher os campos com os valores retornados pela API
+                document.getElementById("endereco").value = data.logradouro;
+                document.getElementById("bairro").value = data.bairro;
+                document.getElementById("cidade").value = data.localidade;
+                document.getElementById("estado").value = data.uf;
 
-                    // Simular a interação manual adicionando a classe 'active' nos labels
-                    document.getElementById("endereco").dispatchEvent(new Event('input'));
-                    document.getElementById("bairro").dispatchEvent(new Event('input'));
-                    document.getElementById("cidade").dispatchEvent(new Event('input'));
-                    document.getElementById("estado").dispatchEvent(new Event('input'));
-                } else {
-                    // CEP não encontrado
-                    modalMessage.textContent = "CEP não encontrado.";
-                    modal.showModal(); // Exibe o modal
-                }
-            })
-            .catch(error => {
-                // Erro ao buscar endereço
-                console.error("Erro ao buscar o CEP:", error);
-                modalMessage.textContent = "Erro ao buscar endereço.";
-                modal.showModal(); // Exibe o modal
+                // Atualiza o feedback visual e desabilita os campos
+                fields.forEach(field => {
+                    const inputField = document.getElementById(field);
+                    inputField.classList.add('is-valid');
+                    inputField.classList.remove('is-invalid');
+                    inputField.disabled = true; // Desabilita o campo
+                    inputField.dispatchEvent(new Event('input'));
+                });
+
+                // Limpa feedback do CEP
+                this.classList.add('is-valid');
+                this.classList.remove('is-invalid');
+                feedbackCep.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
+                feedbackCep.textContent = "";
+            } else {
+                // CEP não encontrado
+                limparCampos(fields);
+                this.classList.add('is-invalid');
+                feedbackCep.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+                feedbackCep.textContent = "CEP não encontrado.";
+                // Simula evento de blur para atualizar labels
+                fields.forEach(field => {
+                    const inputField = document.getElementById(field);
+                    inputField.classList.remove('is-valid', 'is-invalid');
+                    inputField.dispatchEvent(new Event('blur'));
+                });
+            }
+        })
+        .catch(error => {
+            // Erro ao buscar endereço
+            console.error("Erro ao buscar o CEP:", error);
+            limparCampos(fields);
+            this.classList.add('is-invalid');
+            feedbackCep.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+            feedbackCep.textContent = "Erro ao buscar endereço.";
+            fields.forEach(field => {
+                const inputField = document.getElementById(field);
+                inputField.classList.remove('is-valid', 'is-invalid');
+                inputField.dispatchEvent(new Event('blur')); 
             });
+        });
     } else {
         // CEP inválido
-        modalMessage.textContent = "CEP inválido.";
-        modal.showModal(); // Exibe o modal
+        limparCampos(fields);
+        this.classList.add('is-invalid');
+        feedbackCep.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        feedbackCep.textContent = "CEP inválido.";
+        fields.forEach(field => {
+            const inputField = document.getElementById(field);
+            inputField.classList.remove('is-valid', 'is-invalid');
+            inputField.dispatchEvent(new Event('blur')); 
+        });
     }
 });
 
-// Fechar o modal ao clicar no botão "Fechar"
-document.getElementById("closeModal").addEventListener("click", function() {
-    document.getElementById("modal").close(); // Fecha o modal
-});
+// Função para limpar campos de endereço
+function limparCampos(fields) {
+    fields.forEach(field => {
+        const inputField = document.getElementById(field);
+        inputField.value = "";
+        inputField.classList.remove('is-valid', 'is-invalid');
+        inputField.disabled = false;
+        
+        // Simula o evento de input para atualizar label
+        inputField.dispatchEvent(new Event('input'));
+    });
+}

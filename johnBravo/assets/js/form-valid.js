@@ -1,210 +1,459 @@
-let nome = document.querySelector('#nome')
-let validNome = false
-let sobrenome = document.querySelector('#sobrenome')
-let validSobrenome = false
+let nome = document.querySelector('#nome');
+let sobrenome = document.querySelector('#sobrenome');
+let data = document.querySelector('#data');
+let feedbackData = document.querySelector('#feedbackData'); // Feedback para a data
+let gen = document.querySelectorAll('input[name="inlineRadioOptions"]');
+let cep = document.querySelector('#cep');
+let feedbackCep = document.querySelector('#feedbackCep');
+let endereco = document.querySelector('#endereco');
+let feedbackEndereco = document.querySelector('#feedbackEndereco');
+let numero = document.querySelector('#numero');
+let feedbackNumero = document.querySelector('#feedbackNumero');
+let email = document.querySelector('#email');
+let cel = document.querySelector('#celular');
+let tel = document.querySelector('#telFixo');
+let login = document.querySelector('#login');
+let senha = document.querySelector('#senha');
+let confiSenha = document.querySelector('#confiSenha');
 
-let data = document.querySelector('#data')
-let gen = document.querySelector('input[name="inlineRadioOptions"]:checked')
+let validNome = false;
+let validSobrenome = false;
+let validEmail = false;
+let validCep = false;
+let validEndereco = false;
+let validLogin = false;
+let validSenha = false;
+let validConfiSenha = false;
+let validGenero = false;
+let validCelular = false;
+let validTelefone = false;
+let validDataNasc = false;
 
-let email = document.querySelector('#email')
-let validEmail = false
-
-let cel = document.querySelector('#celular')
-let tel = document.querySelector('#telFixo')
-
-let login = document.querySelector('#login')
-let validLogin = false
-
-let senha = document.querySelector('#senha')
-let validSenha = false
-
-let confiSenha = document.querySelector('#confiSenha')
-let validConfiSenha = false
-
-// Validação de Nome e sobrenome
+// Validação de Nome e Sobrenome
 function validarCampo(input, feedback) {
-    // Verifica se o campo está vazio
     if (input.value.length === 0) {
         input.classList.remove('is-invalid', 'is-valid');
-        feedback.textContent = ""; // Limpa a mensagem de feedback
-        validNome = false
-        return; // Sai da função se o campo estiver vazio
+        feedback.textContent = ""; 
+        return; 
     }
-
-    // Verifica se o valor contém apenas letras
     if (!/^[a-zA-Z]*$/.test(input.value)) {
         input.classList.add('is-invalid');
         feedback.classList.add('invalid-feedback', 'ms-2', 'pt-1');
         feedback.textContent = "Apenas letras são permitidas";
-        validNome = false
-
-    } 
-    // Verifica se o comprimento é menor que 3
-    else if (input.value.length < 3) {
+    } else if (input.value.length < 3) {
         input.classList.add('is-invalid');
         feedback.classList.add('invalid-feedback', 'ms-2', 'pt-1');
         feedback.textContent = "Digite no mínimo 3 caracteres";
-        validNome = false
     } else {
         input.classList.remove('is-invalid');
         feedback.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
-        feedback.textContent = ""; // Limpa a mensagem de feedback
-        input.classList.add('is-valid'); // Adiciona classe se válido
-        validNome = true
+        feedback.textContent = ""; 
+        input.classList.add('is-valid'); 
     }
 }
-//  ===================================================================
-// function validatorEmail(email) {
-//     let emailPattern =
-//       /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
-//     return emailPattern.test(email);
-//   }
 
+// Validação de Email
 email.addEventListener('keyup', () => {
-
     if (email.value.length === 0) {
         email.classList.remove('is-invalid', 'is-valid');
-        feedbackEmail.textContent = ""; // Limpa a mensagem de feedback
-        validEmail = false
+        feedbackEmail.textContent = ""; 
         return;
     }
-
-    if(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/.test(email.value)) {
+    if (!/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/.test(email.value)) {
         email.classList.add('is-invalid');
         feedbackEmail.classList.add('invalid-feedback', 'ms-2', 'pt-1');
         feedbackEmail.textContent = "Use um email válido!";
-        validEmail = false
     } else {
         email.classList.remove('is-invalid');
         feedbackEmail.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackEmail.textContent = ""; // Limpa a mensagem de feedback
-        e0mail.classList.add('is-valid'); // Adiciona classe se válido
-        validEmail = true
+        feedbackEmail.textContent = ""; 
+        email.classList.add('is-valid'); 
     }
-})
-//  ===================================================================
-// Validação de login
-login.addEventListener('keyup', () => {
+});
 
+// Validação de Login
+login.addEventListener('keyup', () => {
     if (login.value.length === 0) {
         login.classList.remove('is-invalid', 'is-valid');
-        feedbackLogin.textContent = ""; // Limpa a mensagem de feedback
-        validLogin = false
-        return; // Sai da função se o campo estiver vazio
+        feedbackLogin.textContent = ""; 
+        return; 
     }
-
-    if(login.value.length <= 7) {
+    if (login.value.length <= 7) {
         login.classList.add('is-invalid');
         feedbackLogin.classList.add('invalid-feedback', 'ms-2', 'pt-1');
         feedbackLogin.textContent = "O login deve ter 8 caracteres";
-        validLogin = false
     } else {
         login.classList.remove('is-invalid');
         feedbackLogin.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackLogin.textContent = ""; // Limpa a mensagem de feedback
-        login.classList.add('is-valid'); // Adiciona classe se válido
-        validLogin = true
+        feedbackLogin.textContent = ""; 
+        login.classList.add('is-valid'); 
     }
-})
-//  ===================================================================
-// Validação do campo de senha
+});
+
+// Validação de Senha
 senha.addEventListener('keyup', () => {
     if (senha.value.length === 0) {
         senha.classList.remove('is-invalid', 'is-valid');
         feedbackSenha.textContent = "";
-        confiSenha.classList.remove('is-invalid', 'is-valid'); // Reseta o campo de confirmação
+        confiSenha.classList.remove('is-invalid', 'is-valid');
         feedbackConfiSenha.textContent = "";
-        validSenha = false
         return;
     }
-
     if (senha.value.length < 6) {
         senha.classList.add('is-invalid');
         feedbackSenha.classList.add('invalid-feedback', 'ms-2', 'pt-1');
         feedbackSenha.textContent = "A senha deve ter 6 caracteres";
-        validSenha = false
     } else {
         senha.classList.remove('is-invalid');
         feedbackSenha.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
         feedbackSenha.textContent = "";
         senha.classList.add('is-valid');
-        validSenha = true
     }
-
-    // Validação do campo de confirmação de senha
     if (confiSenha.value.length > 0) {
         validarConfiSenha();
     }
 });
 
-// Validação do campo de confirmação de senha
+// Validação de Confirmação de Senha
 confiSenha.addEventListener('keyup', validarConfiSenha);
 
 function validarConfiSenha() {
     if (confiSenha.value.length === 0) {
         confiSenha.classList.remove('is-invalid', 'is-valid');
         feedbackConfiSenha.textContent = "";
-        return;
-    }
-
-    if (confiSenha.value !== senha.value) {
+        validConfiSenha = false;
+    } else if (confiSenha.value !== senha.value) {
         confiSenha.classList.add('is-invalid');
         feedbackConfiSenha.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackConfiSenha.textContent = "As senhas não conferem";
+        feedbackConfiSenha.textContent = "As senhas não conferem.";
+        validConfiSenha = false;
     } else {
         confiSenha.classList.remove('is-invalid');
         feedbackConfiSenha.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackConfiSenha.classList.add('valid-feedback', 'ms-2', 'pt-1');
-        feedbackConfiSenha.textContent = "As senhas conferem";
         confiSenha.classList.add('is-valid');
+        feedbackConfiSenha.classList.add('valid-feedback', 'ms-2', 'pt-1');
+        feedbackConfiSenha.textContent = "As senhas conferem.";
+        validConfiSenha = true;
     }
 }
-//  ===================================================================
 
-
-
-// Adiciona eventos de keyup
+// Validação de Nome e Sobrenome
 nome.addEventListener('keyup', () => validarCampo(nome, feedbackNome));
 sobrenome.addEventListener('keyup', () => validarCampo(sobrenome, feedbackSobrenome));
 
+// Validação do CEP
+cep.addEventListener('blur', () => {
+    validCep = cep.classList.contains('is-valid');
+});
 
-
-
-function cadastrar() {
-    if ( validNome && validSobrenome && validEmail && validLogin && validSenha && validConfiSenha ){
-        modalMessage.textContent = "Cadastro realizado com sucesso!";
-        modal.showModal(); // Exibe o modal
-        modal.classList.add('bg-success-subtle', 'border-success-subtle');
-        modal.classList.remove('bg-danger-subtle', 'border-danger-subtle');
-
+// Validação do Endereço
+endereco.addEventListener('input', () => {
+    if (endereco.value.length === 0) {
+        endereco.classList.add('is-invalid');
+        feedbackEndereco.textContent = "Endereço é obrigatório.";
     } else {
-        modalMessage.textContent = "Os campos não podem estar vazios!";
-        modal.showModal(); // Exibe o modal
+        endereco.classList.remove('is-invalid');
+        endereco.classList.add('is-valid');
+        feedbackEndereco.textContent = "";
+    }
+});
+
+// Validação do Número
+numero.addEventListener('input', () => {
+    if (numero.value.length > 4) {
+        numero.value = numero.value.slice(0, 4);
+    }
+    const valor = numero.value;
+    if (valor.length === 0) {
+        numero.classList.remove('is-invalid', 'is-valid');
+        feedbackNumero.textContent = "";
+    } else {
+        numero.classList.add('is-valid');
+        feedbackNumero.textContent = "";
+    }
+});
+
+// Validação de Gênero
+gen.forEach(input => {
+    input.addEventListener('change', () => {
+        validGenero = Array.from(gen).some(radio => radio.checked);
+        gen.forEach(r => {
+            r.classList.remove('is-invalid', 'is-valid');
+        });
+        if (validGenero) {
+            input.classList.add('is-valid');
+        } else {
+            input.classList.add('is-invalid');
+        }
+    });
+});
+
+// Validação de Celular
+cel.addEventListener('input', () => {
+    // Máscara de Celular
+    let limparValor = cel.value.replace(/\D/g, "").substring(0, 11);
+    let numArray = limparValor.split("");
+    let numFormat = "";
+
+    if (numArray.length > 0) {
+        numFormat += `(${numArray.slice(0, 2).join("")})`;
     }
 
+    if (numArray.length > 2) {
+        numFormat += ` ${numArray.slice(2, 7).join("")}`;
+    }
+
+    if (numArray.length > 7) {
+        numFormat += `-${numArray.slice(7, 11).join("")}`;
+    }
+    cel.value = numFormat;
+
+    // Validação
+    if (limparValor.length === 0) {
+        cel.classList.remove('is-valid', 'is-invalid');
+        feedbackCel.textContent = "O número não pode ser vazio";
+        feedbackCel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+    } else if (limparValor.length < 11) {
+        cel.classList.remove('is-valid');
+        cel.classList.add('is-invalid');
+        feedbackCel.textContent = "Celular inválido";
+        feedbackCel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+    } else {
+        cel.classList.remove('is-invalid');
+        cel.classList.add('is-valid');
+        feedbackCel.textContent = "";
+    }
+});
+
+// Permitir apagar os parênteses
+cel.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace' || e.key === 'Delete') {
+        const cursorPosition = cel.selectionStart;
+
+        // Verifica se está apagando os parênteses
+        if (cursorPosition > 0 && cel.value[cursorPosition - 1] === '(') {
+            e.preventDefault();
+            cel.value = cel.value.slice(0, cursorPosition - 1) + cel.value.slice(cursorPosition);
+            cel.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+        } else if (cursorPosition > 0 && cel.value[cursorPosition - 1] === ')') {
+            e.preventDefault();
+            cel.value = cel.value.slice(0, cursorPosition - 1) + cel.value.slice(cursorPosition);
+            cel.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+        }
+    }
+});
+
+// Validação de Telefone
+tel.addEventListener('input', () => {
+    // Máscara de Telefone
+    let limparValor = tel.value.replace(/\D/g, "").substring(0, 10);
+    let numArray = limparValor.split("");
+    let numFormat = "";
+
+    if (numArray.length > 0) {
+        numFormat += `(${numArray.slice(0, 2).join("")})`;
+    }
+
+    if (numArray.length > 2) {
+        numFormat += ` ${numArray.slice(2, 6).join("")}`;
+    }
+
+    if (numArray.length > 6) {
+        numFormat += `-${numArray.slice(6, 10).join("")}`;
+    }
+    tel.value = numFormat;
+
+    // Validação
+    if (limparValor.length === 0) {
+        tel.classList.remove('is-valid', 'is-invalid');
+        feedbackTel.textContent = "O número não pode ser vazio";
+        feedbackTel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+    } else if (limparValor.length < 10) {
+        tel.classList.remove('is-valid');
+        tel.classList.add('is-invalid');
+        feedbackTel.textContent = "Telefone inválido";
+        feedbackTel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+    } else {
+        tel.classList.remove('is-invalid');
+        tel.classList.add('is-valid');
+        feedbackTel.textContent = "";
+    }
+});
+
+// Permitir apagar os parênteses do telefone
+tel.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace' || e.key === 'Delete') {
+        const cursorPosition = tel.selectionStart;
+
+        // Verifica se está apagando os parênteses
+        if (cursorPosition > 0 && tel.value[cursorPosition - 1] === '(') {
+            e.preventDefault();
+            tel.value = tel.value.slice(0, cursorPosition - 1) + tel.value.slice(cursorPosition);
+            tel.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+        } else if (cursorPosition > 0 && tel.value[cursorPosition - 1] === ')') {
+            e.preventDefault();
+            tel.value = tel.value.slice(0, cursorPosition - 1) + tel.value.slice(cursorPosition);
+            tel.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+        }
+    }
+});
+
+
+// Validação de Telefone
+tel.addEventListener('input', () => {
+    // Máscara de Telefone
+    let limparValor = tel.value.replace(/\D/g, "").substring(0, 10);
+    let numArray = limparValor.split("");
+    let numFormat = "";
+
+    if (numArray.length > 0) {
+        numFormat += `(${numArray.slice(0, 2).join("")})`;
+    }
+
+    if (numArray.length > 2) {
+        numFormat += ` ${numArray.slice(2, 6).join("")}`;
+    }
+
+    if (numArray.length > 6) {
+        numFormat += `-${numArray.slice(6, 10).join("")}`;
+    }
+    tel.value = numFormat;
+
+    // Validação
+    if (limparValor.length === 0) {
+        tel.classList.remove('is-valid', 'is-invalid');
+        feedbackTel.textContent = "O número não pode ser vazio";
+        feedbackTel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+    } else if (limparValor.length < 10) {
+        tel.classList.remove('is-valid');
+        tel.classList.add('is-invalid');
+        feedbackTel.textContent = "Telefone inválido";
+        feedbackTel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+    } else {
+        tel.classList.remove('is-invalid');
+        tel.classList.add('is-valid');
+        feedbackTel.textContent = "";
+    }
+});
+
+
+
+// Validação da Data de Nascimento
+data.addEventListener('blur', () => {
+    const dataNasc = new Date(data.value);
+    const hoje = new Date();
+    const idade = hoje.getFullYear() - dataNasc.getFullYear();
+    const mes = hoje.getMonth() - dataNasc.getMonth();
+    
+    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNasc.getDate())) {
+        idade--;
+    }
+
+    if (isNaN(dataNasc.getTime())) {
+        feedbackData.textContent = "Data inválida.";
+        feedbackData.classList.add('invalid-feedback', 'ms-2', 'mt-0');
+        data.classList.add('is-invalid', 'mb-0');
+        feedbackData.classList.remove('valid-feedback');
+        data.classList.remove('is-valid');
+        validDataNasc = false;
+    } else if (idade < 18 || idade > 85) {
+        feedbackData.textContent = `Idade inválida: ${idade} anos.`;
+        feedbackData.classList.add('invalid-feedback', 'ms-2', 'mt-0');
+        data.classList.add('is-invalid', 'mb-0');
+        feedbackData.classList.remove('valid-feedback');
+        data.classList.remove('is-valid');
+        validDataNasc = false;
+    } else {
+        feedbackData.textContent = `Idade válida: ${idade} anos.`;
+        feedbackData.classList.add('valid-feedback', 'ms-2', 'mt-0');
+        data.classList.add('is-valid', 'mb-0');
+        feedbackData.classList.remove('invalid-feedback');
+        data.classList.remove('is-invalid');
+        validDataNasc = true;
+    }
+});
+
+// Botão de limpar campos
+document.getElementById("clearBtn").addEventListener("click", function() {
+    document.querySelectorAll('input[type="text"], input[type="number"], input[type="password"], select').forEach(input => {
+        input.value = "";
+        input.classList.remove('is-valid', 'is-invalid');
+        if (input.type === 'date') {
+            input.dispatchEvent(new Event('blur')); // Simula o evento blur
+        }
+    });
+
+    // Limpa feedback de validação
+    feedbackData.textContent = "";
+    validDataNasc = false;
+    data.classList.remove('is-valid', 'is-invalid');
+});
+
+// Fechar o modal ao clicar no botão "Fechar"
+document.getElementById("closeModal").addEventListener("click", function() {
+    document.getElementById("modal").close();
+});
+
+
+// Função para cadastrar
+function cadastrar() {
+    if (validNome && validSobrenome && validEmail && validCep && validEndereco && validLogin && validSenha && validConfiSenha && validGenero && validTelefone && validCelular && validDataNasc) {
+        // Aqui vai a lógica do modal de sucesso
+    } else {
+        // Aqui vai a lógica do modal de erro
+    }
 }
+
+// Botão de limpar campos
+document.getElementById("clearBtn").addEventListener("click", function() {
+    document.querySelectorAll('input[type="text"], input[type="number"], input[type="password"], select').forEach(input => {
+        input.value = "";
+        input.classList.remove('is-valid', 'is-invalid');
+        input.disabled = false;
+        if (input.type === 'date') {
+            input.dispatchEvent(new Event('blur')); // Simula o evento blur
+        }
+    });
+
+    document.querySelectorAll('.invalid-feedback, .valid-feedback').forEach(feedback => {
+        feedback.textContent = "";
+    });
+
+    validCep = false;
+    validGenero = false;
+    validCelular = false;
+    validTelefone = false;
+    validDataNasc = false;
+
+    feedbackData.textContent = "";
+    data.classList.remove('is-valid', 'is-invalid');
+});
+
+// Fechar o modal ao clicar no botão "Fechar"
+document.getElementById("closeModal").addEventListener("click", function() {
+    document.getElementById("modal").close();
+});
 
 // Função mostrar/ocultar senha
 function passViewInputs(event) {
-    // Obtém o ID do input alvo a partir do atributo data-target
     let targetId = event.target.getAttribute('data-target');
     let inputPass = document.getElementById(targetId);
     
-    // Alterna o tipo do input
     if (inputPass.getAttribute('type') === 'password') {
         inputPass.setAttribute('type', 'text');
-        event.target.classList.remove('fa-eye')
-        event.target.classList.add('fa-eye-slash')
+        event.target.classList.remove('fa-eye');
+        event.target.classList.add('fa-eye-slash');
     } else {
         inputPass.setAttribute('type', 'password');
-        event.target.classList.add('fa-eye')
-        event.target.classList.remove('fa-eye-slash')
+        event.target.classList.add('fa-eye');
+        event.target.classList.remove('fa-eye-slash');
     }
 }
-// Selecionando o ícone de visualização da senha
+
 let passViewIcon = document.querySelectorAll('#eye-icon');
-// Adicionando o evento de clique aos ícones
 passViewIcon.forEach(icon => {
     icon.addEventListener('click', passViewInputs);
 });
-// ========================================================
+
+// Botão de enviar formulário
+document.querySelector('#submitBtn').addEventListener('click', cadastrar);
