@@ -428,6 +428,48 @@ document.getElementById("clearBtn").addEventListener("click", function() {
     feedbackData.textContent = "";
     data.classList.remove('is-valid', 'is-invalid');
 });
+// limpar tudo OK
+document.getElementById("clearBtn").addEventListener("click", function() {
+    // Limpa o campo de gênero e remove validações
+    const genero = document.querySelector("input[name='genero']");
+    if (genero) {
+        genero.checked = false;  // Desmarca o gênero selecionado
+        genero.classList.remove("is-invalid", "is-valid");
+    }
+
+    // Limpa o campo de celular e remove validações
+    const celular = document.getElementById("celular");
+    if (celular) {
+        celular.value = "";
+        celular.classList.remove("is-invalid", "is-valid");
+    }
+
+    // Limpa o campo de telefone e remove validações
+    const telefone = document.getElementById("telefone");
+    if (telefone) {
+        telefone.value = "";
+        telefone.classList.remove("is-invalid", "is-valid");
+    }
+
+    // Limpa o campo de e-mail e remove validações
+    const email = document.getElementById("email");
+    if (email) {
+        email.value = "";
+        email.classList.remove("is-invalid", "is-valid");
+    }
+
+    // Limpa todos os campos de entrada restantes
+    document.querySelectorAll("input").forEach(input => {
+        input.value = "";
+        input.classList.remove("is-invalid", "is-valid");
+    });
+
+    // Limpa todas as mensagens de erro
+    document.querySelectorAll(".error-message").forEach(error => {
+        error.textContent = "";
+    });
+});
+// limoar tudo OK /\
 
 // Fechar o modal ao clicar no botão "Fechar"
 document.getElementById("closeModal").addEventListener("click", function() {
