@@ -404,7 +404,7 @@ document.getElementById("clearBtn").addEventListener("click", function() {
         error.textContent = "";
     });
 });
-// limoar tudo OK /\
+// limpar tudo OK /\
 
 // Fechar o modal ao clicar no botão "Fechar"
 document.getElementById("closeModal").addEventListener("click", function() {
