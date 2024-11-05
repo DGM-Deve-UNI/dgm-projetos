@@ -1,7 +1,8 @@
+// Seleção de elementos do DOM
 let nome = document.querySelector('#nome');
 let sobrenome = document.querySelector('#sobrenome');
 let data = document.querySelector('#data');
-let feedbackData = document.querySelector('#feedbackData'); // Feedback para a data
+let feedbackData = document.querySelector('#feedbackData');
 let gen = document.querySelectorAll('input[name="inlineRadioOptions"]');
 let cep = document.querySelector('#cep');
 let feedbackCep = document.querySelector('#feedbackCep');
@@ -16,6 +17,7 @@ let login = document.querySelector('#login');
 let senha = document.querySelector('#senha');
 let confiSenha = document.querySelector('#confiSenha');
 
+// Variáveis de validação
 let validNome = false;
 let validSobrenome = false;
 let validEmail = false;
@@ -188,27 +190,43 @@ gen.forEach(input => {
     });
 });
 
-// Validação de Celular
-cel.addEventListener('input', () => {
-    // Máscara de Celular
-    let limparValor = cel.value.replace(/\D/g, "").substring(0, 11);
-    let numArray = limparValor.split("");
-    let numFormat = "";
+// Função de máscara para números (para celular e telefone)
+function maskPhone(input) {
+    let str = input.value.replace(/\D/g, '');  // Remove tudo que não for número
+    let formatted = '';
 
-    if (numArray.length > 0) {
-        numFormat += `(${numArray.slice(0, 2).join("")})`;
+    // Formatação para celular (se tiver 11 dígitos)
+    if (str.length > 0) formatted += `(${str.slice(0, 2)})`;
+    if (str.length > 2) formatted += ` ${str.slice(2, 7)}`;
+    if (str.length > 6) formatted += `-${str.slice(7, 11)}`;
+
+    input.value = formatted;
+}
+
+// Permitir apagar os parênteses e o hífen
+function handleDelete(input, e) {
+    const cursorPosition = input.selectionStart;
+
+    // Verifica se o usuário está tentando apagar os parênteses
+    if (e.key === 'Backspace' || e.key === 'Delete') {
+        const value = input.value;
+        const beforeCursor = value.slice(0, cursorPosition);
+        const afterCursor = value.slice(cursorPosition);
+
+        // Se o cursor estiver antes de um parêntese ou hífen, não deixa travar o apagamento
+        if (beforeCursor.endsWith('(') || beforeCursor.endsWith(')') || beforeCursor.endsWith('-')) {
+            e.preventDefault();  // Bloqueia o comportamento padrão
+            input.value = beforeCursor.slice(0, -1) + afterCursor;  // Remove o caractere de formatação
+            input.setSelectionRange(cursorPosition - 1, cursorPosition - 1);  // Move o cursor para a posição correta
+        }
     }
+}
 
-    if (numArray.length > 2) {
-        numFormat += ` ${numArray.slice(2, 7).join("")}`;
-    }
+// Máscara e validação de Celular
+cel.addEventListener('input', function (e) {
+    maskPhone(cel);
 
-    if (numArray.length > 7) {
-        numFormat += `-${numArray.slice(7, 11).join("")}`;
-    }
-    cel.value = numFormat;
-
-    // Validação
+    let limparValor = cel.value.replace(/\D/g, "");
     if (limparValor.length === 0) {
         cel.classList.remove('is-valid', 'is-invalid');
         feedbackCel.textContent = "O número não pode ser vazio";
@@ -225,45 +243,11 @@ cel.addEventListener('input', () => {
     }
 });
 
-// Permitir apagar os parênteses
-cel.addEventListener('keydown', (e) => {
-    if (e.key === 'Backspace' || e.key === 'Delete') {
-        const cursorPosition = cel.selectionStart;
+// Máscara e validação de Telefone
+tel.addEventListener('input', function (e) {
+    maskPhone(tel);
 
-        // Verifica se está apagando os parênteses
-        if (cursorPosition > 0 && cel.value[cursorPosition - 1] === '(') {
-            e.preventDefault();
-            cel.value = cel.value.slice(0, cursorPosition - 1) + cel.value.slice(cursorPosition);
-            cel.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
-        } else if (cursorPosition > 0 && cel.value[cursorPosition - 1] === ')') {
-            e.preventDefault();
-            cel.value = cel.value.slice(0, cursorPosition - 1) + cel.value.slice(cursorPosition);
-            cel.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
-        }
-    }
-});
-
-// Validação de Telefone
-tel.addEventListener('input', () => {
-    // Máscara de Telefone
-    let limparValor = tel.value.replace(/\D/g, "").substring(0, 10);
-    let numArray = limparValor.split("");
-    let numFormat = "";
-
-    if (numArray.length > 0) {
-        numFormat += `(${numArray.slice(0, 2).join("")})`;
-    }
-
-    if (numArray.length > 2) {
-        numFormat += ` ${numArray.slice(2, 6).join("")}`;
-    }
-
-    if (numArray.length > 6) {
-        numFormat += `-${numArray.slice(6, 10).join("")}`;
-    }
-    tel.value = numFormat;
-
-    // Validação
+    let limparValor = tel.value.replace(/\D/g, "");
     if (limparValor.length === 0) {
         tel.classList.remove('is-valid', 'is-invalid');
         feedbackTel.textContent = "O número não pode ser vazio";
@@ -280,63 +264,14 @@ tel.addEventListener('input', () => {
     }
 });
 
-// Permitir apagar os parênteses do telefone
-tel.addEventListener('keydown', (e) => {
-    if (e.key === 'Backspace' || e.key === 'Delete') {
-        const cursorPosition = tel.selectionStart;
-
-        // Verifica se está apagando os parênteses
-        if (cursorPosition > 0 && tel.value[cursorPosition - 1] === '(') {
-            e.preventDefault();
-            tel.value = tel.value.slice(0, cursorPosition - 1) + tel.value.slice(cursorPosition);
-            tel.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
-        } else if (cursorPosition > 0 && tel.value[cursorPosition - 1] === ')') {
-            e.preventDefault();
-            tel.value = tel.value.slice(0, cursorPosition - 1) + tel.value.slice(cursorPosition);
-            tel.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
-        }
-    }
+// Detectar quando o usuário tenta apagar os parênteses e hífen
+cel.addEventListener('keydown', function (e) {
+    handleDelete(cel, e);
 });
 
-
-// Validação de Telefone
-tel.addEventListener('input', () => {
-    // Máscara de Telefone
-    let limparValor = tel.value.replace(/\D/g, "").substring(0, 10);
-    let numArray = limparValor.split("");
-    let numFormat = "";
-
-    if (numArray.length > 0) {
-        numFormat += `(${numArray.slice(0, 2).join("")})`;
-    }
-
-    if (numArray.length > 2) {
-        numFormat += ` ${numArray.slice(2, 6).join("")}`;
-    }
-
-    if (numArray.length > 6) {
-        numFormat += `-${numArray.slice(6, 10).join("")}`;
-    }
-    tel.value = numFormat;
-
-    // Validação
-    if (limparValor.length === 0) {
-        tel.classList.remove('is-valid', 'is-invalid');
-        feedbackTel.textContent = "O número não pode ser vazio";
-        feedbackTel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-    } else if (limparValor.length < 10) {
-        tel.classList.remove('is-valid');
-        tel.classList.add('is-invalid');
-        feedbackTel.textContent = "Telefone inválido";
-        feedbackTel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-    } else {
-        tel.classList.remove('is-invalid');
-        tel.classList.add('is-valid');
-        feedbackTel.textContent = "";
-    }
+tel.addEventListener('keydown', function (e) {
+    handleDelete(tel, e);
 });
-
-
 
 // Validação da Data de Nascimento
 data.addEventListener('blur', () => {

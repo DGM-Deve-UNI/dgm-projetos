@@ -1,22 +1,34 @@
-// Função para ajustar o formato do CPF
-function ajustaCpf(v) {
-    v.value = v.value.replace(/\D/g, "");
-    v.value = v.value.replace(/^(\d{3})(\d)/, "$1.$2");
-    v.value = v.value.replace(/(\d{3})(\d)/, "$1.$2");
-    v.value = v.value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+let CPF = document.querySelector('#cpf');
+CPF.addEventListener('input', function () {maskCPF()});
+
+function maskCPF() {
+    let strCPF = CPF.value.replace(/\D/g, ''); // Remove tudo que não for número
+    let maskedCPF = '';
+
+    // Aplica a máscara de acordo com o comprimento do CPF
+    if (strCPF.length <= 3) {
+        maskedCPF = strCPF;
+    } else if (strCPF.length <= 6) {
+        maskedCPF = strCPF.slice(0, 3) + '.' + strCPF.slice(3);
+    } else if (strCPF.length <= 9) {
+        maskedCPF = strCPF.slice(0, 3) + '.' + strCPF.slice(3, 6) + '.' + strCPF.slice(6);
+    } else if (strCPF.length <= 11) {
+        maskedCPF = strCPF.slice(0, 3) + '.' + strCPF.slice(3, 6) + '.' + strCPF.slice(6, 9) + '-' + strCPF.slice(9, 11);
+    }
+
+    CPF.value = maskedCPF;  // Aplica a máscara no campo
 }
 
-// Função para validar CPF sem modal
-function validarCPF(cpf) {	
-    let valorCPF = cpf.value.replace(/[^\d]+/g,'');	
-    
+// Função para validar CPF
+function validarCPF(cpf) {    
+    let valorCPF = cpf.value.replace(/[^\d]+/g,'');    
     // Resetar a validação quando o campo for vazio
     if (valorCPF === '') {
         cpf.classList.remove('is-invalid', 'is-valid');
         return;
     }
 
-    // Elimina CPFs inválidos conhecidos	
+    // Elimina CPFs inválidos conhecidos    
     if (valorCPF.length != 11 || 
         valorCPF == "00000000000" || 
         valorCPF == "11111111111" || 
@@ -35,7 +47,7 @@ function validarCPF(cpf) {
         return false;
     }
 
-    // Valida o 1º dígito	
+    // Valida o 1º dígito    
     let add = 0;
     for (let i = 0; i < 9; i++) {
         add += parseInt(valorCPF.charAt(i)) * (10 - i);
@@ -48,7 +60,7 @@ function validarCPF(cpf) {
         return false;
     }
 
-    // Valida o 2º dígito	
+    // Valida o 2º dígito    
     add = 0;
     for (let i = 0; i < 10; i++) {
         add += parseInt(valorCPF.charAt(i)) * (11 - i);
