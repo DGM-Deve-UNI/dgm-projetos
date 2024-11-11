@@ -69,7 +69,15 @@
         top /* position */
         center/cover /* size */;
 }
-/* https://s3-alpha-sig.figma.com/img/8d49/e997/43750347fa57f1f28ed3ac71ac9470f1?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DzUqWnMx8hPqzFngmPvrbJnCxXwOjZt6Iwci1~LKJszXCehU2p0xH752ppWiIzYHvpxXWLFAN6T3KYkNjK0PKQw~P2MZqniCWLurZKnpIKZbn8Tp7q7BZ6ldFnYJAPNGkJp~Xyev-CM1Yk2cvCZffAaP6siOkbbP3AVoCuOfv~qL-nqv6SIbZLflhWZu3twJc3HMK81oe8yucYOpp6s7Gwq2lCNs9RLsipr4FrR-5YhvBGY4Joo-90Z3Uez7s95rUr2EvC5rI78576r72IaZe1Cx4bYBFTM6VHByo1bTX71m8XFZkbmVerHEGOdz1DaPUzI3LsY~QXiQCIo2Y4bohw__ */
+
+#section7 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://www.shutterstock.com/image-photo/barbershop-blurred-background-hairdresser-hair-260nw-737734267.jpg)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
 
 
 /* Efeito desfoque imagem de fundo */
