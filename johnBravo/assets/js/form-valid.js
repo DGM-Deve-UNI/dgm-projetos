@@ -1,401 +1,444 @@
-// Seleção de elementos do DOM
-let nome = document.querySelector('#nome');
-let sobrenome = document.querySelector('#sobrenome');
+// Máscaras para telefone e celular
+const maskTel = {
+    phone(value) {
+        return value
+            .replace(/\D/g, '')
+            .replace(/(\d{2})(\d)/, '($1) $2')
+            .replace(/(\d{4})(\d)/, '$1-$2')
+            .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
+            .replace(/(-\d{4})\d+?$/, '$1')
+    },
+    
+    cel(value) {
+        return value
+            .replace(/\D/g, '')
+            .replace(/(\d{2})(\d)/, '($1) $2')
+            .replace(/(\d{5})(\d)/, '$1-$2')
+            .replace(/(\d{5})-(\d)(\d{4})/, '$1$2-$3')
+            .replace(/(-\d{4})\d+?$/, '$1')
+    },
 
-let data = document.querySelector('#data');
-let feedbackData = document.querySelector('#feedbackData');
+    cep(value) {
+        return value
+            .replace(/\D/g, '')
+            .replace(/(\d{5})(\d)/, '$1-$2')
+            .replace(/(-\d{3})\d+?$/, '$1')
+    },
 
-let gen = document.querySelectorAll('input[name="inlineRadioOptions"]');
-
-let email = document.querySelector('#email');
-let cel = document.querySelector('#celular');
-let tel = document.querySelector('#telFixo');
-
-let cep = document.querySelector('#cep');
-let feedbackCep = document.querySelector('#feedbackCep');
-
-let endereco = document.querySelector('#endereco');
-let feedbackEndereco = document.querySelector('#feedbackEndereco');
-
-let numero = document.querySelector('#numero');
-let feedbackNumero = document.querySelector('#feedbackNumero');
-
-let login = document.querySelector('#login');
-let senha = document.querySelector('#senha');
-let confiSenha = document.querySelector('#confiSenha');
-
-// Variáveis de validação
-let validNome = false;
-let validSobrenome = false;
-let validDataNasc = false;
-let validGenero = false;
-let validEmail = false;
-let validCelular = false;
-let validTelefone = false;
-let validCep = false;
-let validEndereco = false;
-let validLogin = false;
-let validSenha = false;
-let validConfiSenha = false;
-
-// Validação de Nome e Sobrenome
-function validarCampo(input, feedback, fieldValid) {
-    if (input.value.length === 0) {
-        input.classList.remove('is-invalid', 'is-valid');
-        feedback.textContent = "";
-        fieldValid = false;
+    cpf(value) {
+        return value
+            .replace(/\D/g, '')
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d{1,2})/, '$1-$2')
+            .replace(/(-\d{2})\d+?$/, '$1')
     }
-    if (!/^[a-zA-Z]*$/.test(input.value)) {
-        input.classList.add('is-invalid');
-        feedback.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-        feedback.textContent = "Apenas letras são permitidas";
-        fieldValid = false;
-    } else if (input.value.length < 3) {
-        input.classList.add('is-invalid');
-        feedback.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-        feedback.textContent = "Digite no mínimo 3 caracteres";
-        fieldValid = false;
-    } else {
-        input.classList.remove('is-invalid');
-        feedback.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
-        feedback.textContent = ""; 
-        input.classList.add('is-valid');
-        fieldValid = false; 
-    }
-    return fieldValid;
 }
 
-// Validação de Nome e Sobrenome
-nome.addEventListener('keyup', () => validarCampo(nome, feedbackNome));
-sobrenome.addEventListener('keyup', () => validarCampo(sobrenome, feedbackSobrenome));
-
-// Validação da Data de Nascimento
-data.addEventListener('blur', () => {
-    const dataNasc = new Date(data.value);
+// Função para validar a data de nascimento
+function validarIdade(campo) {
+    const dataNascimento = new Date(campo.value);
     const hoje = new Date();
-    const idade = hoje.getFullYear() - dataNasc.getFullYear();
-    const mes = hoje.getMonth() - dataNasc.getMonth();
     
-    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNasc.getDate())) {
+    let idade = hoje.getFullYear() - dataNascimento.getFullYear();
+    const mes = hoje.getMonth() - dataNascimento.getMonth();
+    
+    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
         idade--;
     }
-
-    if (isNaN(dataNasc.getTime())) {
-        feedbackData.textContent = "Data inválida.";
-        feedbackData.classList.add('invalid-feedback', 'ms-2', 'mt-0');
-        data.classList.add('is-invalid', 'mb-0');
-        feedbackData.classList.remove('valid-feedback');
-        data.classList.remove('is-valid');
-        validDataNasc = false;
-    } else if (idade < 18 || idade > 85) {
-        feedbackData.textContent = `Idade inválida: ${idade} anos.`;
-        feedbackData.classList.add('invalid-feedback', 'ms-2', 'mt-0');
-        data.classList.add('is-invalid', 'mb-0');
-        feedbackData.classList.remove('valid-feedback');
-        data.classList.remove('is-valid');
-        validDataNasc = false;
-    } else {
-        feedbackData.textContent = `Idade válida: ${idade} anos.`;
-        feedbackData.classList.add('valid-feedback', 'ms-2', 'mt-0');
-        data.classList.add('is-valid', 'mb-0');
-        feedbackData.classList.remove('invalid-feedback');
-        data.classList.remove('is-invalid');
-        validDataNasc = true;
-    }
-});
-
-// Validação de Gênero
-gen.forEach(input => {
-    input.addEventListener('change', () => {
-        validGenero = Array.from(gen).some(radio => radio.checked);
-        gen.forEach(r => {
-            r.classList.remove('is-invalid', 'is-valid');
-        });
-        if (validGenero) {
-            input.classList.add('is-valid');
-        } else {
-            input.classList.add('is-invalid');
-        }
-    });
-});
-
-// Validação de Email
-email.addEventListener('keyup', () => {
-    if (email.value.length === 0) {
-        email.classList.remove('is-invalid', 'is-valid');
-        feedbackEmail.textContent = ""; 
-        return;
-    }
-    if (!/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/.test(email.value)) {
-        email.classList.add('is-invalid');
-        feedbackEmail.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackEmail.textContent = "Use um email válido!";
-    } else {
-        email.classList.remove('is-invalid');
-        feedbackEmail.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackEmail.textContent = ""; 
-        email.classList.add('is-valid'); 
-    }
-});
-
-// Função de máscara para números (para celular e telefone)
-function maskPhone(input) {
-    let str = input.value.replace(/\D/g, '');  // Remove tudo que não for número
-    let formatted = '';
-
-    // Formatação para celular (se tiver 11 dígitos)
-    if (str.length > 0) formatted += `(${str.slice(0, 2)})`;
-    if (str.length > 2) formatted += ` ${str.slice(2, 7)}`;
-    if (str.length > 6) formatted += `-${str.slice(7, 11)}`;
-
-    input.value = formatted;
-}
-
-// Permitir apagar os parênteses e o hífen
-function handleDelete(input, e) {
-    const cursorPosition = input.selectionStart;
-
-    // Verifica se o usuário está tentando apagar os parênteses
-    if (e.key === 'Backspace' || e.key === 'Delete') {
-        const value = input.value;
-        const beforeCursor = value.slice(0, cursorPosition);
-        const afterCursor = value.slice(cursorPosition);
-
-        // Se o cursor estiver antes de um parêntese ou hífen, não deixa travar o apagamento
-        if (beforeCursor.endsWith('(') || beforeCursor.endsWith(')') || beforeCursor.endsWith('-')) {
-            e.preventDefault();  // Bloqueia o comportamento padrão
-            input.value = beforeCursor.slice(0, -1) + afterCursor;  // Remove o caractere de formatação
-            input.setSelectionRange(cursorPosition - 1, cursorPosition - 1);  // Move o cursor para a posição correta
-        }
-    }
-}
-
-// Máscara e validação de Celular
-cel.addEventListener('input', function (e) {
-    maskPhone(cel);
-
-    let limparValor = cel.value.replace(/\D/g, "");
-    if (limparValor.length === 0) {
-        cel.classList.remove('is-valid', 'is-invalid');
-        feedbackCel.textContent = "O número não pode ser vazio";
-        feedbackCel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-    } else if (limparValor.length < 11) {
-        cel.classList.remove('is-valid');
-        cel.classList.add('is-invalid');
-        feedbackCel.textContent = "Celular inválido";
-        feedbackCel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-    } else {
-        cel.classList.remove('is-invalid');
-        cel.classList.add('is-valid');
-        feedbackCel.textContent = "";
-    }
-});
-
-// Máscara e validação de Telefone
-tel.addEventListener('input', function (e) {
-    maskPhone(tel);
-
-    let limparValor = tel.value.replace(/\D/g, "");
-    if (limparValor.length === 0) {
-        tel.classList.remove('is-valid', 'is-invalid');
-        feedbackTel.textContent = "O número não pode ser vazio";
-        feedbackTel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-    } else if (limparValor.length < 10) {
-        tel.classList.remove('is-valid');
-        tel.classList.add('is-invalid');
-        feedbackTel.textContent = "Telefone inválido";
-        feedbackTel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-    } else {
-        tel.classList.remove('is-invalid');
-        tel.classList.add('is-valid');
-        feedbackTel.textContent = "";
-    }
-});
-
-// Detectar quando o usuário tenta apagar os parênteses e hífen
-cel.addEventListener('keydown', function (e) {
-    handleDelete(cel, e);
-});
-
-tel.addEventListener('keydown', function (e) {
-    handleDelete(tel, e);
-});
-
-// Validação do CEP
-cep.addEventListener('blur', () => {
-    validCep = cep.classList.contains('is-valid');
-});
-
-// Validação do Endereço
-endereco.addEventListener('input', () => {
-    if (endereco.value.length === 0) {
-        endereco.classList.add('is-invalid');
-        feedbackEndereco.textContent = "Endereço é obrigatório.";
-    } else {
-        endereco.classList.remove('is-invalid');
-        endereco.classList.add('is-valid');
-        feedbackEndereco.textContent = "";
-    }
-});
-
-// Validação do Número
-numero.addEventListener('input', () => {
-    if (numero.value.length > 4) {
-        numero.value = numero.value.slice(0, 4);
-    }
-    const valor = numero.value;
-    if (valor.length === 0) {
-        numero.classList.remove('is-invalid', 'is-valid');
-        feedbackNumero.textContent = "";
-    } else {
-        numero.classList.add('is-valid');
-        feedbackNumero.textContent = "";
-    }
-});
-
-// Validação de Login
-login.addEventListener('keyup', () => {
-    if (login.value.length === 0) {
-        login.classList.remove('is-invalid', 'is-valid');
-        feedbackLogin.textContent = ""; 
-        return; 
-    }
-    if (login.value.length <= 7) {
-        login.classList.add('is-invalid');
-        feedbackLogin.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackLogin.textContent = "O login deve ter 8 caracteres";
-    } else {
-        login.classList.remove('is-invalid');
-        feedbackLogin.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackLogin.textContent = ""; 
-        login.classList.add('is-valid'); 
-    }
-});
-
-// Validação de Senha
-senha.addEventListener('keyup', () => {
-    if (senha.value.length === 0) {
-        senha.classList.remove('is-invalid', 'is-valid');
-        feedbackSenha.textContent = "";
-        confiSenha.classList.remove('is-invalid', 'is-valid');
-        feedbackConfiSenha.textContent = "";
-        return;
-    }
-    if (senha.value.length < 6) {
-        senha.classList.add('is-invalid');
-        feedbackSenha.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackSenha.textContent = "A senha deve ter 6 caracteres";
-    } else {
-        senha.classList.remove('is-invalid');
-        feedbackSenha.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackSenha.textContent = "";
-        senha.classList.add('is-valid');
-    }
-    if (confiSenha.value.length > 0) {
-        validarConfiSenha();
-    }
-});
-
-// Validação de Confirmação de Senha
-confiSenha.addEventListener('keyup', validarConfiSenha);
-
-function validarConfiSenha() {
-    if (confiSenha.value.length === 0) {
-        confiSenha.classList.remove('is-invalid', 'is-valid');
-        feedbackConfiSenha.textContent = "";
-        validConfiSenha = false;
-    } else if (confiSenha.value !== senha.value) {
-        confiSenha.classList.add('is-invalid');
-        feedbackConfiSenha.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackConfiSenha.textContent = "As senhas não conferem.";
-        validConfiSenha = false;
-    } else {
-        confiSenha.classList.remove('is-invalid');
-        feedbackConfiSenha.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
-        confiSenha.classList.add('is-valid');
-        feedbackConfiSenha.classList.add('valid-feedback', 'ms-2', 'pt-1');
-        feedbackConfiSenha.textContent = "As senhas conferem.";
-        validConfiSenha = true;
-    }
-}
-
-// limpar tudo \\
-document.getElementById("clearBtn").addEventListener("click", function() {
-    // Limpa o campo de gênero e remove validações
-    const genero = document.querySelector("input[name='genero']");
-    if (genero) {
-        genero.checked = false;  // Desmarca o gênero selecionado
-        genero.classList.remove("is-invalid", "is-valid");
-    }
-
-    // Limpa o campo de celular e remove validações
-    const celular = document.getElementById("celular");
-    if (celular) {
-        celular.value = "";
-        celular.classList.remove("is-invalid", "is-valid");
-    }
-
-    // Limpa o campo de telefone e remove validações
-    const telefone = document.getElementById("telefone");
-    if (telefone) {
-        telefone.value = "";
-        telefone.classList.remove("is-invalid", "is-valid");
-    }
-
-    // Limpa o campo de e-mail e remove validações
-    const email = document.getElementById("email");
-    if (email) {
-        email.value = "";
-        email.classList.remove("is-invalid", "is-valid");
-    }
-
-    // Limpa todos os campos de entrada restantes
-    document.querySelectorAll("input").forEach(input => {
-        input.value = "";
-        input.classList.remove("is-invalid", "is-valid");
-    });
-
-    // Limpa todas as mensagens de erro
-    document.querySelectorAll(".error-message").forEach(error => {
-        error.textContent = "";
-    });
-});
-// limpar tudo \\
-
-// Função mostrar/ocultar senha
-function passViewInputs(event) {
-    let targetId = event.target.getAttribute('data-target');
-    let inputPass = document.getElementById(targetId);
     
-    if (inputPass.getAttribute('type') === 'password') {
-        inputPass.setAttribute('type', 'text');
-        event.target.classList.remove('fa-eye');
-        event.target.classList.add('fa-eye-slash');
+    if (idade < 18) {
+        document.getElementById('feedbackData').textContent = 'Você deve ter pelo menos 18 anos';
+        document.getElementById('feedbackData').className = 'text-danger';
+        return false;
+    } else if (idade > 85) {
+        document.getElementById('feedbackData').textContent = 'Idade máxima permitida é 85 anos';
+        document.getElementById('feedbackData').className = 'text-danger';
+        return false;
+    }
+    
+    document.getElementById('feedbackData').textContent = 'Idade válida';
+    document.getElementById('feedbackData').className = 'text-success';
+    return true;
+}
+
+// Aplicando máscaras aos campos
+document.getElementById('telFixo').addEventListener('input', (e) => {
+    e.target.value = maskTel.phone(e.target.value)
+})
+
+document.getElementById('celular').addEventListener('input', (e) => {
+    e.target.value = maskTel.cel(e.target.value)
+})
+
+document.getElementById('cep').addEventListener('input', (e) => {
+    e.target.value = maskTel.cep(e.target.value)
+})
+
+document.getElementById('cpf').addEventListener('input', (e) => {
+    e.target.value = maskTel.cpf(e.target.value)
+})
+
+// Validação em tempo real para nome e sobrenome
+document.getElementById('nome').addEventListener('input', (e) => {
+    validarNome(e.target)
+})
+
+document.getElementById('sobrenome').addEventListener('input', (e) => {
+    validarNome(e.target)
+})
+
+// Validação em tempo real para data de nascimento
+document.getElementById('data').addEventListener('input', (e) => {
+    validarIdade(e.target)
+})
+
+// Validação em tempo real para CPF
+document.getElementById('cpf').addEventListener('input', (e) => {
+    validarCPF(e.target)
+})
+
+// Validação em tempo real para login
+document.getElementById('login').addEventListener('input', (e) => {
+    if (e.target.value.length > 8) {
+        e.target.value = e.target.value.slice(0, 8)
+    }
+    validarLogin()
+})
+
+// Validação em tempo real para senha e confirmação
+document.getElementById('senha').addEventListener('input', validarSenha)
+document.getElementById('confiSenha').addEventListener('input', validarSenha)
+
+// Validação em tempo real para celular
+document.getElementById('celular').addEventListener('input', (e) => {
+    const valor = e.target.value.replace(/\D/g, '')
+    if (valor.length === 11) {
+        document.getElementById('feedbackCel').textContent = 'Celular válido'
+        document.getElementById('feedbackCel').className = 'text-success'
     } else {
-        inputPass.setAttribute('type', 'password');
-        event.target.classList.add('fa-eye');
-        event.target.classList.remove('fa-eye-slash');
+        document.getElementById('feedbackCel').textContent = 'Celular inválido'
+        document.getElementById('feedbackCel').className = 'text-danger'
+    }
+})
+
+// Validação de CPF
+function validarCPF(cpf) {
+    cpf = cpf.value.replace(/[^\d]/g, '')
+    
+    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+        document.getElementById('feedbackCPF').textContent = 'CPF inválido'
+        document.getElementById('feedbackCPF').className = 'text-danger'
+        return false
+    }
+    
+    let soma = 0
+    for (let i = 0; i < 9; i++) {
+        soma += parseInt(cpf.charAt(i)) * (10 - i)
+    }
+    
+    let resto = 11 - (soma % 11)
+    let digito1 = resto === 10 || resto === 11 ? 0 : resto
+    
+    soma = 0
+    for (let i = 0; i < 10; i++) {
+        soma += parseInt(cpf.charAt(i)) * (11 - i)
+    }
+    
+    resto = 11 - (soma % 11)
+    let digito2 = resto === 10 || resto === 11 ? 0 : resto
+    
+    if (parseInt(cpf.charAt(9)) === digito1 && parseInt(cpf.charAt(10)) === digito2) {
+        document.getElementById('feedbackCPF').textContent = 'CPF válido'
+        document.getElementById('feedbackCPF').className = 'text-success'
+        return true
+    }
+    
+    document.getElementById('feedbackCPF').textContent = 'CPF inválido'
+    document.getElementById('feedbackCPF').className = 'text-danger'
+    return false
+}
+
+// Validação de nome e sobrenome
+function validarNome(campo) {
+    const valor = campo.value
+    const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{3,60}$/
+    
+    if (!regex.test(valor)) {
+        document.getElementById(`feedback${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)}`).textContent = 
+            'Nome deve conter apenas letras e ter entre 3 e 60 caracteres'
+        document.getElementById(`feedback${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)}`).className = 'text-danger'
+        return false
+    }
+    
+    document.getElementById(`feedback${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)}`).textContent = 'Nome válido'
+    document.getElementById(`feedback${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)}`).className = 'text-success'
+    return true
+}
+
+// Validação de login
+function validarLogin() {
+    const login = document.getElementById('login').value
+    
+    if (login.length !== 8) {
+        document.getElementById('feedbackLogin').textContent = 'O login deve ter exatamente 8 caracteres'
+        document.getElementById('feedbackLogin').className = 'text-danger'
+        return false
+    }
+    
+    document.getElementById('feedbackLogin').textContent = 'Login válido'
+    document.getElementById('feedbackLogin').className = 'text-success'
+    return true
+}
+
+// Validação de senha
+function validarSenha() {
+    const senha = document.getElementById('senha').value
+    const confSenha = document.getElementById('confiSenha').value
+    
+    if (senha.length !== 6) {
+        document.getElementById('feedbackSenha').textContent = 'A senha deve ter exatamente 6 caracteres'
+        document.getElementById('feedbackSenha').className = 'text-danger'
+        return false
+    }
+    
+    if (senha !== confSenha) {
+        document.getElementById('feedbackConfiSenha').textContent = 'As senhas não coincidem'
+        document.getElementById('feedbackConfiSenha').className = 'text-danger'
+        return false
+    }
+    
+    document.getElementById('feedbackSenha').textContent = 'Senha válida'
+    document.getElementById('feedbackSenha').className = 'text-success'
+    document.getElementById('feedbackConfiSenha').textContent = 'Senhas coincidem'
+    document.getElementById('feedbackConfiSenha').className = 'text-success'
+    return true
+}
+
+// Consulta CEP
+async function consultaCEP(cep) {
+    const url = `https://viacep.com.br/ws/${cep}/json/`
+    const camposEndereco = ['endereco', 'bairro', 'cidade', 'estado']
+    
+    // Desabilitar campos antes da consulta
+    camposEndereco.forEach(campo => {
+        document.getElementById(campo).disabled = true
+    })
+    
+    try {
+        const response = await fetch(url)
+        const data = await response.json()
+        
+        if (data.erro) {
+            document.getElementById('feedbackCep').textContent = 'CEP não encontrado'
+            document.getElementById('feedbackCep').className = 'text-danger'
+            // Habilitar campos se CEP não encontrado
+            camposEndereco.forEach(campo => {
+                document.getElementById(campo).disabled = false
+            })
+            return false
+        }
+        
+        document.getElementById('endereco').value = data.logradouro
+        document.getElementById('bairro').value = data.bairro
+        document.getElementById('cidade').value = data.localidade
+        document.getElementById('estado').value = data.uf
+        
+        document.getElementById('feedbackCep').textContent = 'CEP válido'
+        document.getElementById('feedbackCep').className = 'text-success'
+        
+        // Manter campos desabilitados se CEP for válido
+        camposEndereco.forEach(campo => {
+            document.getElementById(campo).disabled = true
+        })
+        
+        return true
+    } catch (error) {
+        document.getElementById('feedbackCep').textContent = 'Erro ao consultar CEP'
+        document.getElementById('feedbackCep').className = 'text-danger'
+        // Habilitar campos em caso de erro
+        camposEndereco.forEach(campo => {
+            document.getElementById(campo).disabled = false
+        })
+        return false
     }
 }
 
-let passViewIcon = document.querySelectorAll('#eye-icon');
-passViewIcon.forEach(icon => {
-    icon.addEventListener('click', passViewInputs);
-});
-
-// Fechar o modal ao clicar no botão "Fechar"
-document.getElementById("closeModal").addEventListener("click", function() {
-    document.getElementById("modal").close();
-});
-
-// Função para cadastrar
-function cadastrar() {
-    if (validNome && validSobrenome && validEmail && validCep && validEndereco && validLogin && validSenha && validConfiSenha && validGenero && validTelefone && validCelular && validDataNasc) {
-        // Aqui vai a lógica do modal de sucesso
-    } else {
-        // Aqui vai a lógica do modal de erro
+// Event listener para CEP
+document.getElementById('cep').addEventListener('blur', (e) => {
+    const cep = e.target.value.replace(/\D/g, '')
+    if (cep.length === 8) {
+        consultaCEP(cep)
     }
+})
+
+// Função principal de cadastro
+async function cadastrar(event) {
+    event.preventDefault();
+    
+    // Array para armazenar mensagens de erro
+    let erros = [];
+    
+    // Validações individuais
+    if (!validarNome(document.getElementById('nome'))) {
+        erros.push("Nome inválido");
+    }
+    
+    if (!validarNome(document.getElementById('sobrenome'))) {
+        erros.push("Sobrenome inválido");
+    }
+    
+    if (!validarCPF(document.getElementById('cpf'))) {
+        erros.push("CPF inválido");
+    }
+    
+    const celular = document.getElementById('celular').value;
+    if (celular.replace(/\D/g, '').length !== 11) {
+        erros.push("Celular inválido");
+    }
+    
+    if (!validarLogin()) {
+        erros.push("Login inválido");
+    }
+    
+    if (!validarSenha()) {
+        erros.push("Senha inválida ou senhas não coincidem");
+    }
+    
+    if (!validarIdade(document.getElementById('data'))) {
+        erros.push("Data de nascimento inválida");
+    }
+    
+    // Validação do endereço
+    const camposEndereco = {
+        'cep': document.getElementById('cep').value,
+        'endereco': document.getElementById('endereco').value,
+        'numero': document.getElementById('numero').value,
+        'bairro': document.getElementById('bairro').value,
+        'cidade': document.getElementById('cidade').value,
+        'estado': document.getElementById('estado').value
+    };
+    
+    for (let [campo, valor] of Object.entries(camposEndereco)) {
+        if (!valor.trim()) {
+            erros.push(`Campo ${campo} é obrigatório`);
+        }
+    }
+    
+    // Validação do gênero
+    const generoSelecionado = document.querySelector('input[name="inlineRadioOptions"]:checked');
+    if (!generoSelecionado) {
+        erros.push("Selecione um gênero");
+    }
+    
+    // Validação do email
+    const email = document.getElementById('email').value;
+    if (!email || !email.includes('@') || !email.includes('.')) {
+        erros.push("Email inválido");
+    }
+    
+    // Se houver erros, mostrar no modal
+    if (erros.length > 0) {
+        const modal = document.getElementById('modal');
+        const modalMessage = document.getElementById('modalMessage');
+        modalMessage.innerHTML = 'Por favor, corrija os seguintes erros:<br>' + 
+                               erros.map(erro => `- ${erro}`).join('<br>');
+        modal.showModal();
+        return;
+    }
+    
+    // Se chegou aqui, todos os campos estão válidos
+    // Coleta dos dados do formulário
+    const formData = {
+        nome: document.getElementById('nome').value,
+        sobrenome: document.getElementById('sobrenome').value,
+        dataNascimento: document.getElementById('data').value,
+        genero: generoSelecionado.value,
+        cpf: document.getElementById('cpf').value,
+        email: email,
+        celular: celular,
+        telefoneFixo: document.getElementById('telFixo').value,
+        endereco: {
+            cep: camposEndereco.cep,
+            logradouro: camposEndereco.endereco,
+            numero: camposEndereco.numero,
+            bairro: camposEndereco.bairro,
+            cidade: camposEndereco.cidade,
+            estado: camposEndereco.estado,
+            complemento: document.getElementById('complemento').value
+        },
+        login: document.getElementById('login').value,
+        senha: document.getElementById('senha').value
+    };
+    
+    // Salvar no localStorage
+    localStorage.setItem('userData', JSON.stringify(formData));
+    
+    // Modal de sucesso
+    const modal = document.getElementById('modal');
+    const modalMessage = document.getElementById('modalMessage');
+    modalMessage.textContent = 'Cadastro realizado com sucesso!';
+    modal.showModal();
+    
+    // Redirecionar após 2 segundos
+    setTimeout(() => {
+        window.location.href = 'login.html';
+    }, 2000);
 }
 
-// Botão de enviar formulário
-document.querySelector('#submitBtn').addEventListener('click', cadastrar);
+// Função limpar
+function limparSelecionados() {
+    // Limpar inputs
+    document.querySelectorAll('input').forEach(input => {
+        input.value = ''
+        input.disabled = false
+    })
+    
+    // Limpar radio buttons
+    document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false)
+    
+    // Limpar checkbox
+    document.getElementById('checkbox').checked = false
+    
+    // Limpar feedback spans
+    document.querySelectorAll('span[id^="feedback"]').forEach(span => {
+        span.textContent = ''
+        span.className = ''
+    })
+    
+    // Habilitar campos de endereço
+    const camposEndereco = ['endereco', 'bairro', 'cidade', 'estado']
+    camposEndereco.forEach(campo => {
+        const elemento = document.getElementById(campo)
+        elemento.value = ''
+        elemento.disabled = false
+    })
+    
+    // Limpar textarea de complemento
+    document.getElementById('complemento').value = ''
+}
+
+// Configuração do modal
+const modal = document.getElementById('modal')
+const closeModal = document.getElementById('closeModal')
+
+closeModal.onclick = function() {
+    modal.close()
+}
+
+// Quando clicar fora do modal, fechar
+modal.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.close()
+    }
+})
+
+// Toggle visibilidade da senha
+document.querySelectorAll('.fa-eye').forEach(icon => {
+    icon.addEventListener('click', () => {
+        const targetId = icon.getAttribute('data-target')
+        const input = document.getElementById(targetId)
+        input.type = input.type === 'password' ? 'text' : 'password'
+        icon.classList.toggle('fa-eye-slash')
+    })
+})

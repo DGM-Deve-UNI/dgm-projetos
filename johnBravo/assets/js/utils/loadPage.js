@@ -12,11 +12,45 @@ export function loadPage(url, contentDiv) {
             contentDiv.innerHTML = data; // Carrega a seção
             window.scrollTo(0, 0); // Rola para o topo
 
-        // Verifica se a página de contatos foi carregada
+            // Verifica se a página de contatos foi carregada
             if (url.includes('contatos.html')) {
                 loadMap(); // Chama a função para carregar o mapa
+            }
+
+            // Verifica se a página carregada é 'agendar.html'
+            if (url.includes('agendar.html')) {
+                loadAgendarScript(); // Chama função para carregar o JS da página agendar
             }
         })
         .catch(error => console.error('Erro:', error));
 }
 
+function loadAgendarScript() {
+    // Verifique se o script já foi carregado para evitar carregamento duplicado
+    if (!window.agendarScriptLoaded) {
+        window.agendarScriptLoaded = true;
+        
+        const script = document.createElement('script');
+        script.src = 'assets/js/agendar.js'; // Caminho do seu agendar.js
+        script.onload = () => {
+            console.log('Script agendar.js carregado com sucesso!');
+        };
+        script.onerror = () => {
+            console.error('Erro ao carregar o script agendar.js');
+        };
+        
+        document.head.appendChild(script);
+    }
+}
+
+// // Verificar se a página atual é agendar.html
+// if (window.location.pathname === 'johnBravo/assets/html/pages/agendar.html') {
+//     // Criar um novo elemento script
+//     const script = document.createElement('script');
+//     script.src = 'johnBravo/assets/js/agendar.js'; // Substitua pelo caminho correto
+  
+//     // Adicionar o script ao head do documento após o DOM estar pronto
+//     document.addEventListener('DOMContentLoaded', () => {
+//       document.head.appendChild(script);
+//     });
+//   }

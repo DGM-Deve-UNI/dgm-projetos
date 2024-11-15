@@ -11,7 +11,8 @@
         "mstaria",
         "msthash",
         "msttexthash",
-        "mstvisible"
+        "mstvisible",
+        "whatsapp"
     ],
     "files.autoSave": "afterDelay"
 }
