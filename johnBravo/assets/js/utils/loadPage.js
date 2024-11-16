@@ -42,15 +42,3 @@ function loadAgendarScript() {
         document.head.appendChild(script);
     }
 }
-
-// // Verificar se a página atual é agendar.html
-// if (window.location.pathname === 'johnBravo/assets/html/pages/agendar.html') {
-//     // Criar um novo elemento script
-//     const script = document.createElement('script');
-//     script.src = 'johnBravo/assets/js/agendar.js'; // Substitua pelo caminho correto
-  
-//     // Adicionar o script ao head do documento após o DOM estar pronto
-//     document.addEventListener('DOMContentLoaded', () => {
-//       document.head.appendChild(script);
-//     });
-//   }

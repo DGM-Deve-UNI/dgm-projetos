@@ -106,3 +106,7 @@ input[type="password"]::-ms-clear {
         padding: 4rem !important;
     }
 }
+
+span {
+    line-height: 1.2; 
+}

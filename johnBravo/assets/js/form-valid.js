@@ -1,14 +1,5 @@
-// Máscaras para telefone e celular
+// Máscaras celular, telefone, cpf e cep OK
 const maskTel = {
-    phone(value) {
-        return value
-            .replace(/\D/g, '')
-            .replace(/(\d{2})(\d)/, '($1) $2')
-            .replace(/(\d{4})(\d)/, '$1-$2')
-            .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
-            .replace(/(-\d{4})\d+?$/, '$1')
-    },
-    
     cel(value) {
         return value
             .replace(/\D/g, '')
@@ -18,11 +9,13 @@ const maskTel = {
             .replace(/(-\d{4})\d+?$/, '$1')
     },
 
-    cep(value) {
+    phone(value) {
         return value
             .replace(/\D/g, '')
-            .replace(/(\d{5})(\d)/, '$1-$2')
-            .replace(/(-\d{3})\d+?$/, '$1')
+            .replace(/(\d{2})(\d)/, '($1) $2')
+            .replace(/(\d{4})(\d)/, '$1-$2')
+            .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
+            .replace(/(-\d{4})\d+?$/, '$1')
     },
 
     cpf(value) {
@@ -32,53 +25,15 @@ const maskTel = {
             .replace(/(\d{3})(\d)/, '$1.$2')
             .replace(/(\d{3})(\d{1,2})/, '$1-$2')
             .replace(/(-\d{2})\d+?$/, '$1')
+    },
+
+    cep(value) {
+        return value
+            .replace(/\D/g, '')
+            .replace(/(\d{5})(\d)/, '$1-$2')
+            .replace(/(-\d{3})\d+?$/, '$1')
     }
 }
-
-// Função para validar a data de nascimento
-function validarIdade(campo) {
-    const dataNascimento = new Date(campo.value);
-    const hoje = new Date();
-    
-    let idade = hoje.getFullYear() - dataNascimento.getFullYear();
-    const mes = hoje.getMonth() - dataNascimento.getMonth();
-    
-    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
-        idade--;
-    }
-    
-    if (idade < 18) {
-        document.getElementById('feedbackData').textContent = 'Você deve ter pelo menos 18 anos';
-        document.getElementById('feedbackData').className = 'text-danger';
-        return false;
-    } else if (idade > 85) {
-        document.getElementById('feedbackData').textContent = 'Idade máxima permitida é 85 anos';
-        document.getElementById('feedbackData').className = 'text-danger';
-        return false;
-    }
-    
-    document.getElementById('feedbackData').textContent = 'Idade válida';
-    document.getElementById('feedbackData').className = 'text-success';
-    return true;
-}
-
-// Aplicando máscaras aos campos
-document.getElementById('telFixo').addEventListener('input', (e) => {
-    e.target.value = maskTel.phone(e.target.value)
-})
-
-document.getElementById('celular').addEventListener('input', (e) => {
-    e.target.value = maskTel.cel(e.target.value)
-})
-
-document.getElementById('cep').addEventListener('input', (e) => {
-    e.target.value = maskTel.cep(e.target.value)
-})
-
-document.getElementById('cpf').addEventListener('input', (e) => {
-    e.target.value = maskTel.cpf(e.target.value)
-})
-
 // Validação em tempo real para nome e sobrenome
 document.getElementById('nome').addEventListener('input', (e) => {
     validarNome(e.target)
@@ -93,34 +48,233 @@ document.getElementById('data').addEventListener('input', (e) => {
     validarIdade(e.target)
 })
 
+// Validação de Gênero
+let gen = document.querySelectorAll('input[name="inlineRadioOptions"]');
+gen.forEach(input => {
+    input.addEventListener('change', () => {
+        validGenero = Array.from(gen).some(radio => radio.checked);
+        gen.forEach(r => {
+            r.classList.remove('is-invalid', 'is-valid');
+        });
+        if (validGenero) {
+            input.classList.add('is-valid');
+        } else {
+            input.classList.add('is-invalid');
+        }
+    });
+});
+
 // Validação em tempo real para CPF
 document.getElementById('cpf').addEventListener('input', (e) => {
     validarCPF(e.target)
 })
 
+document.getElementById('email').addEventListener('input', (e) => {
+    validarEmail(e.target);
+});
+
+// Aplicando máscaras aos campos
+document.getElementById('cpf').addEventListener('input', (e) => {
+    e.target.value = maskTel.cpf(e.target.value)
+})
+
+document.getElementById('celular').addEventListener('input', (e) => {
+    const cel = e.target; // Referência ao campo de celular
+    const valor = cel.value.replace(/\D/g, ''); // Remove tudo que não é número
+    
+    // Limita a 11 caracteres
+    if (valor.length > 11) {
+        cel.value = valor.slice(0, 11); // Limita a 11 caracteres
+    } else {
+        cel.value = maskTel.cel(valor); // Aplica a máscara
+    }
+
+    // Validação visual e feedback
+    const feedbackCel = document.getElementById('feedbackCel');
+    
+    if (valor.length === 0) {
+        cel.classList.remove('is-valid', 'is-invalid');
+        feedbackCel.textContent = "O número não pode ser vazio";
+        feedbackCel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+    } else if (valor.length < 11) {
+        cel.classList.remove('is-valid');
+        cel.classList.add('is-invalid');
+        feedbackCel.textContent = "Celular inválido";
+        feedbackCel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+    } else if (valor.length === 11) {
+        cel.classList.remove('is-invalid');
+        cel.classList.add('is-valid');
+        feedbackCel.textContent = "";
+    }
+});
+
+// document.getElementById('telFixo').addEventListener('input', (e) => {
+//     e.target.value = maskTel.phone(e.target.value)
+// })
+document.getElementById('telFixo').addEventListener('input', (e) => {
+    const telFixo = e.target; // Referência ao campo de telefone fixo
+    const valor = telFixo.value.replace(/\D/g, ''); // Remove tudo que não é número
+    
+    // Aplica a máscara de telefone fixo
+    telFixo.value = maskTel.phone(valor);
+
+    // Validação visual e feedback
+    const feedbackTel = document.getElementById('feedbackTel');
+    
+    // O telefone fixo é opcional, então vamos validar se foi preenchido corretamente
+    if (valor.length === 0) {
+        telFixo.classList.remove('is-valid', 'is-invalid');
+        feedbackTel.textContent = "O telefone não pode ser vazio";
+        feedbackTel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+    } else if (valor.length < 10 || valor.length > 11) {
+        telFixo.classList.remove('is-valid');
+        telFixo.classList.add('is-invalid');
+        feedbackTel.textContent = "Telefone fixo inválido";
+        feedbackTel.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+    } else {
+        telFixo.classList.remove('is-invalid');
+        telFixo.classList.add('is-valid');
+        feedbackTel.textContent = "";
+    }
+});
+
+document.getElementById('cep').addEventListener('input', (e) => {
+    e.target.value = maskTel.cep(e.target.value)
+})
+
+let numero = document.querySelector('#numero');
+let feedbackNumero = document.querySelector('#feedbackNumero');
+// Validação do Número endereço
+document.getElementById('numero').addEventListener('input', () => {
+    if (numero.value.length > 4) {
+        numero.value = numero.value.slice(0, 4);
+    }
+    const valor = numero.value;
+    if (valor.length === 0) {
+        numero.classList.remove('is-invalid', 'is-valid');
+        feedbackNumero.textContent = "";
+    } else {
+        numero.classList.add('is-valid');
+        feedbackNumero.textContent = "";
+    }
+});
 // Validação em tempo real para login
 document.getElementById('login').addEventListener('input', (e) => {
-    if (e.target.value.length > 8) {
-        e.target.value = e.target.value.slice(0, 8)
+    if (login.value.length === 0) {
+        login.classList.remove('is-invalid', 'is-valid');
+        feedbackLogin.textContent = ""; 
+        return; 
     }
-    validarLogin()
+    if (login.value.length <= 7) {
+        login.classList.add('is-invalid');
+        feedbackLogin.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        feedbackLogin.textContent = "O login deve ter 8 caracteres";
+    } else {
+        login.classList.remove('is-invalid');
+        feedbackLogin.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
+        feedbackLogin.textContent = ""; 
+        login.classList.add('is-valid'); 
+    }
 })
 
 // Validação em tempo real para senha e confirmação
 document.getElementById('senha').addEventListener('input', validarSenha)
 document.getElementById('confiSenha').addEventListener('input', validarSenha)
 
-// Validação em tempo real para celular
-document.getElementById('celular').addEventListener('input', (e) => {
-    const valor = e.target.value.replace(/\D/g, '')
-    if (valor.length === 11) {
-        document.getElementById('feedbackCel').textContent = 'Celular válido'
-        document.getElementById('feedbackCel').className = 'text-success'
-    } else {
-        document.getElementById('feedbackCel').textContent = 'Celular inválido'
-        document.getElementById('feedbackCel').className = 'text-danger'
+// Validação de nome e sobrenome
+function validarNome(campo) {
+    const valor = campo.value;
+    const feedback = document.getElementById(`feedback${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)}`);
+    
+    // Limpar a classe de erro ou sucesso antes de começar a validação
+    campo.classList.remove('is-invalid', 'is-valid');
+    feedback.classList.remove('invalid-feedback', 'valid-feedback', 'ms-2', 'pt-1');
+    feedback.textContent = ""; // Limpar o texto de feedback anterior
+
+    let fieldValid = true;
+
+    // Validar se o campo não está vazio
+    if (valor.length === 0) {
+        feedback.textContent = `${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)} não pode estar vazio`;
+        feedback.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        campo.classList.add('is-invalid');
+        fieldValid = false;
     }
-})
+    // Validar se o nome contém apenas letras (incluindo caracteres especiais permitidos) e tem o tamanho adequado
+    else if (!/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(valor)) {
+        feedback.textContent = `${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)} deve conter apenas letras e espaços`;
+        feedback.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        campo.classList.add('is-invalid');
+        fieldValid = false;
+    }
+    // Validar a quantidade mínima de caracteres
+    else if (valor.length < 3) {
+        feedback.textContent = `${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)} deve ter pelo menos 3 caracteres`;
+        feedback.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        campo.classList.add('is-invalid');
+        fieldValid = false;
+    }
+    // Se estiver válido
+    else {
+        feedback.textContent = `${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)} válido`;
+        feedback.classList.add('valid-feedback', 'ms-2', 'pt-1');
+        campo.classList.add('is-valid');
+    }
+
+    return fieldValid; // Retorna se o campo está válido ou não
+}
+// Função para validar a data de nascimento OK
+function validarIdade(campo) {
+    const dataNascimento = new Date(campo.value);
+    const hoje = new Date();
+
+     // Verifica se o ano de nascimento está vazio
+     if (!campo.value || isNaN(dataNascimento.getFullYear())) {
+        feedbackData.textContent = "Idade inválida: Ano de nascimento não informado.";
+        feedbackData.classList.add('invalid-feedback', 'ms-2', 'mt-0');
+        data.classList.add('is-invalid', 'mb-0');
+        feedbackData.classList.remove('valid-feedback');
+        data.classList.remove('is-valid');
+        return false;
+    }
+    
+    let idade = hoje.getFullYear() - dataNascimento.getFullYear();
+    const mes = hoje.getMonth() - dataNascimento.getMonth();
+    
+    if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
+        idade--;
+    }
+    
+    if (idade < 18) {
+        feedbackData.textContent = "Você deve ter pelo menos 18 anos";
+        feedbackData.classList.add('invalid-feedback', 'ms-2', 'mt-0');
+        data.classList.add('is-invalid', 'mb-0');
+        feedbackData.classList.remove('valid-feedback');
+        data.classList.remove('is-valid');
+        return false;
+    } else if (idade > 85) {
+        feedbackData.textContent = "Idade máxima permitida é 85 anos";
+        feedbackData.classList.add('invalid-feedback', 'ms-2', 'mt-0');
+        data.classList.add('is-invalid', 'mb-0');
+        feedbackData.classList.remove('valid-feedback');
+        data.classList.remove('is-valid');
+        return false;
+    } else if (idade < 18 || idade > 85) {
+        feedbackData.textContent = `Idade inválida: ${idade} anos.`;
+        feedbackData.classList.add('invalid-feedback', 'ms-2', 'mt-0');
+        data.classList.add('is-invalid', 'mb-0');
+        feedbackData.classList.remove('valid-feedback');
+        data.classList.remove('is-valid');
+        return false;
+    } else {
+        feedbackData.textContent = `Idade válida: ${idade} anos.`;
+        feedbackData.classList.add('valid-feedback', 'ms-2', 'mt-0');
+        data.classList.add('is-valid', 'mb-0');
+        feedbackData.classList.remove('invalid-feedback');
+        data.classList.remove('is-invalid');
+        return true;
+    }
+}
 
 // Validação de CPF
 function validarCPF(cpf) {
@@ -159,21 +313,35 @@ function validarCPF(cpf) {
     return false
 }
 
-// Validação de nome e sobrenome
-function validarNome(campo) {
-    const valor = campo.value
-    const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{3,60}$/
-    
-    if (!regex.test(valor)) {
-        document.getElementById(`feedback${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)}`).textContent = 
-            'Nome deve conter apenas letras e ter entre 3 e 60 caracteres'
-        document.getElementById(`feedback${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)}`).className = 'text-danger'
-        return false
+// Validação de Email
+function validarEmail(campo) {
+    const email = campo.value;
+    const feedbackEmail = document.getElementById('feedbackEmail'); // Referência ao feedback do email
+
+    // Limpar o feedback e as classes de erro antes de começar a validação
+    campo.classList.remove('is-invalid', 'is-valid');
+    feedbackEmail.classList.remove('invalid-feedback', 'valid-feedback', 'ms-2', 'pt-1');
+    feedbackEmail.textContent = ""; // Limpar texto de feedback anterior
+
+    // Verificar se o campo está vazio
+    if (email.length === 0) {
+        campo.classList.remove('is-invalid', 'is-valid');
+        feedbackEmail.textContent = "";
+        return; // Se o campo estiver vazio, não faz a validação
     }
-    
-    document.getElementById(`feedback${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)}`).textContent = 'Nome válido'
-    document.getElementById(`feedback${campo.id.charAt(0).toUpperCase() + campo.id.slice(1)}`).className = 'text-success'
-    return true
+
+    // Validação de email com expressão regular
+    const regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+    if (!regexEmail.test(email)) {
+        campo.classList.add('is-invalid');
+        feedbackEmail.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        feedbackEmail.textContent = "Use um email válido!";
+    } else {
+        campo.classList.remove('is-invalid');
+        feedbackEmail.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
+        feedbackEmail.textContent = ""; // Limpar o feedback
+        campo.classList.add('is-valid');
+    }
 }
 
 // Validação de login
@@ -181,38 +349,71 @@ function validarLogin() {
     const login = document.getElementById('login').value
     
     if (login.length !== 8) {
-        document.getElementById('feedbackLogin').textContent = 'O login deve ter exatamente 8 caracteres'
-        document.getElementById('feedbackLogin').className = 'text-danger'
+        // document.getElementById('feedbackLogin').textContent = 'O login deve ter exatamente 8 caracteres'
+        // document.getElementById('feedbackLogin').className = 'text-danger'
         return false
     }
     
-    document.getElementById('feedbackLogin').textContent = 'Login válido'
-    document.getElementById('feedbackLogin').className = 'text-success'
+    // document.getElementById('feedbackLogin').textContent = 'Login válido'
+    // document.getElementById('feedbackLogin').className = 'text-success'
     return true
 }
-
 // Validação de senha
 function validarSenha() {
-    const senha = document.getElementById('senha').value
-    const confSenha = document.getElementById('confiSenha').value
+    const senha = document.getElementById('senha');
+    const confSenha = document.getElementById('confiSenha');
+    const feedbackSenha = document.getElementById('feedbackSenha');
+    const feedbackConfiSenha = document.getElementById('feedbackConfiSenha');
     
-    if (senha.length !== 6) {
-        document.getElementById('feedbackSenha').textContent = 'A senha deve ter exatamente 6 caracteres'
-        document.getElementById('feedbackSenha').className = 'text-danger'
-        return false
+    // Resetando os feedbacks ao começar a validação
+    senha.classList.remove('is-invalid', 'is-valid');
+    feedbackSenha.classList.remove('invalid-feedback', 'ms-2', 'pt-1', 'valid-feedback', 'text-success');
+    feedbackConfiSenha.classList.remove('invalid-feedback', 'ms-2', 'pt-1', 'valid-feedback', 'text-success');
+    feedbackSenha.textContent = "";
+    feedbackConfiSenha.textContent = "";
+
+    // Validação para a senha
+    if (senha.value.length === 0) {
+        feedbackSenha.textContent = "Campo de senha vazio!";
+        feedbackSenha.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        senha.classList.add('is-invalid');
+        return false;
     }
     
-    if (senha !== confSenha) {
-        document.getElementById('feedbackConfiSenha').textContent = 'As senhas não coincidem'
-        document.getElementById('feedbackConfiSenha').className = 'text-danger'
-        return false
+    if (senha.value.length < 6) {
+        feedbackSenha.textContent = "A senha deve ter pelo menos 6 caracteres";
+        feedbackSenha.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        senha.classList.add('is-invalid');
+        return false;
     }
     
-    document.getElementById('feedbackSenha').textContent = 'Senha válida'
-    document.getElementById('feedbackSenha').className = 'text-success'
-    document.getElementById('feedbackConfiSenha').textContent = 'Senhas coincidem'
-    document.getElementById('feedbackConfiSenha').className = 'text-success'
-    return true
+    // Validação para o campo de confirmação da senha
+    if (confSenha.value !== "" && senha.value !== confSenha.value) {
+        feedbackConfiSenha.textContent = "As senhas não coincidem";
+        feedbackConfiSenha.classList.add('invalid-feedback', 'ms-2', 'pt-1');
+        confSenha.classList.add('is-invalid');
+        return false;
+    }
+
+    // Se a senha for válida
+    if (senha.value.length >= 6) {
+        feedbackSenha.textContent = "Senha válida";
+        feedbackConfiSenha.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
+        confSenha.classList.remove('is-invalid');
+        feedbackSenha.classList.add('valid-feedback', 'ms-2', 'pt-1');
+        senha.classList.add('is-valid');
+    }
+
+    // Se as senhas coincidirem
+    if (senha.value === confSenha.value) {
+        feedbackConfiSenha.textContent = "Senhas coincidem";
+        feedbackConfiSenha.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
+        confSenha.classList.remove('is-invalid');
+        feedbackConfiSenha.classList.add('valid-feedback', 'ms-2', 'pt-1');
+        confSenha.classList.add('is-valid');
+    }
+
+    return true;
 }
 
 // Consulta CEP
@@ -263,7 +464,6 @@ async function consultaCEP(cep) {
         return false
     }
 }
-
 // Event listener para CEP
 document.getElementById('cep').addEventListener('blur', (e) => {
     const cep = e.target.value.replace(/\D/g, '')
@@ -275,40 +475,45 @@ document.getElementById('cep').addEventListener('blur', (e) => {
 // Função principal de cadastro
 async function cadastrar(event) {
     event.preventDefault();
-    
-    // Array para armazenar mensagens de erro
+
     let erros = [];
-    
-    // Validações individuais
+    let genero;
+
+    // Validação dos campos (mantendo a lógica que você me enviou)
     if (!validarNome(document.getElementById('nome'))) {
         erros.push("Nome inválido");
     }
-    
+
     if (!validarNome(document.getElementById('sobrenome'))) {
         erros.push("Sobrenome inválido");
     }
-    
+
     if (!validarCPF(document.getElementById('cpf'))) {
         erros.push("CPF inválido");
     }
-    
+
     const celular = document.getElementById('celular').value;
     if (celular.replace(/\D/g, '').length !== 11) {
         erros.push("Celular inválido");
     }
-    
+
+    const telefoneFixo = document.getElementById('telFixo').value;
+    if (telefoneFixo && (telefoneFixo.replace(/\D/g, '').length < 10 || telefoneFixo.replace(/\D/g, '').length > 11)) {
+        erros.push("Telefone fixo inválido");
+    }
+
     if (!validarLogin()) {
         erros.push("Login inválido");
     }
-    
+
     if (!validarSenha()) {
         erros.push("Senha inválida ou senhas não coincidem");
     }
-    
+
     if (!validarIdade(document.getElementById('data'))) {
         erros.push("Data de nascimento inválida");
     }
-    
+
     // Validação do endereço
     const camposEndereco = {
         'cep': document.getElementById('cep').value,
@@ -318,94 +523,133 @@ async function cadastrar(event) {
         'cidade': document.getElementById('cidade').value,
         'estado': document.getElementById('estado').value
     };
-    
+
     for (let [campo, valor] of Object.entries(camposEndereco)) {
         if (!valor.trim()) {
             erros.push(`Campo ${campo} é obrigatório`);
         }
     }
-    
+
     // Validação do gênero
     const generoSelecionado = document.querySelector('input[name="inlineRadioOptions"]:checked');
     if (!generoSelecionado) {
-        erros.push("Selecione um gênero");
+        erros.push("Por favor, selecione um gênero.");
+    } else {
+        genero = generoSelecionado.nextElementSibling.textContent.trim();
     }
-    
+
     // Validação do email
     const email = document.getElementById('email').value;
-    if (!email || !email.includes('@') || !email.includes('.')) {
+    if (!email || !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email)) {
         erros.push("Email inválido");
     }
-    
-    // Se houver erros, mostrar no modal
+
+    // Se houver erros, mostramos no modal
     if (erros.length > 0) {
-        const modal = document.getElementById('modal');
-        const modalMessage = document.getElementById('modalMessage');
-        modalMessage.innerHTML = 'Por favor, corrija os seguintes erros:<br>' + 
-                               erros.map(erro => `- ${erro}`).join('<br>');
-        modal.showModal();
-        return;
+        mostrarModal("Erro de Cadastro", erros.join("<br>"), 'bg-danger', 'border-danger-subtle');
+    } else {
+        // Se o cadastro for bem-sucedido, coletamos os dados
+        const formData = {
+            nome: document.getElementById('nome').value,
+            sobrenome: document.getElementById('sobrenome').value,
+            dataNascimento: document.getElementById('data').value,
+            genero: genero,
+            cpf: document.getElementById('cpf').value,
+            email: email,
+            celular: celular,
+            telefoneFixo: document.getElementById('telFixo').value,
+            endereco: {
+                cep: camposEndereco.cep,
+                logradouro: camposEndereco.endereco,
+                numero: camposEndereco.numero,
+                bairro: camposEndereco.bairro,
+                cidade: camposEndereco.cidade,
+                estado: camposEndereco.estado,
+                complemento: document.getElementById('complemento').value
+            },
+            login: document.getElementById('login').value,
+            senha: document.getElementById('senha').value
+        };
+        
+        // Salvar no localStorage
+        localStorage.setItem('userData', JSON.stringify(formData));
+
+        // Modal de sucesso
+        mostrarModal("Cadastro Realizado", "Seu cadastro foi realizado com sucesso!", 'bg-success', 'border-success-subtle');
+        
+        // Redirecionar após 2 segundos
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 2000);
     }
-    
-    // Se chegou aqui, todos os campos estão válidos
-    // Coleta dos dados do formulário
-    const formData = {
-        nome: document.getElementById('nome').value,
-        sobrenome: document.getElementById('sobrenome').value,
-        dataNascimento: document.getElementById('data').value,
-        genero: generoSelecionado.value,
-        cpf: document.getElementById('cpf').value,
-        email: email,
-        celular: celular,
-        telefoneFixo: document.getElementById('telFixo').value,
-        endereco: {
-            cep: camposEndereco.cep,
-            logradouro: camposEndereco.endereco,
-            numero: camposEndereco.numero,
-            bairro: camposEndereco.bairro,
-            cidade: camposEndereco.cidade,
-            estado: camposEndereco.estado,
-            complemento: document.getElementById('complemento').value
-        },
-        login: document.getElementById('login').value,
-        senha: document.getElementById('senha').value
-    };
-    
-    // Salvar no localStorage
-    localStorage.setItem('userData', JSON.stringify(formData));
-    
-    // Modal de sucesso
-    const modal = document.getElementById('modal');
-    const modalMessage = document.getElementById('modalMessage');
-    modalMessage.textContent = 'Cadastro realizado com sucesso!';
-    modal.showModal();
-    
-    // Redirecionar após 2 segundos
-    setTimeout(() => {
-        window.location.href = 'login.html';
-    }, 2000);
 }
 
+// Função para mostrar o modal com título e mensagem
+function mostrarModal(titulo, mensagem, cor) {
+    // Atualiza o título e a mensagem do modal
+    document.getElementById('modalLabel').innerText = titulo;
+    document.getElementById('modalMessage').innerHTML = mensagem;
+
+    // Modal
+    let modal = new bootstrap.Modal(document.getElementById('modal'));
+
+    // Modal Header
+    let modalHeader = document.querySelector('.modal-header');
+    let btn = document.getElementById('btn');
+
+    // Limpar as classes antigas
+    modalHeader.classList.remove('bg-success', 'border-success-subtle', 'border-danger-subtle', 'bg-danger', 'text-white');
+    btn.classList.remove('bg-success', 'bg-danger', 'text-white', 'btn-secondary');
+
+    // Adicionar as classes de acordo com o tipo (erro ou sucesso)
+    modalHeader.classList.add(cor, 'text-white');
+    btn.classList.add(cor, 'text-white');
+
+    // Exibe o modal
+    modal.show();
+}
+
+
+    
+
+
+
 // Função limpar
-function limparSelecionados() {
-    // Limpar inputs
-    document.querySelectorAll('input').forEach(input => {
-        input.value = ''
-        input.disabled = false
-    })
+// limpar tudo \\
+document.getElementById("clearBtn").addEventListener("click", function() {
+    // Limpa o campo de gênero e remove validações
+    const genero = document.querySelector("input[name='genero']");
+    if (genero) {
+        genero.checked = false;  // Desmarca o gênero selecionado
+        genero.classList.remove("is-invalid", "is-valid");
+    }
+
+    // Limpa o campo de celular e remove validações
+    const celular = document.getElementById("celular");
+    if (celular) {
+        celular.value = "";
+        celular.classList.remove("is-invalid", "is-valid");
+    }
+
+    // Limpa o campo de telefone e remove validações
+    const telefone = document.getElementById("telefone");
+    if (telefone) {
+        telefone.value = "";
+        telefone.classList.remove("is-invalid", "is-valid");
+    }
     
-    // Limpar radio buttons
-    document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false)
+    // Limpa o campo de e-mail e remove validações
+    const email = document.getElementById("email");
+    if (email) {
+        email.value = "";
+        email.classList.remove("is-invalid", "is-valid");
+    }
     
-    // Limpar checkbox
-    document.getElementById('checkbox').checked = false
-    
-    // Limpar feedback spans
-    document.querySelectorAll('span[id^="feedback"]').forEach(span => {
-        span.textContent = ''
-        span.className = ''
-    })
-    
+    const estado = document.getElementById("estado");
+    if (estado) {
+        estado.value = "";
+        estado.classList.remove("is-invalid", "is-valid");
+    }
     // Habilitar campos de endereço
     const camposEndereco = ['endereco', 'bairro', 'cidade', 'estado']
     camposEndereco.forEach(campo => {
@@ -413,32 +657,36 @@ function limparSelecionados() {
         elemento.value = ''
         elemento.disabled = false
     })
-    
-    // Limpar textarea de complemento
-    document.getElementById('complemento').value = ''
-}
 
-// Configuração do modal
-const modal = document.getElementById('modal')
-const closeModal = document.getElementById('closeModal')
+    // Limpa todos os campos de entrada restantes
+    document.querySelectorAll("input").forEach(input => {
+        input.value = "";
+        input.classList.remove("is-invalid", "is-valid");
+    });
 
-closeModal.onclick = function() {
-    modal.close()
-}
+    // Limpa todas as mensagens de erro
+    document.querySelectorAll(".error-message").forEach(error => {
+        error.textContent = "";
+    });
+});
+// limpar tudo \\
 
-// Quando clicar fora do modal, fechar
-modal.addEventListener('click', function(event) {
-    if (event.target === modal) {
-        modal.close()
-    }
-})
+// // Configuração do modal
+// const modal = document.getElementById('modal')
+// const closeModal = document.getElementById('closeModal')
 
-// Toggle visibilidade da senha
-document.querySelectorAll('.fa-eye').forEach(icon => {
-    icon.addEventListener('click', () => {
-        const targetId = icon.getAttribute('data-target')
-        const input = document.getElementById(targetId)
-        input.type = input.type === 'password' ? 'text' : 'password'
-        icon.classList.toggle('fa-eye-slash')
-    })
-})
+// closeModal.onclick = function() {
+//     modal.close()
+// }
+
+// // Fechar o modal ao clicar no botão "Fechar"
+// document.getElementById("closeModal").addEventListener("click", function() {
+//     document.getElementById("modal").close();
+// });
+
+// // Quando clicar fora do modal, fechar
+// modal.addEventListener('click', function(event) {
+//     if (event.target === modal) {
+//         modal.close()
+//     }
+// })
