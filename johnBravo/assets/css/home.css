@@ -14,7 +14,8 @@
   max-width: 360px !important; 
   min-height: 200px !important;
 }
-/* -- Imagem de fundo "section 1" -- */
+/* ===- Img de fundo Página Home -=== */
+    /* -- Imagem de fundo (Sobre Assinatura) "section 1" -- */
 #section1 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
@@ -23,7 +24,7 @@
         top /* position */
         center/cover /* size */;
 }
-/* -- Imagem de fundo "section 2" -- */
+    /* -- Imagem de fundo (Nossos Serviços) "section 2" -- */
 #section2 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
@@ -32,7 +33,7 @@
         top /* position */
         center/cover /* size */;
 }
-/* -- Imagem de fundo "section 3" -- */
+    /* -- Imagem de fundo (Quem Somos) "section 3" -- */
 #section3 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
@@ -41,8 +42,7 @@
         center /* position */
         center/cover /* size */;
 }
-
-/* -- Imagem de fundo "section 4" -- */
+    /* -- Imagem de fundo (Planos de Assinatura) "section 4" -- */
 #section4 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
@@ -51,7 +51,7 @@
         top /* position */
         center/cover /* size */;
 }
-/* -- Imagem de fundo "section 5" -- */
+    /* -- Imagem de fundo (Depoimentos) "section 5" -- */
 #section5 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
@@ -60,7 +60,9 @@
         top /* position */
         center/cover /* size */;
 }
-/* -- Imagem de fundo "section 6" -- */
+
+/* ===- Img de fundo Página Sobre -=== */
+    /* -- Imagem de fundo (Sobre) "section 6" -- */
 #section6 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
@@ -69,16 +71,20 @@
         top /* position */
         center/cover /* size */;
 }
-/* -- Imagem de fundo "section 6" -- */
-#section6 .background-image {
+
+/* ===- Img de fundo Página Serviços -=== */
+    /* -- Imagem de fundo (Serviços) "section 7" -- */
+#section7 .background-image {
     background: 
-        linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), /* opacidade */
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
         url(https://s3-alpha-sig.figma.com/img/009e/f568/af8de0f045f9537713547ed59be2b3e3?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QrXPGU4zl1hSRu68bk20fD4RrDlPsC15blaj6VKbNVVm-oQqfD~XoRlYz8vKEb9u55iLxurIIEGw5l6gCfXm0dgSxRpiATzefFGQDGQ2G6Ov0p7mMqMlw6-~imMXyV4aOtKYA0SKGKTCim9Vgw9vdQmxwep~8zTE55d~XXqUKwmHqeQnFRXazrqtZYkeZHxJKqdTqZG2xrWkVbkRPGjSrU5KXWsjvQkSXG3dgs7UEa~n5W4DPbjyalNxVu3bfd~CEPw0tOQzERal5TOTWwuA1Ok6-1XmuXdojlEwpUULp7SRPfv0lH2VWH9jVYBrcwZGN4rCDLC7Ur7r8jyx5gib~Q__)
         no-repeat /* repeat */
         top /* position */
         center/cover /* size */;
 }
-/* -- Imagem de fundo "section 8" -- */
+
+/* ===- Img de fundo Página Agendar -=== */
+    /* -- Imagem de fundo (Agendar) "section 8" -- */
 #section8 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
@@ -88,8 +94,20 @@
         center/cover/* size */;
         /* background-size: ; */
 }
-/* https://s3-alpha-sig.figma.com/img/8d49/e997/43750347fa57f1f28ed3ac71ac9470f1?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DzUqWnMx8hPqzFngmPvrbJnCxXwOjZt6Iwci1~LKJszXCehU2p0xH752ppWiIzYHvpxXWLFAN6T3KYkNjK0PKQw~P2MZqniCWLurZKnpIKZbn8Tp7q7BZ6ldFnYJAPNGkJp~Xyev-CM1Yk2cvCZffAaP6siOkbbP3AVoCuOfv~qL-nqv6SIbZLflhWZu3twJc3HMK81oe8yucYOpp6s7Gwq2lCNs9RLsipr4FrR-5YhvBGY4Joo-90Z3Uez7s95rUr2EvC5rI78576r72IaZe1Cx4bYBFTM6VHByo1bTX71m8XFZkbmVerHEGOdz1DaPUzI3LsY~QXiQCIo2Y4bohw__ */
 
+/* ===- Img de fundo Página Contatos -=== */
+    /* -- Imagem de fundo (Contatos) "section 9" -- */
+#section9 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://thumbs.dreamstime.com/b/pincel-para-barba-junto-com-tigela-fundo-desfocado-de-sal%C3%A3o-cabelo-homens-barbearia-164077707.jpg)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover/* size */;
+        /* background-size: ; */
+}
+
+/* https://s3-alpha-sig.figma.com/img/8d49/e997/43750347fa57f1f28ed3ac71ac9470f1?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DzUqWnMx8hPqzFngmPvrbJnCxXwOjZt6Iwci1~LKJszXCehU2p0xH752ppWiIzYHvpxXWLFAN6T3KYkNjK0PKQw~P2MZqniCWLurZKnpIKZbn8Tp7q7BZ6ldFnYJAPNGkJp~Xyev-CM1Yk2cvCZffAaP6siOkbbP3AVoCuOfv~qL-nqv6SIbZLflhWZu3twJc3HMK81oe8yucYOpp6s7Gwq2lCNs9RLsipr4FrR-5YhvBGY4Joo-90Z3Uez7s95rUr2EvC5rI78576r72IaZe1Cx4bYBFTM6VHByo1bTX71m8XFZkbmVerHEGOdz1DaPUzI3LsY~QXiQCIo2Y4bohw__ */
 
 /* Efeito desfoque imagem de fundo */
 .img-dfc {
@@ -104,7 +122,6 @@
     width: 100%;
     color: var(--branco);
 }
-
 .text-box-title {
     z-index: 2;
     padding: 5rem 0 0 0;
@@ -135,6 +152,33 @@
     /* border-radius: 10px; */
     box-shadow: 2px 10px 16px 7px #212529b3;
     margin: 0;
+}
+/* -- Ícone de "X" cards -- */
+.fa-xmark {
+    color: red;
+}
+/* class font-size BS personalizada */
+.jb-fs-7 {
+  font-size: 0.9rem;
+}
+
+/* --- Config formulário de agendamento --- */
+.form-step {
+    display: none;
+}
+.form-step.active {
+    display: block;
+}
+.summary {
+    display: none;
+}
+.summary.active {
+    display: block;
+}
+
+/* ===- Config Modo Claro/Escuro -=== */
+[data-bs-theme="dark"] .carousel .carousel-indicators [data-bs-target] {
+    background-color: var(--branco);
 }
 
 /* === Responsividade da "div" e texto da página === */
@@ -173,35 +217,9 @@
     }
 }
 
-
-.fa-xmark {
-    color: red;
-}
-
-.jb-fs-7 {
-  font-size: 0.9rem;
-}
-
-[data-bs-theme="dark"] .carousel .carousel-indicators [data-bs-target] {
-    background-color: var(--branco);
-}
-/* [data-bs-theme="light"] .carousel .carousel-indicators [data-bs-target] {
-    background-color: var(--branco);
-} */
-/* [data-bs-theme="light"] .carousel .carousel-indicators [data-bs-target] {
-    background-color: var(--preto);
-} */
-
-/* [data-bs-theme=light] .carousel .fa-chevron-left, 
-[data-bs-theme=light] .carousel .fa-chevron-right {
-    color: var(--preto);
-} */
-
 .carousel {
     height: 360px !important;
 }
-
-
 @media (min-width: 344px) {
     .carousel {
         height: 540px !important;
@@ -222,16 +240,46 @@
         height: 400px !important;
     }
 }
+/* ===- Bordas responsivas cards Página Serviços -=== */
+    /* Bordas superiores */
+.jb-rounded-start {
+    border-radius: 16px 16px 0 0;  /* Arredondado em cima */
+}
+    /* Bordas inferiores */
+.jb-rounded-end {
+    border-radius: 0 0 16px 16px;  /* Arredondado embaixo */
+}
+/* Mobile (< 768px) */
+@media (max-width: 767.98px) {
+    /* Remove borda superior no mobile */
+    .jb-rounded-end {
+        border-top: 0 !important;  
+    }
+}
+/* Desktop (≥ 768px) */
+@media (min-width: 768px) {
+    /* Arredondado na esquerda */
+    .jb-rounded-start {
+        border-radius: 16px 0 0 16px;  
+    }
+    
+    .jb-rounded-end {
+        border-radius: 0 16px 16px 0;  /* Arredondado na direita */
+        border-left: 0 !important;  /* Remove borda esquerda no desktop */
+        border-top: auto !important;  /* Restaura borda superior no desktop */
+    }
+}
 
-.form-step {
-    display: none;
-}
-.form-step.active {
-    display: block;
-}
-.summary {
-    display: none;
-}
-.summary.active {
-    display: block;
-}
+/* [data-bs-theme="light"] .carousel .carousel-indicators [data-bs-target] {
+    background-color: var(--branco);
+} */
+/* [data-bs-theme="light"] .carousel .carousel-indicators [data-bs-target] {
+    background-color: var(--preto);
+} */
+
+/* [data-bs-theme=light] .carousel .fa-chevron-left, 
+
+[data-bs-theme=light] .carousel .fa-chevron-right {
+    color: var(--preto);
+} */
+

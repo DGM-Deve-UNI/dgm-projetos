@@ -5,6 +5,7 @@
     "cSpell.words": [
         "bitwarden",
         "confi",
+        "decricao",
         "descricao",
         "endereco",
         "Formulario",
@@ -15,7 +16,8 @@
         "msttexthash",
         "mstvisible",
         "Nasc",
-        "whatsapp"
+        "whatsapp",
+        "xmark"
     ],
     "files.autoSave": "afterDelay"
 }
