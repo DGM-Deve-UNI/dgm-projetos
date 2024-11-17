@@ -436,13 +436,13 @@
             <div class="row mb-2">
             <!-- Botão Castrar -->
               <div class="col">
-                <button data-mdb-ripple-init type="submit" id="submitBtn" class="btn btn-primary btn-block mb-4 bg-success rounded-pill">Cadastrar</button>
+                <button data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#modal" type="submit" id="submitBtn" class="btn btn-primary btn-block mb-4 bg-success rounded-pill">Cadastrar</button>
 
               </div>
           <!-- ---------------------------------------- -->
             <!-- Botão Limpar -->
               <div class="col">
-                <button data-mdb-ripple-init type="reset" id="clearBtn" class="btn btn-primary btn-block mb-4 bg-danger rounded-pill" onclick="limparSelecionados()">Limpar</button>
+                <button data-mdb-ripple-init type="reset" id="clearBtn" class="btn btn-primary btn-block mb-4 bg-danger rounded-pill" onclick="limparFormulario()">Limpar</button>
               </div>
             </div>
         <!-- ---------------------------------------- -->
@@ -471,9 +471,10 @@
                   </div>
                 </div>
               </div>
+              <script>
+                
+              </script>
             </div>
-
-
           </form>
         </div>
       </div>
@@ -504,7 +505,7 @@
 
   <!-- Script Global auth -->
     <script type="module" src="../../js/authScript.js"></script>
-    <script src="../../js/utils/modalClose.js"></script>
+    <!-- <script src="../../js/utils/modalClose.js"></script> -->
 
   <!-- ==== JavaScript MDB ==== -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.0.0/js/mdb.umd.min.js"></script>

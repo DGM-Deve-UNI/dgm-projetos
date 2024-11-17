@@ -152,10 +152,10 @@ document.getElementById('numero').addEventListener('input', () => {
     const valor = numero.value;
     if (valor.length === 0) {
         numero.classList.remove('is-invalid', 'is-valid');
-        feedbackNumero.textContent = "";
+        // feedbackNumero.textContent = "";
     } else {
         numero.classList.add('is-valid');
-        feedbackNumero.textContent = "";
+        // feedbackNumero.textContent = "";
     }
 });
 // Validação em tempo real para login
@@ -544,8 +544,16 @@ async function cadastrar(event) {
         erros.push("Email inválido");
     }
 
+    // Obtendo o botão de cadastro
+    const btnCadastrar = document.getElementById('submitBtn');
+
     // Se houver erros, mostramos no modal
     if (erros.length > 0) {
+        // Adiciona os atributos do MDB para abrir o modal
+        btnCadastrar.setAttribute('data-mdb-ripple-init', '');
+        btnCadastrar.setAttribute('data-mdb-modal-init', '');
+        btnCadastrar.setAttribute('data-mdb-target', '#modal');
+
         mostrarModal("Erro de Cadastro", erros.join("<br>"), 'bg-danger', 'border-danger-subtle');
     } else {
         // Se o cadastro for bem-sucedido, coletamos os dados
@@ -570,13 +578,18 @@ async function cadastrar(event) {
             login: document.getElementById('login').value,
             senha: document.getElementById('senha').value
         };
-        
+
         // Salvar no localStorage
         localStorage.setItem('userData', JSON.stringify(formData));
 
+        // Remover os atributos do botão de cadastro para impedir a abertura do modal de erro
+        btnCadastrar.removeAttribute('data-mdb-ripple-init');
+        btnCadastrar.removeAttribute('data-mdb-modal-init');
+        btnCadastrar.removeAttribute('data-mdb-target');
+
         // Modal de sucesso
         mostrarModal("Cadastro Realizado", "Seu cadastro foi realizado com sucesso!", 'bg-success', 'border-success-subtle');
-        
+
         // Redirecionar após 2 segundos
         setTimeout(() => {
             window.location.href = 'login.html';
@@ -591,7 +604,10 @@ function mostrarModal(titulo, mensagem, cor) {
     document.getElementById('modalMessage').innerHTML = mensagem;
 
     // Modal
-    let modal = new bootstrap.Modal(document.getElementById('modal'));
+    let modalElement = document.getElementById('modal');
+    
+    // Criar nova instância do modal
+    let modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
 
     // Modal Header
     let modalHeader = document.querySelector('.modal-header');
@@ -607,12 +623,15 @@ function mostrarModal(titulo, mensagem, cor) {
 
     // Exibe o modal
     modal.show();
+
+    // Garantir que o backdrop e a classe "fade" sejam removidos ao fechar o modal
+    modalElement.addEventListener('hidden.bs.modal', function () {
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+            backdrop.remove();
+        }
+    });
 }
-
-
-    
-
-
 
 // Função limpar
 // limpar tudo \\
@@ -671,7 +690,7 @@ document.getElementById("clearBtn").addEventListener("click", function() {
 });
 // limpar tudo \\
 
-// // Configuração do modal
+// Configuração do modal
 // const modal = document.getElementById('modal')
 // const closeModal = document.getElementById('closeModal')
 
