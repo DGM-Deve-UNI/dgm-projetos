@@ -154,30 +154,47 @@
                       <!-- Botão para diminuir o texto -->
                       <button id="decrease-font-btn" class="btn btn-outline-warning border-2 p-0 btn-sm rounded-pill bor js-border-text-warning" type="button"><i class="fa-solid fa-magnifying-glass-minus p-2"></i></button>
                   </div>
-                  <!-- === Botões === -->
-                      <div class="p-3 ps-0">
-                          <!-- Botão "Entrar" -->
-                          <a id="login-btn" href="./assets/html/auth/login.html" 
-                              class="login-button 
-                                      btn 
-                                      btn-warning
-                                      btn-sm 
-                                      fw-bold
-                                      rounded-2"
-                              type="button"
-                              role="button">Entrar</a>
-                          <!-- Botão "Registre-se" -->
-                          <a id="registro-btn" href="./assets/html/auth/cadastro.html" 
-                              class="login-button 
-                                      btn 
-                                      btn-secondary
-                                      btn-sm 
-                                      ms-2 
-                                      fw-bold
-                                      rounded-2"
-                              type="button"
-                              role="button">Registre-se</a>
-                      </div>
+<!-- === Botões === -->
+<div class="p-3 ps-0">
+  <!-- Botão "Entrar" -->
+  <a id="login-btn" href="./assets/html/auth/login.html" 
+      class="login-button 
+              btn 
+              btn-warning
+              btn-sm 
+              fw-bold
+              rounded-2"
+      type="button"
+      role="button">Entrar</a>
+  <!-- Botão "Registre-se" -->
+  <a id="registro-btn" href="./assets/html/auth/cadastro.html" 
+      class="login-button 
+              btn 
+              btn-secondary
+              btn-sm 
+              ms-2 
+              fw-bold
+              rounded-2"
+      type="button"
+      role="button">Registre-se</a>
+
+  <!-- Exibindo o ícone do usuário logado -->
+  <div id="user-info" class="d-none">
+      <div class="dropdown">
+          <button class="btn btn-outline-dark dropdown-toggle" 
+                  type="button" 
+                  id="user-dropdown" 
+                  data-bs-toggle="dropdown" 
+                  aria-expanded="false">
+              <i class="fas fa-user-circle"></i> <span id="user-name"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="user-dropdown">
+              <li><a class="dropdown-item" href="#" id="logout-btn">Deslogar</a></li>
+          </ul>
+      </div>
+  </div>
+</div>
+
                   </div>
               </div>
           </nav>
@@ -201,17 +218,17 @@
         
             <!--/ Right -->
             <div>
-              <a href="#Facebook" class="me-4 text-reset text-decoration-none" alt="Facebook" title="Facebook">
+              <span class="me-4 text-reset text-decoration-none" alt="Facebook" title="Facebook">
                   <i class="fa-brands fa-facebook"></i>
-              </a>
+              </span>
 
-              <a href="#Instagram" class="me-4 text-reset text-decoration-none" alt="Instagram" title="Instagram">
+              <span class="me-4 text-reset text-decoration-none" alt="Instagram" title="Instagram">
                   <i class="fa-brands fa-instagram"></i>
-              </a>
+              </span>
               
-              <a href="#X-Twitter" class="me-4 text-reset text-decoration-none" alt="X-Twitter" title="X-Twitter">
+              <span class="me-4 text-reset text-decoration-none" alt="X-Twitter" title="X-Twitter">
                   <i class="fa-brands fa-x-twitter"></i>
-              </a>                
+              </span>                
             </div>
             <!-- Right \-->             
           </section>
@@ -221,7 +238,7 @@
           <section class="">
             <div class="container text-center text-md-start mt-5">
               <!--/ Grid row -->
-              <div class="row align-items-end mt-3">
+              <div class="row align-items-start mt-3">
                 <!--/ Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                   <!-- Content -->
@@ -231,19 +248,21 @@
                 <!-- Grid column \-->
         
                 <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2  mx-auto mb-4">
+                <div class="col-md-2 col-lg-2 col-xl-2 mt-0 mt-md-5 mx-auto mb-4">
                   <!-- Links -->
-                  <h6 class="text-uppercase fw-bold mb-4">Produtos</h6>
-                  
-                    <p><a href="#!" class="text-reset">Corte de Cabelo</a></p>
-                    <p><a href="#!" class="text-reset">Barba</a></p>
-                    <p><a href="#!" class="text-reset">Bigode</a></p>
-                    <p><a href="#!" class="text-reset">Limpeza</a></p>
+                  <h6 class="text-uppercase fw-bold mb-4">Serviços</h6>
+
+                    <p class="text-reset">Corte Degradê</p>
+                    <p class="text-reset">Corte de Cabelo</p>
+                    <p class="text-reset">Barboterapia</p>
+                    <p class="text-reset">Limpeza</p>
+                    <p class="text-reset">Sobrancelha</p>
+                    <p class="text-reset">Lavagem de Cabelo</p>
                 </div>
                 <!-- Grid column -->
         
                 <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <div class="col-md-3 col-lg-2 col-xl-2 mt-0 mt-md-5 mx-auto mb-4">
                   <!-- Links -->
                   <h6 class="text-uppercase fw-bold mb-4">Links</h6>
 
@@ -255,7 +274,7 @@
                 <!-- Grid column -->
         
                 <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-4 mx-auto mb-md-0 mb-4 py-5">
+                <div class="col-md-4 col-lg-3 col-xl-4 mt-5 mx-auto mb-md-0 mb-4">
                   <!-- Links -->
                   <h6 class="text-uppercase fw-bold mb-4">Contatos</h6>
 
@@ -271,7 +290,7 @@
         <!-- Section: Links \-->
         
         <!--/ Copyright -->
-          <div class="card-footer text-center p-2 text-bg-light">Copyright &copy; 2024 | DGM Web developer&reg;</div>
+          <div class="card-footer text-center p-2 text-bg-light">Copyright &copy; 2024 | DGM Web Developer &reg;</div>
         <!-- Copyright \-->
       </footer>
     </div>
@@ -279,6 +298,7 @@
   <!-- === Script Global === -->
     <script type="module" src="./assets/js/script.js"></script>
     <script src="./assets/js/agendar.js"></script>
+    <script src="./assets/js/utils/user-logon.js"></script>
   <!-- === API Map - JS === -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </body>

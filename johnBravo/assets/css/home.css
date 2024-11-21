@@ -66,7 +66,16 @@
 #section6 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
-        url(https://s3-alpha-sig.figma.com/img/009e/f568/af8de0f045f9537713547ed59be2b3e3?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QrXPGU4zl1hSRu68bk20fD4RrDlPsC15blaj6VKbNVVm-oQqfD~XoRlYz8vKEb9u55iLxurIIEGw5l6gCfXm0dgSxRpiATzefFGQDGQ2G6Ov0p7mMqMlw6-~imMXyV4aOtKYA0SKGKTCim9Vgw9vdQmxwep~8zTE55d~XXqUKwmHqeQnFRXazrqtZYkeZHxJKqdTqZG2xrWkVbkRPGjSrU5KXWsjvQkSXG3dgs7UEa~n5W4DPbjyalNxVu3bfd~CEPw0tOQzERal5TOTWwuA1Ok6-1XmuXdojlEwpUULp7SRPfv0lH2VWH9jVYBrcwZGN4rCDLC7Ur7r8jyx5gib~Q__)
+        url(https://www.celcoin.com.br/wp-content/uploads/2023/05/Barbearia-de-sucesso.jpg)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+    /* -- Imagem de fundo (Sobre) "section 6-1" -- */
+#section6-1 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://barbearia.zionstudio.com.br/wp-content/uploads/2024/08/Barbeiro-2.jpg)
         no-repeat /* repeat */
         top /* position */
         center/cover /* size */;
@@ -77,7 +86,7 @@
 #section7 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
-        url(https://s3-alpha-sig.figma.com/img/009e/f568/af8de0f045f9537713547ed59be2b3e3?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QrXPGU4zl1hSRu68bk20fD4RrDlPsC15blaj6VKbNVVm-oQqfD~XoRlYz8vKEb9u55iLxurIIEGw5l6gCfXm0dgSxRpiATzefFGQDGQ2G6Ov0p7mMqMlw6-~imMXyV4aOtKYA0SKGKTCim9Vgw9vdQmxwep~8zTE55d~XXqUKwmHqeQnFRXazrqtZYkeZHxJKqdTqZG2xrWkVbkRPGjSrU5KXWsjvQkSXG3dgs7UEa~n5W4DPbjyalNxVu3bfd~CEPw0tOQzERal5TOTWwuA1Ok6-1XmuXdojlEwpUULp7SRPfv0lH2VWH9jVYBrcwZGN4rCDLC7Ur7r8jyx5gib~Q__)
+        url(https://www.peluker.com/blog/wp-content/uploads/2024/03/%C2%BFcuanto-cuesta-una-barberia.jpeg)
         no-repeat /* repeat */
         top /* position */
         center/cover /* size */;
@@ -106,8 +115,6 @@
         center/cover/* size */;
         /* background-size: ; */
 }
-
-/* https://s3-alpha-sig.figma.com/img/8d49/e997/43750347fa57f1f28ed3ac71ac9470f1?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DzUqWnMx8hPqzFngmPvrbJnCxXwOjZt6Iwci1~LKJszXCehU2p0xH752ppWiIzYHvpxXWLFAN6T3KYkNjK0PKQw~P2MZqniCWLurZKnpIKZbn8Tp7q7BZ6ldFnYJAPNGkJp~Xyev-CM1Yk2cvCZffAaP6siOkbbP3AVoCuOfv~qL-nqv6SIbZLflhWZu3twJc3HMK81oe8yucYOpp6s7Gwq2lCNs9RLsipr4FrR-5YhvBGY4Joo-90Z3Uez7s95rUr2EvC5rI78576r72IaZe1Cx4bYBFTM6VHByo1bTX71m8XFZkbmVerHEGOdz1DaPUzI3LsY~QXiQCIo2Y4bohw__ */
 
 /* Efeito desfoque imagem de fundo */
 .img-dfc {
@@ -216,7 +223,16 @@
         width: 75% !important;
     }
 }
+/* Classe para ajustar tamanho de texto dinamicamente */
+.js-titulo-responsivo {
+    font-size: 4rem; /* Tamanho padrão para mobile */
+}
 
+@media (min-width: 768px) {
+    .js-titulo-responsivo {
+        font-size: 150px; /* Tamanho grande no desktop */
+    }
+}
 .carousel {
     height: 360px !important;
 }

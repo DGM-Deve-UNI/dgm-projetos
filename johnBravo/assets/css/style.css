@@ -11,6 +11,7 @@
     --branco-escuro: #f0f1f3;
     --cinza-claro: #e0e0e0;
     --cinza-escuro: #6c757d;
+    --text-muted-color: #dee2e6bf;
     --amarelo: #ffc107;
     --amarelo-font: #FFD700;
     --dourado: #e4a11b;
@@ -72,7 +73,9 @@ body, footer, div, section, i, a, ul, li {
 .jb-mb-4-2 {
     margin-bottom: 1.9rem !important;
 }
-
+.jb-text-muted {
+    color: var(--text-muted-color) !important;
+}
 /* ===- Config Modo Claro/Escuro -=== */
 /* custom global */
 [data-bs-theme="light"] .text-bg-custom {
