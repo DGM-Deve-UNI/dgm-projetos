@@ -71,6 +71,18 @@
         top /* position */
         center/cover /* size */;
 }
+<<<<<<< HEAD
+=======
+
+#section7 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://www.shutterstock.com/image-photo/barbershop-blurred-background-hairdresser-hair-260nw-737734267.jpg)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+>>>>>>> 48bb278e38751107364c0f10410719f2bc5e9586
 
 /* ===- Img de fundo Página Serviços -=== */
     /* -- Imagem de fundo (Serviços) "section 7" -- */
