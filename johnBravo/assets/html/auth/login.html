@@ -87,8 +87,8 @@
               <h5 class="fw-normal text-center mb-3 pb-3" style="letter-spacing: 1px;">Entre na sua conta</h5>
 
             <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
-              <input type="email" id="form2Example17" class="inputs- form-control form-control-lg" required>
-              <label class="form-label" for="form2Example17" style="margin-left: 0px;">E-mail ou usuário</label>
+              <input type="email" id="email-login" class="inputs- form-control form-control-lg" required>
+              <label class="form-label" for="email-login" style="margin-left: 0px;">E-mail ou usuário</label>
                 <div class="form-notch">
                   <div class="form-notch-leading" style="width: 9px;"></div>
                   <div class="form-notch-middle" style="width: 88.8px;"></div>
@@ -155,24 +155,25 @@
                     </div>
                 </div>
                 <p class="mb-3 my-2 pb-lg-2 jb-color-link">Não tem conta? <a href="./cadastro.html">Registre-se</a></p>
-              <!-- Modal -->
-              <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content shadow-4-strong rounded-8 border border-2">
-                    <div class="modal-header rounded-8 rounded-bottom-0 border">
-                      <h5 class="modal-title" id="modalLabel"></h5>
-                      <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="modalMessage"></div>
-                    <div class="modal-footer d-flex justify-content-center align-items-center">
-                      <button type="button" id="btn" class="btn btn-secondary btn-rounded border border-2" data-mdb-dismiss="modal">Fechar</button>
+              
+                <!-- Modal -->
+                <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content shadow-4-strong rounded-8 border border-2">
+                      <div id="modal-header" class="modal-header rounded-8 rounded-bottom-0 border">
+                        <h5 class="modal-title" id="modalLabel"></h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body" id="modalMessage"></div>
+                      <div class="modal-footer d-flex justify-content-center align-items-center">
+                        <button type="button" id="btn-modal" class="btn btn-secondary btn-rounded border border-2" data-mdb-dismiss="modal">Fechar</button>
+                      </div>
                     </div>
                   </div>
+                  <script>
+                    
+                  </script>
                 </div>
-                <script>
-                  
-                </script>
-              </div>
           </form>
       </div>
     </div>

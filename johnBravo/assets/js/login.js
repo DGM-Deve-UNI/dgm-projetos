@@ -1,5 +1,5 @@
 // Função para mostrar o modal com título, mensagem e cor
-function mostrarModal(titulo, mensagem, cor) {
+function mostrarModal(titulo, mensagem, corFundo, corBorda) {
     // Atualiza o título e a mensagem do modal
     document.getElementById('modalLabel').innerText = titulo;
     document.getElementById('modalMessage').innerHTML = mensagem;
@@ -11,17 +11,18 @@ function mostrarModal(titulo, mensagem, cor) {
     let modal = new mdb.Modal(modalElement);
 
     // Modal Header e Botão
-    let modalHeader = document.querySelector('.modal-header');
-    let btn = document.getElementById('btn');
+    let modalHeader = document.getElementById('modal-header');
+    let btn = document.getElementById('btn-modal');
 
-    // Limpar as classes antigas do modal header e do botão
-    modalHeader.classList.remove('bg-success', 'bg-danger', 'bg-primary');
-    modalHeader.classList.remove('border-success', 'border-danger', 'border-primary');
-    btn.classList.remove('btn-success', 'btn-danger', 'btn-primary');
+    // Limpar as classes antigas do modal header
+    modalHeader.className = 'modal-header rounded-8 rounded-bottom-0 border'; // Reseta as classes do header
 
+    // Limpar as classes antigas do botão
+    btn.className = 'btn btn-rounded border border-2'; // Reseta as classes do botão
+    
     // Adicionar as classes de cor passadas no parâmetro
-    modalHeader.classList.add(cor, 'text-white'); // Cabeçalho
-    btn.classList.add(cor, 'text-white'); // Botão
+    modalHeader.classList.add(corFundo, 'text-white'); // Cabeçalho
+    btn.classList.add(corFundo, 'text-white'); // Botão
 
     // Exibe o modal
     modal.show();
@@ -35,13 +36,12 @@ function mostrarModal(titulo, mensagem, cor) {
     });
 }
 
-
 // Função de login com validação
 async function login(event) {
     event.preventDefault(); // Impede o envio do formulário padrão
 
     // Pega os valores inseridos nos campos de email (ou usuário) e senha
-    const loginInput = document.getElementById('form2Example17').value;
+    const loginInput = document.getElementById('email-login').value;
     const senhaInput = document.getElementById('senha').value;
 
     // Obtém os dados do usuário armazenados no localStorage
@@ -52,7 +52,14 @@ async function login(event) {
         // Verifica se o login e senha inseridos correspondem aos dados salvos
         if ((userData.email === loginInput || userData.login === loginInput) && userData.senha === senhaInput) {
             // Login bem-sucedido
-            mostrarModal("Sucesso", "Login realizado com sucesso!", 'sucesso');
+            mostrarModal("Sucesso", "Login realizado com sucesso!", 'bg-success', 'border-success');
+
+            // Gerar o token de login
+            let token = Math.random().toString(16).substring(2); // Criação do token
+
+            // Armazenar o token e os dados do usuário no localStorage
+            localStorage.setItem('token', token); // Armazenar o token
+            localStorage.setItem('userData', JSON.stringify(userData)); // Armazenar os dados do usuário
 
             // Redireciona para a página inicial (substitua pelo link real)
             setTimeout(() => {
@@ -60,33 +67,12 @@ async function login(event) {
             }, 2000);
         } else {
             // Se as credenciais não corresponderem
-            mostrarModal("Erro de Login", "Usuário ou senha incorretos. Tente novamente.", 'erro');
+            mostrarModal("Erro de Login", "Usuário ou senha incorretos. Tente novamente.", 'bg-danger', 'border-danger');
         }
     } else {
         // Se não houver dados salvos no localStorage (nenhum cadastro)
-        mostrarModal("Erro de Login", "Nenhum usuário cadastrado. Por favor, registre-se primeiro.", 'erro');
+        mostrarModal("Erro de Login", "Nenhum usuário cadastrado. Por favor, registre-se primeiro.", 'bg-warning', 'border-warning');
     }
-}
-
-
-
-// Função para exibir o modal com a mensagem
-function mostrarModal(titulo, mensagem, corFundo, corBorda) {
-    const modalTitle = document.getElementById('modalLabel');
-    const modalMessage = document.getElementById('modalMessage');
-    const modal = new mdb.Modal(document.getElementById('modal')); // Inicializando o modal com o MDB
-
-    // Ajustando o conteúdo do modal
-    modalTitle.textContent = titulo;
-    modalMessage.innerHTML = mensagem;
-
-    // Adicionando as classes de estilo para o fundo e a borda
-    // const modalElement = document.getElementById('modal');
-    // modalElement.classList.add(corFundo);
-    // modalElement.classList.add(corBorda);
-
-    // Exibindo o modal
-    modal.show();
 }
 
 // Adiciona o evento de login no formulário

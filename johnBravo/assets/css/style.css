@@ -76,6 +76,10 @@ body, footer, div, section, i, a, ul, li {
 .jb-text-muted {
     color: var(--text-muted-color) !important;
 }
+
+.jb-min-width-0[data-bs-popper] {
+   min-width: 0 !important;
+}
 /* ===- Config Modo Claro/Escuro -=== */
 /* custom global */
 [data-bs-theme="light"] .text-bg-custom {

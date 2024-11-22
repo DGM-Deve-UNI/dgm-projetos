@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Função para atualizar a navbar
     const updateNavbar = () => {
         const userData = localStorage.getItem('userData');
+        const token = localStorage.getItem('token'); // Verifica se o token existe
         
-        if (userData) {
+        if (userData && token) {
             // Se o usuário estiver logado, esconder os botões de login e exibir o nome do usuário
             loginBtn.classList.add('d-none');
             registroBtn.classList.add('d-none');
@@ -29,9 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Evento de logout
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function() {
-            // Limpar os dados de login do localStorage e atualizar a navbar
-            localStorage.removeItem('userData');
-            updateNavbar();  // Atualiza a navbar após logout
+            // Limpar os dados de login e o token do localStorage
+            // localStorage.removeItem('userData');
+            localStorage.removeItem('token');
+            
+            // Atualiza a navbar após logout
+            updateNavbar();
         });
     }
 

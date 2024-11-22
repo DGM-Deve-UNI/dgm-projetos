@@ -479,7 +479,9 @@ async function cadastrar(event) {
     let erros = [];
     let genero;
 
-    // Validação dos campos (mantendo a lógica que você me enviou)
+    
+
+    // Validação dos campos
     if (!validarNome(document.getElementById('nome'))) {
         erros.push("Nome inválido");
     }
@@ -687,3 +689,7 @@ document.getElementById("clearBtn").addEventListener("click", function() {
         error.textContent = "";
     });
 });
+
+document.getElementById('submitBtn').addEventListener('click', cadastrar);
+
+
