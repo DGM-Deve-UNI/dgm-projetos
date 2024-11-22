@@ -9,6 +9,6 @@ export function loadMap() {
 
     // Adiciona um marcador no local fictício
     L.marker([-22.9068, -43.1729]).addTo(map)
-        .bindPopup('Rua São João, 456 - Endereço Fictício')
+        .bindPopup('Rua São João, 456 - Rio de Janeiro - RJ')
         .openPopup();
 }
