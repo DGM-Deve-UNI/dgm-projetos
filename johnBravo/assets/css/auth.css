@@ -1,5 +1,6 @@
-@import url(./style.css);
+@import url(./style.css); /* CSS Global */
 
+/* ===- Cards -=== */
 .card {
     max-width: 600px;
     min-width: 300px;
@@ -9,33 +10,33 @@
     -ms-border-radius: 2rem;
     -o-border-radius: 2rem;
 }
-
+/* Bordas do formulário */
 .form-notch-leading {
     border-radius: 1rem 0 0 1rem !important;
-    /* width: 18px !important; */
 }
 .form-notch-trailing {
     border-radius: 0 0.5rem 0.5rem 0 !important;
 }
+.form-control.filled ~ .form-label {
+    transform: translateY(-95%);
+}
+/* Bordas do botão */
 .jb-rounded {
     border-radius: 0.6rem;
     border: 1px solid var(--mdb-form-control-border-color);
 }
-
-.form-control.filled ~ .form-label {
-    transform: translateY(-95%);
-}
-
+/* Botão "Voltar" */
 .button-back {
     background: var(--preto);
 }
+/* Ícone Botão "Voltar" */
 .jb-fa-arrow {
     margin-left: 1rem;
     color: var(--branco);
     font-weight: bold;
     font-size: 15px;
 }
-
+/* Tamanho Ícone */
 .jb-fa-8x {
     font-size: 8rem !important;
 }
@@ -46,17 +47,17 @@
     right: 20px;
     display: none;
     z-index: 99;
-    /* padding: 0.6rem 0.9rem !important; */
 }
 .is-valid {
     --mdb-form-select-bg-icon: none !important;
 }
+
 /* ===- Modo claro/escuro imagem logo -=== */
-/* Imagem para o tema claro */
+    /* Imagem para o tema claro */
 [data-mdb-theme="light"] .logo-txt-custom  {
     content: url('../../assets/imgs/icons/dark/icon-txt.png') !important;
 }
-/* Imagem para o tema escuro */
+    /* Imagem para o tema escuro */
 [data-mdb-theme="dark"] .logo-txt-custom {
     content: url('../../assets/imgs/icons/white/icon-txt-white.png') !important;
 }
@@ -86,7 +87,7 @@ input[type="password"] {
 
 input[type="password"]::-ms-reveal, 
 input[type="password"]::-ms-clear {
-    display: none; /* Para navegadores que suportam */
+    display: none;
 }
 /* Ícone de olho - senha */
 #eye-icon {
@@ -106,7 +107,7 @@ input[type="password"]::-ms-clear {
         padding: 4rem !important;
     }
 }
-
+/* == Mobile texto == */
 span {
     line-height: 1.2; 
 }

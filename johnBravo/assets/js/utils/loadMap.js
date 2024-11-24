@@ -1,6 +1,6 @@
 export function loadMap() {
     // Inicializa o mapa com OpenStreetMap e Leaflet.js
-    var map = L.map('map').setView([-22.9068, -43.1729], 13); // Localização fictícia no Rio de Janeiro
+    var map = L.map('map').setView([-22.9068, -43.1729], 13);
 
     // Adiciona o tile do OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

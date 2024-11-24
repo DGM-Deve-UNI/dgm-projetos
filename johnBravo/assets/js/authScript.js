@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelButton = document.getElementById('cancelButton');
     if (cancelButton) {
         cancelButton.addEventListener('click', () => {
-            limparCampos(); // Chama a função para limpar os campos
+            limparCampos();
         });
     }
 });

@@ -6,8 +6,8 @@ export function highlightMenu(selectedLink) {
         item.classList.remove('bg-warning', 'text-black', 'fw-bold');
         const navLink = item.querySelector('.jb-nav-link');
         if (navLink) {
-            navLink.classList.add('text-white'); // Restaura a cor original
-            navLink.classList.remove('fw-bold'); // Restaura o peso da fonte original
+            navLink.classList.add('text-white');
+            navLink.classList.remove('fw-bold');
         }
     });
 
@@ -19,11 +19,11 @@ export function highlightMenu(selectedLink) {
             // Destaca o link e seu item correspondente
             const selectedItem = link.closest('.jb-nav-item');
             if (selectedItem) {
-                selectedItem.classList.add('bg-warning', 'text-black', 'fw-bold'); // Adiciona as classes de destaque
+                selectedItem.classList.add('bg-warning', 'text-black', 'fw-bold');
                 const navLink = selectedItem.querySelector('.jb-nav-link');
                 if (navLink) {
-                    navLink.classList.add('text-black');  // Destaca o texto
-                    navLink.classList.remove('text-white');  // Remove a cor original
+                    navLink.classList.add('text-black');
+                    navLink.classList.remove('text-white');
                 }
             }
         }

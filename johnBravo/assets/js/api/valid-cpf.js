@@ -2,7 +2,7 @@ let CPF = document.querySelector('#cpf');
 CPF.addEventListener('input', function () {maskCPF()});
 
 function maskCPF() {
-    let strCPF = CPF.value.replace(/\D/g, ''); // Remove tudo que não for número
+    let strCPF = CPF.value.replace(/\D/g, '');
     let maskedCPF = '';
 
     // Aplica a máscara de acordo com o comprimento do CPF
@@ -16,7 +16,7 @@ function maskCPF() {
         maskedCPF = strCPF.slice(0, 3) + '.' + strCPF.slice(3, 6) + '.' + strCPF.slice(6, 9) + '-' + strCPF.slice(9, 11);
     }
 
-    CPF.value = maskedCPF;  // Aplica a máscara no campo
+    CPF.value = maskedCPF;
 }
 
 // Função para validar CPF

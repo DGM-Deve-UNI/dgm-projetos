@@ -1,5 +1,3 @@
-// modalUtils.js
-
 // Função para fechar o modal e depois voltar para a página anterior
 export function fecharEVoltar() {
     var modalElement = document.querySelector('.modal.show');

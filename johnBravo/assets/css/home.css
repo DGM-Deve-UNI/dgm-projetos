@@ -150,7 +150,7 @@
     max-width: 540px;
     margin: 2rem 0 3rem 0;
 }
-
+/* hr personalizada (linha de divisão entre as seções) */
 .hr-custom {
     border: none;
     height: 8px;
@@ -188,6 +188,11 @@
     background-color: var(--branco);
 }
 
+/* Classe para ajustar tamanho de texto dinamicamente */
+.js-titulo-responsivo {
+    font-size: 4rem; /* Tamanho padrão para mobile */
+}
+
 /* === Responsividade da "div" e texto da página === */
 @media (max-width: 768px) {
     /* class font-size BS personalizada */
@@ -223,16 +228,13 @@
         width: 75% !important;
     }
 }
-/* Classe para ajustar tamanho de texto dinamicamente */
-.js-titulo-responsivo {
-    font-size: 4rem; /* Tamanho padrão para mobile */
-}
 
 @media (min-width: 768px) {
     .js-titulo-responsivo {
         font-size: 150px; /* Tamanho grande no desktop */
     }
 }
+
 .carousel {
     height: 360px !important;
 }
@@ -285,17 +287,3 @@
         border-top: auto !important;  /* Restaura borda superior no desktop */
     }
 }
-
-/* [data-bs-theme="light"] .carousel .carousel-indicators [data-bs-target] {
-    background-color: var(--branco);
-} */
-/* [data-bs-theme="light"] .carousel .carousel-indicators [data-bs-target] {
-    background-color: var(--preto);
-} */
-
-/* [data-bs-theme=light] .carousel .fa-chevron-left, 
-
-[data-bs-theme=light] .carousel .fa-chevron-right {
-    color: var(--preto);
-} */
-

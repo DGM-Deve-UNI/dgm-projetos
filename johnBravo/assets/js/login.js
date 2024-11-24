@@ -15,10 +15,9 @@ function mostrarModal(titulo, mensagem, corFundo, corBorda) {
     let btn = document.getElementById('btn-modal');
 
     // Limpar as classes antigas do modal header
-    modalHeader.className = 'modal-header rounded-8 rounded-bottom-0 border'; // Reseta as classes do header
-
+    modalHeader.className = 'modal-header rounded-8 rounded-bottom-0 border';
     // Limpar as classes antigas do botão
-    btn.className = 'btn btn-rounded border border-2'; // Reseta as classes do botão
+    btn.className = 'btn btn-rounded border border-2';
     
     // Adicionar as classes de cor passadas no parâmetro
     modalHeader.classList.add(corFundo, 'text-white'); // Cabeçalho

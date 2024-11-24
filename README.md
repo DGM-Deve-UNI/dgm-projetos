@@ -2,7 +2,7 @@
 
 Repositório de projetos do grupo DGM Unisuam 2024.2
 
-    Status: Em produção
+    Status: Finalizado
 
 ----------------------------------------------
 
@@ -18,6 +18,7 @@ Repositório de projetos do grupo DGM Unisuam 2024.2
 - **Daniel Vieira Ferreira;**
 - **Geilson Machado Nascimento;**
 - **Matheus Azevedo Ferreira;**
+- **Ana Kelli da Silva Pereira;**
 
 ---
 
@@ -25,7 +26,7 @@ Repositório de projetos do grupo DGM Unisuam 2024.2
 
 ----------------------------------------------
 
-## Projeto finalizado em *"não finalizado ainda!"*
+## Projeto finalizado em *23/11/2024 - 23:23*
 
 ----------------------------------------------
 

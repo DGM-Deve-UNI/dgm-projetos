@@ -34,272 +34,254 @@
 
   <!-- === CSS interno === -->
     <link rel="stylesheet" href="./assets/css/style.css">
-  <!-- === Javascript interno === -->
-    <!-- <script src="./assets/js/agendar.js"></script> -->
 
 <!-- ======================================== -->
   <title>JohnBravo Barbearia</title>
 </head>
 <body>
-    <div class="container-fluid container-base">
-    <!-- === NavBar === -->
-      <header>
-          <nav class="navbar 
-                      navbar-expand-lg 
-                      fixed-top
-                      p-0
-                      m-0
-                      text-bg-footer-custom
-                      shadow-sm">
-              <div class="container-fluid">
-              <!-- Logo -->
-                  <a class="navbar-brand logo-link p-0 m-0" 
-                      href="./assets/html/pages/home.html" 
-                      _msttexthash="378430" 
-                      _msthash="256">
+  <div class="container-fluid container-base">
+  <!-- === NavBar === -->
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top p-0 m-0 text-bg-footer-custom shadow-sm">
+        <!-- Container -->
+        <div class="container-fluid">
+          <!-- Logo -->
+            <a class="navbar-brand logo-link p-0 m-0" 
+                href="./assets/html/pages/home.html" 
+                _msttexthash="378430" 
+                _msthash="256">
+              <!-- Imagem -->
+              <img class="p-2 img-custom" 
+                    src="./assets/imgs/logos/white/logo-white.png" 
+                    alt="Logo JohnBravo" 
+                    title="JohnBravo Barbearia" 
+                    width="160">
+            </a>
+          <!-- Menu Hambúrguer -->
+            <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around mx-2" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
+                <!-- Barras -->
+                <span class="toggler-icon top-bar"></span>
+                <span class="toggler-icon middle-bar"></span>
+                <span class="toggler-icon bottom-bar"></span>
+            </button>
+          <!-- Menus -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav justify-content-center flex-grow-1">
+              <!-- L1 - Home -->
+                <li class="nav-item jb-nav-item
+                            bg-warning
+                            rounded-2
+                            mx-1">
+                    <a class="nav-link
+                              jb-nav-link 
+                              text-black
+                              jb-text-white
+                              fw-bold
+                              jb-text-white-hover                                     
+                              ativo-custom" 
+                        href="./assets/html/pages/home.html" aria-current="page" _msttexthash="42250" _msthash="258">Home</a>
+                </li>
+              <!-- L2 -Sobre -->
+                <li class="nav-item jb-nav-item mx-1">
+                    <a class="nav-link
+                              jb-nav-link 
+                              jb-text-white
+                              jb-text-white-hover" 
+                        href="./assets/html/pages/sobre.html" _msttexthash="313612" _msthash="259">Sobre</a>
+                </li>
+              <!-- L3 - Serviços -->
+                <li class="nav-item jb-nav-item mx-1">
+                    <a class="nav-link
+                              jb-nav-link 
+                              jb-text-white
+                              jb-text-white-hover"
+                        href="./assets/html/pages/services.html" _msttexthash="253617" _msthash="260">Serviços</a>
+                </li>
+              <!-- L4 - Agendar -->
+                <li class="nav-item jb-nav-item mx-1">
+                    <a class="nav-link
+                              jb-nav-link 
+                              jb-text-white
+                              jb-text-white-hover"
+                        href="./assets/html/pages/agendar.html" _msttexthash="253617" _msthash="260">Agendar</a>
+                </li>
+              <!-- L5 - Contatos -->
+                <li class="nav-item jb-nav-item mx-1">
+                    <a class="nav-link
+                              jb-nav-link 
+                              jb-text-white
+                              jb-text-white-hover"
+                        href="./assets/html/pages/contatos.html" _msttexthash="253617" _msthash="260">Contatos</a>
+                </li>
+              </ul>
+              <!-- Botões de acessibilidade -->
+              <div class="p-3 ps-0 d-flex">
+                <!-- Botão Theme Mode -->
+                  <div class="d-flex align-items-center p-0 m-0  me-2">
+                    <!-- Botão checkbox -->
+                    <input class="chk" type="checkbox" name="theme-mode" id="dark-mode-toggle">
+                    <!--  -->
+                    <label class="btn-toggle fs-6 d-flex justify-content-between align-items-center bg-black rounded-pill" for="dark-mode-toggle">
+                      <!-- icon sol -->
+                      <i class="fa-solid fa-sun d-flex align-items-center justify-content-center"></i>
+                      <!-- "Botão" -->
+                      <span class="toggle-slider"></span>
+                      <!-- icon lua -->
+                      <i class="fa-solid fa-moon d-flex align-items-center justify-content-center"></i>
+                    </label>
+                  </div>
+                  <!-- Botão para aumentar o texto -->
+                  <button id="increase-font-btn" class="btn btn-outline-warning border-2 p-0 btn-sm me-2 rounded-pill bor js-border-text-warning" type="button"><i class="fa-solid fa-magnifying-glass-plus p-2"></i></button>
+                  <!-- Botão para diminuir o texto -->
+                  <button id="decrease-font-btn" class="btn btn-outline-warning border-2 p-0 btn-sm rounded-pill bor js-border-text-warning" type="button"><i class="fa-solid fa-magnifying-glass-minus p-2"></i></button>
+              </div>
 
-                    <img class="p-2 img-custom" 
-                          src="./assets/imgs/logos/white/logo-white.png" 
-                          alt="JohnBravo" 
-                          title="JohnBravo Barbearia" 
-                          width="160">
-                  </a>
-              <!-- Menu Hambúrguer -->
-                  <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around mx-2" 
-                          type="button" 
-                          data-bs-toggle="collapse" 
-                          data-bs-target="#navbarNav" 
-                          aria-controls="navbarNav" 
-                          aria-expanded="false" 
-                          aria-label="Toggle navigation">
+              <!-- === Botões "Entrar" e "Registre-se" === -->
+              <div class="p-3 ps-0">
+                <!-- Botão "Entrar" -->
+                  <a id="login-btn" href="./assets/html/auth/login.html" 
+                  class="login-button 
+                          btn 
+                          btn-warning
+                          btn-sm 
+                          fw-bold
+                          rounded-2"
+                  type="button"
+                  role="button">Entrar</a>
 
-                      <span class="toggler-icon top-bar"></span>
-                      <span class="toggler-icon middle-bar"></span>
-                      <span class="toggler-icon bottom-bar"></span>
-                  </button>
-              <!-- Menus -->
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                      <ul class="navbar-nav
-                                  justify-content-center 
-                                  flex-grow-1">
-                      <!-- L1 - Home -->
-                          <li class="nav-item jb-nav-item
-                                      bg-warning
-                                      rounded-2
-                                      mx-1">
-                              <a class="nav-link
-                                        jb-nav-link 
-                                        text-black
-                                        jb-text-white
-                                        fw-bold
-                                        jb-text-white-hover                                     
-                                        ativo-custom" 
-                                  href="./assets/html/pages/home.html" aria-current="page" _msttexthash="42250" _msthash="258">Home</a>
-                          </li>
-                      <!-- L2 -Sobre -->
-                          <li class="nav-item jb-nav-item mx-1">
-                              <a class="nav-link
-                                        jb-nav-link 
-                                        jb-text-white
-                                        jb-text-white-hover" 
-                                  href="./assets/html/pages/sobre.html" _msttexthash="313612" _msthash="259">Sobre</a>
-                          </li>
-                      <!-- L3 - Serviços -->
-                          <li class="nav-item jb-nav-item mx-1">
-                              <a class="nav-link
-                                        jb-nav-link 
-                                        jb-text-white
-                                        jb-text-white-hover"
-                                  href="./assets/html/pages/services.html" _msttexthash="253617" _msthash="260">Serviços</a>
-                          </li>
-                      <!-- L4 - Agendar -->
-                          <li class="nav-item jb-nav-item mx-1">
-                              <a class="nav-link
-                                        jb-nav-link 
-                                        jb-text-white
-                                        jb-text-white-hover"
-                                  href="./assets/html/pages/agendar.html" _msttexthash="253617" _msthash="260">Agendar</a>
-                          </li>
-                      <!-- L5 - Contatos -->
-                          <li class="nav-item jb-nav-item mx-1">
-                              <a class="nav-link
-                                        jb-nav-link 
-                                        jb-text-white
-                                        jb-text-white-hover"
-                                  href="./assets/html/pages/contatos.html" _msttexthash="253617" _msthash="260">Contatos</a>
-                          </li>
+                <!-- Botão "Registre-se" -->
+                  <a id="registro-btn" href="./assets/html/auth/cadastro.html" 
+                  class="login-button 
+                          btn 
+                          btn-secondary
+                          btn-sm 
+                          ms-2 
+                          fw-bold
+                          rounded-2"
+                  type="button"
+                  role="button">Registre-se</a>
+
+                <!-- Ícone do usuário logado -->
+                <div id="user-info" class="d-none">
+                  <!-- ícone do usuário -->
+                  <div class="dropdown">
+                      <button class="btn border-0 btn-lg p-0 dropdown-toggle" 
+                              type="button" 
+                              id="user-dropdown" 
+                              data-bs-toggle="dropdown" 
+                              aria-expanded="false">
+                          <i class="fas fa-user-circle"></i> <span id="user-name"></span>
+                      </button>
+                      <!-- Botão de sair -->
+                      <ul class="dropdown-menu jb-min-width-0" aria-labelledby="user-dropdown">
+                          <li><a class="dropdown-item" href="./assets/html/pages/home.html" id="logout-btn">Sair</a></li>
                       </ul>
-                  <!-- Botões de acessibilidade -->
-                  <div class="p-3 ps-0 d-flex">
-                      <!-- <button id="dark-mode-toggle" class="btn btn-toggle btn-outline-secondary btn-sm me-2" type="button" title="Alternar modo">
-                        
-                          <i class="fa-solid fa-sun me-1"></i>
-                          <span class="toggle-slider"></span>
-                          <i class="fa-solid fa-moon ms-1"></i>
-                      </button> -->
-                      <!-- Botão Theme Mode -->
-                      <div class="d-flex align-items-center p-0 m-0  me-2">
-                        <input class="chk" type="checkbox" name="theme-mode" id="dark-mode-toggle">
-
-                        <label class="btn-toggle fs-6 d-flex justify-content-between align-items-center bg-black rounded-pill" for="dark-mode-toggle">
-                          <i class="fa-solid fa-sun d-flex align-items-center justify-content-center"></i>
-                          <span class="toggle-slider"></span>
-                          <i class="fa-solid fa-moon d-flex align-items-center justify-content-center"></i>
-                        </label>
-                      </div>
-                      
-                      <!-- Botão para aumentar o texto -->
-                      <button id="increase-font-btn" class="btn btn-outline-warning border-2 p-0 btn-sm me-2 rounded-pill bor js-border-text-warning" type="button"><i class="fa-solid fa-magnifying-glass-plus p-2"></i></button>
-                  
-                      <!-- Botão para diminuir o texto -->
-                      <button id="decrease-font-btn" class="btn btn-outline-warning border-2 p-0 btn-sm rounded-pill bor js-border-text-warning" type="button"><i class="fa-solid fa-magnifying-glass-minus p-2"></i></button>
                   </div>
-<!-- === Botões === -->
-<div class="p-3 ps-0">
-  <!-- Botão "Entrar" -->
-  <a id="login-btn" href="./assets/html/auth/login.html" 
-      class="login-button 
-              btn 
-              btn-warning
-              btn-sm 
-              fw-bold
-              rounded-2"
-      type="button"
-      role="button">Entrar</a>
-  <!-- Botão "Registre-se" -->
-  <a id="registro-btn" href="./assets/html/auth/cadastro.html" 
-      class="login-button 
-              btn 
-              btn-secondary
-              btn-sm 
-              ms-2 
-              fw-bold
-              rounded-2"
-      type="button"
-      role="button">Registre-se</a>
-
-  <!-- Exibindo o ícone do usuário logado -->
-  <div id="user-info" class="d-none">
-      <div class="dropdown">
-          <button class="btn border-0 btn-lg p-0 dropdown-toggle" 
-                  type="button" 
-                  id="user-dropdown" 
-                  data-bs-toggle="dropdown" 
-                  aria-expanded="false">
-              <i class="fas fa-user-circle"></i> <span id="user-name"></span>
-          </button>
-          <ul class="dropdown-menu jb-min-width-0" aria-labelledby="user-dropdown">
-              <li><a class="dropdown-item" href="./assets/html/pages/home.html" id="logout-btn">Sair</a></li>
-          </ul>
-      </div>
-  </div>
-</div>
-
-                  </div>
+                </div>
               </div>
-          </nav>
-      </header>
+            </div>
+        </div>
+      </nav>
+    </header>
+  <!-- === Main === -->
+    <main id="content" class=""></main>
+
+  <!-- Botão "Voltar ao topo (seta)" -->
+    <button id="scrollToTopBtn" class="btn btn-warning p-0 rounded-pill shadow" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up p-3"></i>
+    </button>
+
+  <!-- === Footer === -->
+    <footer id="footer" class="footer text-bg-footer-custom rounded-4 text-center text-lg-start text-muted">
+      <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-bg-warning">
+          <!-- Left -->
+          <div class="me-5 d-none d-lg-block"><span>Conecte-se conosco nas redes sociais:</span></div>
       
-    <!-- === Main === -->
-      <main id="content" class=""></main>
-
-    <!-- Botão "Voltar ao topo (seta)" -->
-      <button id="scrollToTopBtn" class="btn btn-warning p-0 rounded-pill shadow" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up p-3"></i>
-      </button>
-
-    <!-- === Footer === -->
-      <footer id="footer" class="footer text-bg-footer-custom rounded-4 text-center text-lg-start text-muted">
-        <!--/ Section: Social media -->
-          <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-bg-warning">
-            <!--/ Left -->
-            <div class="me-5 d-none d-lg-block"><span>Conecte-se conosco nas redes sociais:</span></div>
-            <!-- Left \-->
-        
-            <!--/ Right -->
-            <div>
-              <span class="me-4 text-reset text-decoration-none" alt="Facebook" title="Facebook">
-                  <i class="fa-brands fa-facebook"></i>
-              </span>
-
-              <span class="me-4 text-reset text-decoration-none" alt="Instagram" title="Instagram">
-                  <i class="fa-brands fa-instagram"></i>
-              </span>
-              
-              <span class="me-4 text-reset text-decoration-none" alt="X-Twitter" title="X-Twitter">
-                  <i class="fa-brands fa-x-twitter"></i>
-              </span>                
-            </div>
-            <!-- Right \-->             
-          </section>
-        <!-- Section: Social media \-->
-        
-        <!--/ Section: Links -->
-          <section class="">
-            <div class="container text-center text-md-start mt-5">
-              <!--/ Grid row -->
-              <div class="row align-items-start mt-3">
-                <!--/ Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                  <!-- Content -->
-                  <div class=" fw-bold mb-4"><img class="img-custom" src="./assets/imgs/logos/white/logo-white.png" width="200" alt=""></div>
-                      <p class="fs-6">Na johnBravo Barbearia, tradição e estilo se encontram para oferecer a melhor experiência de cuidado masculino. Com uma equipe dedicada e especializada, garantimos serviços de alta qualidade para que você se sinta sempre no seu melhor.</p>
-                </div>
-                <!-- Grid column \-->
-        
-                <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mt-0 mt-md-5 mx-auto mb-4">
-                  <!-- Links -->
-                  <h6 class="text-uppercase fw-bold mb-4">Serviços</h6>
-
-                    <p class="text-reset">Corte Degradê</p>
-                    <p class="text-reset">Corte de Cabelo</p>
-                    <p class="text-reset">Barboterapia</p>
-                    <p class="text-reset">Limpeza</p>
-                    <p class="text-reset">Sobrancelha</p>
-                    <p class="text-reset">Lavagem de Cabelo</p>
-                </div>
-                <!-- Grid column -->
-        
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mt-0 mt-md-5 mx-auto mb-4">
-                  <!-- Links -->
-                  <h6 class="text-uppercase fw-bold mb-4">Links</h6>
-
-                    <p><a href="./assets/html/pages/sobre.html" class="text-reset">Sobre</a></p>
-                    <p><a href="./assets/html/pages/agendar.html" class="text-reset">Agendar</a></p>
-                    <p><a href="./assets/html/pages/services.html" class="text-reset">Serviços</a></p>
-                    <p><a href="./assets/html/pages/contatos.html" class="text-reset">Contatos</a></p>
-                </div>
-                <!-- Grid column -->
-        
-                <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-4 mt-5 mx-auto mb-md-0 mb-4">
-                  <!-- Links -->
-                  <h6 class="text-uppercase fw-bold mb-4">Contatos</h6>
-
-                    <p><i class="fas fa-home me-3"></i>Rua São João, 456 - Rio de Janeiro - RJ</p>                    
-                    <p><i class="fas fa-envelope me-3"></i> johnbravo@email.com.br</p>
-                    <p><i class="fas fa-phone me-3"></i> (21) 98765-4321</p>
-                </div>
-                <!-- Grid column -->
+          <!-- Right -->
+          <div>
+            <!-- Facebook -->
+            <span class="me-4 text-reset text-decoration-none" alt="Facebook" title="Facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </span>
+            <!-- Instagram -->
+            <span class="me-4 text-reset text-decoration-none" alt="Instagram" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </span>
+            <!-- X-Twitter -->
+            <span class="me-4 text-reset text-decoration-none" alt="X-Twitter" title="X-Twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+            </span>                
+          </div>
+        </section>
+      
+      <!-- Section: Links -->
+        <section class="">
+          <!-- Grid container -->
+          <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row align-items-start mt-3">
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <!-- Content -->
+                <div class=" fw-bold mb-4"><img class="img-custom" src="./assets/imgs/logos/white/logo-white.png" width="200" alt=""></div>
+                  <!-- Text -->
+                    <p class="fs-6">Na johnBravo Barbearia, tradição e estilo se encontram para oferecer a melhor experiência de cuidado masculino. Com uma equipe dedicada e especializada, garantimos serviços de alta qualidade para que você se sinta sempre no seu melhor.</p>
               </div>
-              <!-- Grid row \-->
+      
+              <!-- Grid column -->
+              <div class="col-md-2 col-lg-2 col-xl-2 mt-0 mt-md-5 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">Serviços</h6>
+                  <!-- Text -->
+                  <p class="text-reset">Corte Degradê</p>
+                  <p class="text-reset">Corte de Cabelo</p>
+                  <p class="text-reset">Barboterapia</p>
+                  <p class="text-reset">Limpeza</p>
+                  <p class="text-reset">Sobrancelha</p>
+                  <p class="text-reset">Lavagem de Cabelo</p>
+              </div>
+      
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-2 col-xl-2 mt-0 mt-md-5 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">Links</h6>
+                  <!-- Text / links -->
+                  <p><a href="./assets/html/pages/sobre.html" class="text-reset">Sobre</a></p>
+                  <p><a href="./assets/html/pages/agendar.html" class="text-reset">Agendar</a></p>
+                  <p><a href="./assets/html/pages/services.html" class="text-reset">Serviços</a></p>
+                  <p><a href="./assets/html/pages/contatos.html" class="text-reset">Contatos</a></p>
+              </div>
+      
+              <!-- Grid column -->
+              <div class="col-md-4 col-lg-3 col-xl-4 mt-5 mx-auto mb-md-0 mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">Contatos</h6>
+                  <!-- Text -->
+                  <p><i class="fas fa-home me-3"></i>Rua São João, 456 - Rio de Janeiro - RJ</p>                    
+                  <p><i class="fas fa-envelope me-3"></i> johnbravo@email.com.br</p>
+                  <p><i class="fas fa-phone me-3"></i> (21) 98765-4321</p>
+              </div>
             </div>
-          </section>
-        <!-- Section: Links \-->
-        
-        <!--/ Copyright -->
-          <div class="card-footer text-center p-2 text-bg-light">Copyright &copy; 2024 | DGM Web Developer &reg;</div>
-        <!-- Copyright \-->
-      </footer>
-    </div>
-    
-  <!-- === Script Global === -->
-    <script type="module" src="./assets/js/script.js"></script>
-    <script src="./assets/js/agendar.js"></script>
-    <script src="./assets/js/utils/user-logon.js"></script>
-  <!-- === API Map - JS === -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+          </div>
+        </section>
+      
+      <!-- Copyright -->
+        <div class="card-footer text-center p-2 text-bg-light">Copyright &copy; 2024 | DGM Web Developer &reg;</div>
+    </footer>
+  </div>
+
+<!-- === Script Global === -->
+  <script type="module" src="./assets/js/script.js"></script>
+  <script src="./assets/js/agendar.js"></script>
+  <script src="./assets/js/utils/user-logon.js"></script>
+<!-- === API Map - JS === -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </body>
 </html>

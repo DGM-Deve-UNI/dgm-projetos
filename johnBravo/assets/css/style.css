@@ -50,8 +50,6 @@ body, footer, div, section, i, a, ul, li {
     min-height: 100vh;
     min-width: 100vw;
     position: relative;
-    /* width: auto; */
-    /* height: auto; */
 }
 /* ============================================== */
 /* --= "div" Página principal - 'index' (nav, main, footer) =-- */
@@ -76,10 +74,11 @@ body, footer, div, section, i, a, ul, li {
 .jb-text-muted {
     color: var(--text-muted-color) !important;
 }
-
+/*  Classe personalizada para popper */
 .jb-min-width-0[data-bs-popper] {
    min-width: 0 !important;
 }
+
 /* ===- Config Modo Claro/Escuro -=== */
 /* custom global */
 [data-bs-theme="light"] .text-bg-custom {
@@ -124,7 +123,7 @@ body, footer, div, section, i, a, ul, li {
 [data-bs-theme="dark"] .img-custom {
     content: url('../imgs/logos/white/logo-white.png');
 }
-
+/* Inverter cor imagem/icon */
 [data-bs-theme="dark"] .invert-dark {
     filter: invert(1);
 }

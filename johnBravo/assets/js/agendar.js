@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
             // Se a etapa 3 for ativada, aplicar a máscara no campo WhatsApp
             if (currentStep + 1 === 3) {
-                applyWhatsappMask(); // Chama a função para aplicar a máscara
+                applyWhatsappMask();
             }
         }
     }
@@ -103,16 +103,16 @@ document.addEventListener("DOMContentLoaded", function () {
     function applyWhatsappMask() {
         const whatsappInput = document.getElementById("whatsapp");
         if (whatsappInput) {
-            whatsappInput.removeEventListener("input", maskWhatsapp); // Remove qualquer listener anterior para evitar duplicação
-            whatsappInput.addEventListener("input", maskWhatsapp); // Adiciona o listener com a máscara
+            whatsappInput.removeEventListener("input", maskWhatsapp);
+            whatsappInput.addEventListener("input", maskWhatsapp);
         }
     }
 
     // Função de máscara do WhatsApp
     function maskWhatsapp(e) {
-        let value = e.target.value.replace(/\D/g, ""); // Remove qualquer caractere não numérico
-        if (value.length > 11) value = value.slice(0, 11); // Limita a 11 dígitos
-        e.target.value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1) $2-$3"); // Aplica a máscara
+        let value = e.target.value.replace(/\D/g, "");
+        if (value.length > 11) value = value.slice(0, 11);
+        e.target.value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1) $2-$3");
     }
 
     // Validação da data e carregamento de horários disponíveis
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Carregar horários válidos com base na data selecionada
     function loadAvailableTimes() {
         const timeSelect = document.getElementById("time");
-        timeSelect.innerHTML = ""; // Limpa os horários
+        timeSelect.innerHTML = "";
 
         const times = ["08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",  "13:00", "13:30", "14:00", "14:30", "15:00",
              "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30"];
@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
         confirmButton.classList.add("d-none");
         cancelButton.classList.add("d-none");
         setTimeout(() => {
-            window.location.reload(); // Redefine o formulário após confirmação
+            window.location.reload();
         }, 2000);
     }
 

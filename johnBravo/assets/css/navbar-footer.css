@@ -197,11 +197,6 @@
     height: 20px;
     opacity: 1;
 }
-/* .js-border-text-warning {
-    border: none !important;
-} */
-
-
  
 /* Icons social */
 .fa-brands {
@@ -216,6 +211,10 @@
     color: var(--preto) !important;
 }
 
+/* Alternância entre os ícones no modo escuro */
+[data-bs-theme="dark"] .btn-toggle {
+    background: var(--cinza-escuro) !important;
+}
 [data-bs-theme="dark"] .js-border-text-warning:hover {
     background: var(--cinza-claro);
     color: var(--preto) !important;
@@ -223,10 +222,6 @@
 [data-bs-theme="light"] .js-border-text-warning:hover {
     /* background: var(--cinza-claro); */
     color: var(--preto) !important;
-}
-/* Alternância entre os ícones no modo escuro */
-[data-bs-theme="dark"] .btn-toggle {
-    background: var(--cinza-escuro) !important;
 }
 
 /* Botão "Voltar ao topo (seta)" */
