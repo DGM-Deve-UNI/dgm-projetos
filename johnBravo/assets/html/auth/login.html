@@ -1,52 +1,75 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-bs-theme="dark">
+<html lang="pt-br" data-mdb-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- === Icon do site === -->
-        <link rel="icon" href="../../imgs/icons/dark/icon.png" type="image/svg+xml">
+    <link rel="icon" href="../../imgs/icons/dark/icon.png" type="image/svg+xml">
   <!-- === Descrição do site ===  -->  
     <meta name="description" content="Página de Login - JohnBravo Barbearia">
-    <!-- === Autor do site === -->
+  <!-- === Autor do site === -->
     <meta name="author" content="DGM Web Developer®">
 
   <!-- === CDN fonts icons Awesome === -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
   <!-- === Fonts Google === -->
-      <!-- Font Montserrat -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-      <!-- Font Lalezar -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
-      <!-- MDB Font - Roboto -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- Font Montserrat -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Font Lalezar -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <!-- MDB Font - Roboto -->
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
   <!-- === CDN Bootstrap === -->
       <!-- CSS Bootstrap -->
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
       <!-- Js Bootstrap -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
   <!-- ==== CDN MDB ==== -->
-      <!-- MDB - css -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet">
+    <!-- MDB - css -->
+      <link href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.0.0/css/mdb.min.css" rel="stylesheet">
 
   <!-- === CSS interno === -->
-        <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
   <!-- === Javascript interno === -->
-        <script src="" defer></script>
+    <script src="../../js/passView.js" defer></script>
 <!-- ======================================== -->
-    <title>Login</title>
+  <title>Login</title>
 </head>
 <body>
   <!-- Botão voltar (mini navbar) -->
-    <div class="button-back navbar navbar-expand-lg p-2 ">
-      <a href="javascript:history.back()" class="voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
-    </div>
+    <nav class="button-back navbar text-bg-footer-custom navbar-expand-lg p-2">
+      <div class="container-fluid">
+        <a href="javascript:history.back()" class="jb-fa-arrow jb-text-white"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
+
+      <!-- Botões de acessibilidade -->
+        <div class="p-3 ps-0 d-flex">
+          <!-- Botão Theme Mode -->
+            <div class="d-flex align-items-center p-0 m-0  me-2">
+              <input class="chk" type="checkbox" name="theme-mode" id="dark-mode-toggle">
+
+              <label class="btn-toggle fs-6 d-flex justify-content-between align-items-center bg-black rounded-pill" for="dark-mode-toggle">
+                <i class="fa-solid fa-sun d-flex align-items-center justify-content-center"></i>
+                <span class="toggle-slider"></span>
+                <i class="fa-solid fa-moon d-flex align-items-center justify-content-center"></i>
+              </label>
+            </div>
+      
+          <!-- Botão para aumentar o texto -->
+            <button id="increase-font-btn" class="btn btn-outline-warning p-0 btn-sm me-2 rounded-pill border-2 js-border-text-warning" type="button"><i class="fa-solid fa-magnifying-glass-plus p-2"></i></button>
+          <!-- Botão para diminuir o texto -->
+            <button id="decrease-font-btn" class="btn btn-outline-warning p-0 btn-sm rounded-pill border-2 js-border-text-warning" type="button"><i class="fa-solid fa-magnifying-glass-minus p-2"></i></button>
+        </div>
+
+        </div>
+      </div>
+    </nav>
 
   <!-- Formulário -->
     <div id="docsTabsOverview" role="tabpanel" aria-labelledby="docs-tab-overview" 
@@ -56,15 +79,15 @@
 
           <form data-bitwarden-watching="1">
           <!-- Logo -->
-            <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
-              <img class="mb-0" src="../../imgs/icons/dark/icon-txt.png" alt="JohnBravo Barbearia" width="200">
-            </div>
+          <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
+            <img class="mb-0 logo-txt-custom" src="../../imgs/icons/dark/icon-txt.png" alt="JohnBravo Barbearia" width="200">
+          </div>
               <!-- Título -->
               <h5 class="fw-normal text-center mb-3 pb-3" style="letter-spacing: 1px;">Entre na sua conta</h5>
 
             <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
-              <input type="email" id="form2Example17" class="inputs- form-control form-control-lg" required>
-              <label class="form-label" for="form2Example17" style="margin-left: 0px;">E-mail ou usuário</label>
+              <input type="email" id="email-login" class="inputs- form-control form-control-lg" required>
+              <label class="form-label" for="email-login" style="margin-left: 0px;">E-mail ou usuário</label>
                 <div class="form-notch">
                   <div class="form-notch-leading" style="width: 9px;"></div>
                   <div class="form-notch-middle" style="width: 88.8px;"></div>
@@ -72,18 +95,25 @@
                 </div>
             </div>
 
-            <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
-              <input type="password" id="form2Example27" class="form-control form-control-lg" required>
-              <label class="form-label" for="form2Example27" style="margin-left: 0px;">Senha</label>
-                <div class="form-notch">
-                  <div class="form-notch-leading" style="width: 9px;"></div>
-                  <div class="form-notch-middle" style="width: 64.8px;"></div>
-                  <div class="form-notch-trailing"></div>
-                </div>
+          <!-- Senha -->
+            <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
+              <input 
+                type="password" 
+                id="senha" 
+                class="form-control form-control-lg"
+                required
+                data-required
+                data-login-length="6"
+                data-only-letters
+                minlength="6"
+                maxlength="6">
+                
+              <label class="form-label" for="senha" style="margin-left: 0px;">Senha</label>
+              <i class="fa-solid fa-eye" id="eye-icon" style="top: 15px;" data-target="senha"></i>
             </div>
 
             <div class="pt-1 mb-4">
-              <button data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-dark btn-lg btn-block rounded-pill" type="button" data-mdb-button-initialized="true">Entrar</button>
+              <button data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-dark btn-lg btn-block rounded-pill" type="submit" id="loginBtn" data-mdb-button-initialized="true">Entrar</button>
             </div>              
             <!-- Button trigger modal -->
               <button class="border-0 bg-transparent">
@@ -96,7 +126,7 @@
                     Esqueceu a senha?
                 </a>
               </button>
-              <!-- Modal -->
+              <!-- Modal redefinir senha -->
                 <div class="modal top fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
                     <div class="modal-dialog" style="width: 300px;">
@@ -117,58 +147,60 @@
                                     <!-- Link para voltar à página anterior -->
                                     <a href="javascript:void(0)" class="" data-mdb-dismiss="modal">Voltar</a>
                                     <!-- Link para cancelar, fechar o modal e limpar o campo -->
-                                    <a href="javascript:void(0)" class="" data-mdb-dismiss="modal" onclick="limparCampos()">Cancelar</a>
-                                    
-                                    <script>
-                                        // Função para fechar o modal e depois voltar para a página anterior
-                                        function fecharEVoltar() {
-                                            var modalElement = document.querySelector('.modal.show');
-                                            if (modalElement) {
-                                                var modalInstance = bootstrap.Modal.getInstance(modalElement);
-                                                modalInstance.hide();
-                                            }
-                                            
-                                            // Usar um pequeno atraso para garantir que o modal feche primeiro
-                                            setTimeout(function() {
-                                                history.back();
-                                            }, 300);
-                                        }
-
-                                        // Função para limpar os campos do modal
-                                        function limparCampos() {
-                                            document.getElementById("typeEmail").value = "";
-                                        }
-                                    </script>                                
+                                    <a href="javascript:void(0)" class="" data-mdb-dismiss="modal" id="cancelButton">Cancelar</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="mb-3 my-2 pb-lg-2">Não tem conta? <a href="./cadastro.html">Registre-se</a></p>
+                <p class="mb-3 my-2 pb-lg-2 jb-color-link">Não tem conta? <a href="./cadastro.html">Registre-se</a></p>
+              
+                <!-- Modal -->
+                <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content shadow-4-strong rounded-8 border border-2">
+                      <div id="modal-header" class="modal-header rounded-8 rounded-bottom-0 border">
+                        <h5 class="modal-title" id="modalLabel"></h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body" id="modalMessage"></div>
+                      <div class="modal-footer d-flex justify-content-center align-items-center">
+                        <button type="button" id="btn-modal" class="btn btn-secondary btn-rounded border border-2" data-mdb-dismiss="modal">Fechar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <script>
+                    
+                  </script>
+                </div>
           </form>
       </div>
     </div>
+      <!-- Botão "Voltar ao topo (seta)" -->
+      <button id="scrollToTopBtn" class="btn mb-8 mb-md-6 p-0 btn-warning rounded-pill shadow text-dark" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up p-3"></i>
+      </button>
     
   <!-- === Footer === -->
     <footer id="footer" class="footer fixed-bottom text-center text-lg-start">    
       <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-dark text-bg-warning">
-      <!--/ Left -->
+      <!-- Left -->
         <div class="me-5 ms-5 d-none d-lg-block">
           <!-- <span>Conecte-se conosco nas redes sociais:</span> -->
           <a href="#!" class="small text-dark">Termos de uso.</a> |
           <a href="#!" class="small text-dark">Politica de privacidade.</a>
         </div>
-      <!-- Left \-->
     
-      <!--/ Right -->
-        <!--/ Copyright -->
+      <!-- Right -->
+        <!-- Copyright -->
         <div class="small mx-5 text-center text-bg-light bg-warning">Copyright &copy; 2024 | DGM Web developer&reg;</div>
-        <!-- Copyright \-->
-      <!-- Right \-->         
       </section>
     </footer>
   
+  <!-- Script Global auth -->
+    <script type="module" src="../../js/authScript.js"></script>
+    <script src="../../js/login.js"></script>
   <!-- ==== JavaScript MDB ==== -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.0.0/js/mdb.umd.min.js"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@
     --branco-escuro: #f0f1f3;
     --cinza-claro: #e0e0e0;
     --cinza-escuro: #6c757d;
+    --text-muted-color: #dee2e6bf;
     --amarelo: #ffc107;
     --amarelo-font: #FFD700;
     --dourado: #e4a11b;
@@ -35,6 +36,9 @@
     font-weight: weight;
     font-style: normal;
 }
+body, footer, div, section, i, a, ul, li {
+    transition: background 0.1s linear;
+}
 /* ---- Config "main" (index) ---- */
 #content {
     position: relative;
@@ -46,8 +50,6 @@
     min-height: 100vh;
     min-width: 100vw;
     position: relative;
-    /* width: auto; */
-    /* height: auto; */
 }
 /* ============================================== */
 /* --= "div" Página principal - 'index' (nav, main, footer) =-- */
@@ -64,6 +66,17 @@
 
 [data-bs-theme="dark"] .jb-text-black {
     color: var(--preto);
+}
+
+.jb-mb-4-2 {
+    margin-bottom: 1.9rem !important;
+}
+.jb-text-muted {
+    color: var(--text-muted-color) !important;
+}
+/*  Classe personalizada para popper */
+.jb-min-width-0[data-bs-popper] {
+   min-width: 0 !important;
 }
 
 /* ===- Config Modo Claro/Escuro -=== */
@@ -85,11 +98,11 @@
 }
 /* Botão "A+ / A-" */
 [data-bs-theme="light"] .js-border-text-warning {
-    border: solid var(--cinza-escuro) !important;
+    border: 2px solid var(--cinza-escuro) !important;
     color: var(--cinza-escuro) !important;
 }
 [data-bs-theme="dark"] .js-border-text-warning {
-    border: solid var(--amarelo) !important;
+    border: 2px solid var(--amarelo) !important;
     color: var(--amarelo) !important;
 }
 /* custom footer */
@@ -109,4 +122,8 @@
 /* Imagem para o tema escuro */
 [data-bs-theme="dark"] .img-custom {
     content: url('../imgs/logos/white/logo-white.png');
+}
+/* Inverter cor imagem/icon */
+[data-bs-theme="dark"] .invert-dark {
+    filter: invert(1);
 }

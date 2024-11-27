@@ -1,67 +1,89 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-bs-theme="dark">
+<html lang="pt-br" data-mdb-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- === Icon do site === -->
-        <link rel="icon" href="../../imgs/icons/dark/icon.png" type="image/svg+xml">
+    <link rel="icon" href="../../imgs/icons/dark/icon.png" type="image/svg+xml">
   <!-- === Descrição do site ===  -->  
     <meta name="description" content="Página de Cadastro - JohnBravo Barbearia">
     <!-- === Autor do site === -->
     <meta name="author" content="DGM Web Developer®">
 
   <!-- === CDN fonts icons Awesome === -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
   <!-- === Fonts Google === -->
-      <!-- Font Montserrat -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-      <!-- Font Lalezar -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
-      <!-- MDB Font - Roboto -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-
-  <!-- === CDN Bootstrap === -->
-      <!-- CSS Bootstrap -->
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
-      <!-- Js Bootstrap -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+    <!-- Font Montserrat -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Font Lalezar -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <!-- MDB Font - Roboto -->
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
   <!-- ==== CDN MDB ==== -->
-      <!-- MDB - css -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet">
+    <!-- MDB - css -->
+      <link href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.0.0/css/mdb.min.css" rel="stylesheet">
   <!-- Flatpickr CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
         
   <!-- Flatpickr para português -->
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
 
   <!-- === CSS interno === -->
-        <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
   <!-- === Javascript interno === -->
-        <script src="../../js/api-cep.js" defer></script>
-        <script src="../../js/valid-cpf.js" defer></script>
+    <script src="../../js/passView.js" defer></script>
+    <script src="../../js/form-valid.js" defer></script>
+    <script src="../../js/api/api-cep.js" defer></script>
+    <script src="../../js/api/valid-cpf.js" defer></script>
+
 <!-- ======================================== -->
-    <title>Cadastro</title>
+  <title>Cadastro</title>
 </head>
 <body>
   <!-- Botão voltar (mini navbar) -->
-    <div class="button-back navbar navbar-expand-lg p-2"><a href="javascript:history.back()" class="voltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a></div>
+    <nav class="button-back navbar text-bg-footer-custom navbar-expand-lg p-2">
+      <div class="container-fluid">
+        <a href="javascript:history.back()" class="jb-fa-arrow jb-text-white"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
+
+      <!-- Botões de acessibilidade -->
+        <div class="p-3 ps-0 d-flex">
+          <!-- Botão Theme Mode -->
+            <div class="d-flex align-items-center p-0 m-0  me-2">
+              <input class="chk" type="checkbox" name="theme-mode" id="dark-mode-toggle">
+
+              <label class="btn-toggle fs-6 d-flex justify-content-between align-items-center bg-black rounded-pill" for="dark-mode-toggle">
+                <i class="fa-solid fa-sun d-flex align-items-center justify-content-center"></i>
+                <span class="toggle-slider"></span>
+                <i class="fa-solid fa-moon d-flex align-items-center justify-content-center"></i>
+              </label>
+            </div>
+      
+          <!-- Botão para aumentar o texto -->
+            <button id="increase-font-btn" class="btn btn-outline-warning p-0 btn-sm me-2 rounded-pill border-2 js-border-text-warning" type="button"><i class="fa-solid fa-magnifying-glass-plus p-2"></i></button>
+          <!-- Botão para diminuir o texto -->
+            <button id="decrease-font-btn" class="btn btn-outline-warning p-0 btn-sm rounded-pill border-2 js-border-text-warning" type="button"><i class="fa-solid fa-magnifying-glass-minus p-2"></i></button>
+        </div>
+
+        </div>
+      </div>
+    </nav>
   
   <!-- Formulário -->
     <div id="docsTabsOverview" role="tabpanel" aria-labelledby="docs-tab-overview" 
         class="d-flex row m-3 justify-content-center align-items-center tab-pane fade in show active" >
       <!-- "div" Form -->
         <div class="card p-4 p-lg-5 shadow-lg col-md-6 col-lg-7 d-flex mt-lg-5 mt-md-5 mb-10">
-          <form>
+          <form onsubmit="cadastrar(event)">
             <!-- Logo -->
               <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
-                  <img class="mb-0" src="../../imgs/icons/dark/icon-txt.png" alt="JohnBravo Barbearia" width="200">
+                  <img class="mb-0 logo-txt-custom" src="../../imgs/icons/dark/icon-txt.png" alt="JohnBravo Barbearia" width="200">
               </div>
             <!-- Título -->
               <h5 class="fw-normal text-center mb-3 pb-3" style="letter-spacing: 1px;">Crie seu cadastro</h5>
@@ -74,27 +96,31 @@
               <!-- Nome -->
                 <div class="col">
                   <div data-mdb-input-init class="form-outline">
-                    <input class="form-control"
+                    <input class="form-control mb-2"
                           required
                           id="nome" 
                           type="text"
-                          maxlength="15"
-                          minlength="15">
+                          data-required
+                          autocomplete="off"
+                          minlength="3"
+                          maxlength="60">
 
                       <label class="form-label" for="nome">Digite seu nome</label>
+                      <span class="" style="font-size: 12px;" id="feedbackNome"></span>
                   </div>
                 </div>
               <!-- Sobrenome -->
                 <div class="col">
                   <div data-mdb-input-init class="form-outline">
-                    <input class="form-control"
+                    <input class="form-control mb-2"
                           required
                           id="sobrenome" 
                           type="text"
-                          maxlength="15"
-                          minlength="15">
+                          minlength="3"
+                          maxlength="60">
 
                       <label class="form-label" for="sobrenome">Digite seu sobrenome</label>
+                      <span class="" style="font-size: 12px;" id="feedbackSobrenome"></span>
                   </div>
                 </div>
               </div>
@@ -107,9 +133,12 @@
                         id="data" 
                         type="date"
                         maxlength="8"
-                        placeholder="dd/mm/aaaa">
+                        placeholder="dd/mm/aaaa"
+                        pattern="dd/mm/aaaa"
+                        >
 
                     <label class="form-label" for="data">Data de Nascimento</label>
+                    <span class="" style="font-size: 12px;" id="feedbackData"></span>
                 </div>
             </div>
         <!-- ---------------------------------------- -->
@@ -128,7 +157,7 @@
                       data-gender-validate
                       required>
                       
-                  <label class="form-check-label" for="maleGender">Masculino</label>
+                  <label class="form-check-label m-0" for="maleGender">Masculino</label>
                 </div>
               <!-- Feminino -->
                 <div class="form-check form-check-inline">
@@ -141,7 +170,7 @@
                       data-gender-validate
                       required>
                       
-                  <label class="form-check-label" for="femaleGender">Feminino</label>
+                  <label class="form-check-label m-0" for="femaleGender">Feminino</label>
                 </div>
               <!-- Não declarado -->
                 <div class="form-check form-check-inline">
@@ -154,33 +183,32 @@
                       data-gender-validate
                       required>
                       
-                  <label class="form-check-label" for="otherGender">Não declarar</label>
+                  <label class="form-check-label m-0" for="otherGender">Não declarar</label>
                 </div>
             </div>
         <!-- ---------------------------------------- -->
           <!-- CPF -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                   type="text" 
                   id="cpf" 
-                  class="form-control"
+                  class="form-control mb-2"
                   placeholder="000.000.000-00"
-                  onkeydown="ajustaCpf(this)" 
-                  onkeyup="ajustaCpf(this)"
-                  onkeydown="ajustaCpf(this)" 
                   onblur="validarCPF(this)"
                   required
-                  maxlength="14" required
-                  autocomplete="none">
+                  maxlength="14"
+                  minlength="14"
+                  autocomplete="off">
               <label class="form-label" for="cpf">CPF</label>
+              <span class="" style="font-size: 12px;" id="feedbackCPF"></span>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Email input -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                   type="email" 
                   id="email" 
-                  class="form-control"
+                  class="form-control mb-2"
                   required
                   data-required
                   data-email-validate
@@ -188,36 +216,35 @@
                   maxlength="50">
                   
               <label class="form-label" for="email">E-mail</label>
+              <span class="" style="font-size: 12px;" id="feedbackEmail"></span>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Celular -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                   type="tel" 
                   id="celular" 
-                  class="form-control"
-                  placeholder="(+55) xx-xxxxx-xxxx" 
+                  class="form-control mb-2"
+                  placeholder="(xx) Xxxxx-xxxx" 
                   required
                   autocomplete="off"
-                  minlength="18"
-                  data-required>
+                  maxlength="15">
                   
               <label class="form-label" for="celular">Telefone Celular</label>
+              <span class="" style="font-size: 12px;" id="feedbackCel"></span>
             </div>
           <!-- Fixo -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                   type="tel" 
                   id="telFixo" 
-                  class="form-control"
-                  placeholder="(+55) xx-xxxx-xxxx" 
-                  required
+                  class="form-control mb-2"
+                  placeholder="(xx) xxxx-xxxx" 
                   autocomplete="off"
-                  data-tel-length="17"
-                  minlength="17"
-                  data-required>
+                  maxlength="14">
                   
               <label class="form-label" for="telFixo">Telefone Fixo</label>
+              <span class="" style="font-size: 12px;" id="feedbackTel"></span>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Sub título -->
@@ -225,11 +252,11 @@
               <hr style="margin: 0px 0px 16px; padding: 0px 12px;">
         <!-- ---------------------------------------- -->
           <!-- CEP -->
-          <div data-mdb-input-init class="form-outline mb-4">
+          <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
             <input 
                 type="text" 
                 id="cep" 
-                class="form-control form-control"
+                class="form-control mb-2"
                 title="Digite seu CEP."
                 placeholder="00000-000" required
                 data-required
@@ -238,14 +265,15 @@
                 maxlength="9"
                 pattern="[0-9]{5}-[0-9]{3}">
             <label class="form-label" for="cep">CEP</label>
+            <span class="" style="font-size: 12px;" id="feedbackCep"></span>
           </div>
         <!-- ---------------------------------------- -->
           <!-- Endereço -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                 type="text" 
                 id="endereco" 
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Rua, Avenida, etc." 
                 required
                 data-required
@@ -255,11 +283,11 @@
             </div>
         <!-- ---------------------------------------- -->
           <!-- Número -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                   type="number" 
                   id="numero" 
-                  class="form-control"
+                  class="form-control mb-2"
                   placeholder="Número da rua, qrd, etc..." 
                   required
                   data-required>
@@ -304,11 +332,11 @@
               </div>
         <!-- ---------------------------------------- -->
           <!-- Cidade -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                 type="text" 
                 id="cidade" 
-                class="form-control"
+                class="form-control mb-2"
                 required
                 data-required>
                 
@@ -316,11 +344,11 @@
             </div>
         <!-- ---------------------------------------- -->
           <!-- Bairro -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <input 
                 type="text" 
                 id="bairro" 
-                class="form-control"
+                class="form-control mb-2"
                 required
                 data-required>
                 
@@ -328,60 +356,61 @@
             </div>
         <!-- ---------------------------------------- -->
           <!-- Complemento -->
-            <div data-mdb-input-init class="form-outline mb-4">
+            <div data-mdb-input-init class="form-outline jb-mb-4-2 mb-4">
               <textarea 
-                class="form-control" 
+                class="form-control mb-2" 
                 id="complemento"
                 placeholder="(Opcional)"
                 rows="2"></textarea>
                 
               <label class="form-label" for="complemento">Complemento</label>
             </div>
-       <!-- ---------------------------------------- -->
+        <!-- ---------------------------------------- -->
           <!-- Sub título -->
             <p class="fw-normal text-center mb-0 pb-0" style="letter-spacing: 1px;">Login e senha</p>
               <hr style="margin: 0px 0px 16px; padding: 0px 12px;">
-       <!-- ---------------------------------------- -->
+        <!-- ---------------------------------------- -->
           <!-- Login -->
-            <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
+            <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
               <input 
-                type="email" 
+                type="text" 
                 id="login" 
-                class="inputs- form-control">
+                minlength="6"
+                maxlength="8"
+                class="inputs- form-control mb-2">
                 
               <label class="form-label" for="login" style="margin-left: 0px;">Login</label>
+              <span class="" style="font-size: 12px;" id="feedbackLogin"></span>
             </div>
-       <!-- ---------------------------------------- -->
+        <!-- ---------------------------------------- -->
           <!-- Senha -->
-            <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
+            <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
               <input 
                 type="password" 
                 id="senha" 
-                class="form-control"
+                class="form-control mb-2"
                 required
-                data-required
-                data-login-length="6"
-                data-only-letters
-                minlength="6"
+                minlength="3"
                 maxlength="6">
                 
               <label class="form-label" for="senha" style="margin-left: 0px;">Senha</label>
+              <i class="fa-solid fa-eye" id="eye-icon" data-target="senha"></i>
+              <span class="" style="font-size: 12px;" id="feedbackSenha"></span>
             </div>
-       <!-- ---------------------------------------- -->
+        <!-- ---------------------------------------- -->
           <!-- Confirmar Senha -->
-            <div data-mdb-input-init="" class="form-outline mb-4" data-mdb-input-initialized="true">
+            <div data-mdb-input-init="" class="form-outline jb-mb-4-2 mb-4" data-mdb-input-initialized="true">
               <input 
                 type="password" 
-                id="confirSenha" 
-                class="form-control"
+                id="confiSenha" 
+                class="form-control mb-2"
                 required
-                data-required
-                data-login-length="6"
-                data-only-letters
                 minlength="6"
                 maxlength="6">
                 
-              <label class="form-label" for="confirSenha" style="margin-left: 0px;">Confirme sua senha</label>
+              <label class="form-label" for="confiSenha" style="margin-left: 0px;">Confirme sua senha</label>
+              <i class="fa-solid fa-eye eye-jb" id="eye-icon" data-target="confiSenha"></i>
+              <span class="" style="font-size: 12px;" id="feedbackConfiSenha"></span>
             </div>
         <!-- ---------------------------------------- -->
           <!-- Checkbox -->
@@ -401,48 +430,65 @@
             <div class="row mb-2">
             <!-- Botão Castrar -->
               <div class="col">
-                <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4 bg-success rounded-pill">Cadastrar</button>
+                <button data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#modal" type="submit" id="submitBtn" class="btn btn-primary btn-block mb-4 bg-success rounded-pill">Cadastrar</button>
+
               </div>
           <!-- ---------------------------------------- -->
             <!-- Botão Limpar -->
               <div class="col">
-                <button data-mdb-ripple-init type="reset" class="btn btn-primary btn-block mb-4 bg-danger rounded-pill">Limpar</button>
+                <button data-mdb-ripple-init type="reset" id="clearBtn" class="btn btn-primary btn-block mb-4 bg-danger rounded-pill" onclick="limparFormulario()">Limpar</button>
               </div>
             </div>
-          <!-- - Voltar a página de Login - -->
+        <!-- ---------------------------------------- -->
+          <!-- -= Voltar a página de Login =- -->
             <p>Já possui uma conta? <a href="./login.html">Fazer login</a>.</p>
-          
-          <!-- Modal de erro -->
-            <dialog class="shadow-4-strong p-4 rounded-8" id="modal">
-              <p id="modalMessage"> </p>            
-              <div class="d-flex justify-content-center align-items-center">
-                <button class="btn btn-danger btn-rounded" id="closeModal">Fechar</button>
+        <!-- ---------------------------------------- -->
+            <!-- Modal -->
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content shadow-4-strong rounded-8 border border-2">
+                  <div class="modal-header rounded-8 rounded-bottom-0 border">
+                    <h5 class="modal-title" id="modalLabel"></h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="modalMessage"></div>
+                  <div class="modal-footer d-flex justify-content-center align-items-center">
+                    <button type="button" id="btn" class="btn btn-secondary btn-rounded border border-2" data-mdb-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+              <script>
+                
+              </script>
             </div>
-            </dialog>
           </form>
         </div>
-    </div>
+      </div>
+
+      <!-- Botão "Voltar ao topo (seta)" -->
+      <button id="scrollToTopBtn" class="btn mb-8 mb-md-6 p-0 btn-warning rounded-pill shadow text-dark" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up p-3"></i>
+      </button>
 
   <!-- === Footer === -->
     <footer id="footer" class="footer fixed-bottom text-center text-lg-start">    
       <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-dark text-bg-warning">
-      <!--/ Left -->
+      <!-- Left -->
         <div class="me-5 ms-5 d-none d-lg-block">
-          <!-- <span>Conecte-se conosco nas redes sociais:</span> -->
           <a href="#!" class="small text-dark">Termos de uso.</a> |
           <a href="#!" class="small text-dark">Politica de privacidade.</a>
         </div>
-      <!-- Left \-->
     
-      <!--/ Right -->
-        <!--/ Copyright -->
-        <div class="small mx-5 text-center text-bg-light bg-warning">Copyright &copy; 2024 | DGM Web developer&reg;</div>
-        <!-- Copyright \-->
-      <!-- Right \-->         
+      <!-- Right -->
+        <!-- Copyright -->
+        <div class="small mx-5 text-center text-bg-light bg-warning">Copyright &copy; 2024 | DGM Web developer&reg;</div>      
       </section>
     </footer>
-  
+
+  <!-- Script Global auth -->
+    <script type="module" src="../../js/authScript.js"></script>
   <!-- ==== JavaScript MDB ==== -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.0.0/js/mdb.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

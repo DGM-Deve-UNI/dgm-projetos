@@ -1,5 +1,162 @@
-<section class="container m-5 container-fluid"></section>
-    <div class="d-flex justify-content-center text-center">
-        <p class="text-box">Página Agendar</p>
+<section id="section8" class="container mt-5 pt-3 p-0 container-fluid section-page">
+    <!-- Imagem de fundo -->
+    <div class="background-image"></div>
+    <!-- Sessão 1 -->
+    <div class="home-container row d-flex justify-content-center">
+        <!-- Título e descrição -->
+        <div class="col-sm-6 col-md-6">
+            <div class="text-box">
+                <!-- Titulo -->
+                <h1 class="text-home text-center jb-font-Lalezar fs-md-5" style="color: #FFD700;">Agende seu Horário!</h1>
+                <!-- Descrição -->
+                <p class="texto-decricao text-center fs-4">
+                    Na Barber oferecemos mais que barba, cabelo e bigode. Aqui você supera suas expectativas, com profissionais capacitados e atualizados para inovar seu visual ou preservar o estilo que você já gosta!
+                </p>
+            </div>
+        </div>
+        <!-- Formulário de agendamento -->
+        <div class="container p-0 col-12 col-md-8 col-lg-6">
+            <div class="d-flex justify-content-center py-5">
+                <div class="row p-3 justify-content-center w-100">
+                    <div class="col-md-8 w-100">
+                        <div class="card mx-auto">
+                            <div class="card-body border border-3 rounded-5 border-warning p-4 p-md-5">
+                                <!-- Titulo -->
+                                <h4 class="card-title text-center mt-4 mb-5">Agendamento de Serviço</h4>
+                                 
+                                <!-- Progress Bar -->
+                                <div class="progress mb-4">
+                                    <div class="progress-bar progress-bar-animated bg-warning text-black fs-6 fw-semibold" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">Passo 1 de 3</div>
+                                </div>
+        
+                                <!-- Form Step 1 -->
+                                <div class="form-step active" id="step1">
+                                    <div class="mb-3">
+                                        <label for="service" class="form-label">Serviço</label>
+                                        <select class="form-select" id="service" required>
+                                            <option value="">Selecione o serviço</option>
+                                            <option value="corte" data-price="50">Corte de Cabelo - R$ 50,00</option>
+                                            <option value="barba" data-price="30">Barba - R$ 30,00</option>
+                                            <option value="barba" data-price="65">Cabelo & Barba - R$ 65,00</option>
+                                            <option value="barba" data-price="10">Pezinho do cabelo - R$ 10,00</option>
+                                            <option value="barba" data-price="15">Sobrancelha na Navalha - R$ 15,00</option>
+                                            <option value="limpeza" data-price="40">Limpeza de pele (completa) - R$ 40,00</option>
+                                            <option value="limpeza" data-price="20">Limpeza de pele (expressa) - R$ 20,00</option>
+                                            <option value="limpeza" data-price="25">Lavagem de Cabelo - R$ 25,00</option>
+                                            <option value="limpeza" data-price="0">Club Vip - Corte de Cabelo - R$ 0,00</option>
+                                            <option value="limpeza" data-price="0">Club Vip - Barba - R$ 0,00</option>
+                                            <option value="limpeza" data-price="0">Club Vip - Cabelo & Barba - R$ 0,00</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="professional" class="form-label">Profissional</label>
+                                        <select class="form-select" id="professional" required>
+                                            <option value="">Selecione o profissional</option>
+                                            <option value="Rômulo">Rômulo Silva</option>
+                                            <option value="Johnny">Johnny Santos</option>
+                                            <option value="Bruno">Bruno Oliveira</option>
+                                            <option value="Thainá">Thainá Figueira</option>
+                                        </select>
+                                    </div>
+                                    <div class="text-end mt-5">
+                                        <button class="btn btn-warning fw-semibold" onclick="nextStep(1)">Avançar</button>
+                                    </div>
+                                </div>
+        
+                                <!-- Form Step 2 -->
+                                <div class="form-step" id="step2">
+                                    <div class="mb-3">
+                                        <label for="date" class="form-label">Data</label>
+                                        <input type="date" class="form-control" id="date" required onchange="validateDate()">
+                                        <div class="invalid-feedback">Data inválida. Verifique o horário de funcionamento.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="time" class="form-label">Horário</label>
+                                        <select class="form-select" id="time" required>
+                                            <option value="">Selecione o horário</option>
+                                        </select>
+                                        <div class="invalid-feedback">Horário inválido.</div>
+                                    </div>
+                                    <div class="text-end mt-5">
+                                        <button class="btn btn-secondary me-2" onclick="prevStep(2)">Voltar</button>
+                                        <button class="btn btn-warning fw-semibold" onclick="nextStep(2)">Avançar</button>
+                                    </div>
+                                </div>
+        
+                                <!-- Form Step 3 -->
+                                <div class="form-step" id="step3">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Nome Completo*</label>
+                                        <input type="text" class="form-control" id="name" required pattern="^[A-Za-zÀ-ÿ\s]{3,30}$">
+                                        <div class="invalid-feedback">O nome deve ter entre 3 e 30 letras.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">E-mail*</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                        <div class="invalid-feedback">Insira um email válido.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="whatsapp" class="form-label">WhatsApp</label>
+                                        <input type="tel" class="form-control" id="whatsapp" required pattern="\d{2} \d{5}-\d{4}">
+                                        <div class="invalid-feedback">Formato esperado: (XX) XXXXX-XXXX</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="notes" class="form-label">Observações</label>
+                                        <textarea class="form-control" id="notes" rows="3"></textarea>
+                                    </div>
+                                    <div class="text-end mt-5">
+                                        <button class="btn btn-secondary me-2" onclick="prevStep(3)">Voltar</button>
+                                        <button class="btn btn-warning fw-semibold" onclick="showSummary()">Revisar</button>
+                                    </div>
+                                </div>
+        
+                                <!-- Summary -->
+                                <div class="summary" id="summary">
+                                    <h4 class="mb-4">Resumo do Agendamento</h4>
+                                    <div class="mb-3">
+                                        <p><strong>Serviço:</strong> <span id="summary-service"></span></p>
+                                        <p><strong>Profissional:</strong> <span id="summary-professional"></span></p>
+                                        <p><strong>Data:</strong> <span id="summary-date"></span></p>
+                                        <p><strong>Horário:</strong> <span id="summary-time"></span></p>
+                                        <p><strong>Nome:</strong> <span id="summary-name"></span></p>
+                                        <p><strong>E-mail:</strong> <span id="summary-email"></span></p>
+                                        <p><strong>WhatsApp:</strong> <span id="summary-whatsapp"></span></p>
+                                        <p><strong>Observações:</strong> <span id="summary-notes"></span></p>
+                                        <p><strong>Valor Total:</strong> <span id="summary-price"></span></p>
+                                    </div>
+                                    <div class="text-end mt-4 mt-md-5">
+                                        <button class="btn btn-secondary me-0 me-md-2 mt-2 mt-md-0" onclick="editForm()">Editar</button>
+                                        <button class="btn btn-success fw-semibold mt-2 mt-md-0" onclick="finishBooking()">Finalizar Agendamento</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content border border-3 rounded-4">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body text-center" id="modalBody">
+                    </div>
+
+                    <div class="modal-footer d-flex justify-content-center align-items-center">
+                        <!-- Botão "Fechar" visível por padrão para erros -->
+                        <button type="button" class="btn btn-secondary" id="closedButton" data-bs-dismiss="modal">Fechar</button>
+                        
+                        <!-- Botões "Cancelar" e "Confirmar" ocultos por padrão -->
+                        <button type="button" class="btn btn-secondary d-none" id="cancelButton" data-bs-dismiss="modal" onclick="cancelBooking()">Cancelar</button>
+                        <button type="button" class="btn btn-warning fw-semibold d-none" id="confirmButton" onclick="confirmBooking()">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>

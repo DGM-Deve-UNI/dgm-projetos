@@ -11,8 +11,11 @@
 .jb-card {
   border-radius: 1rem !important;
   z-index: 2;
+  max-width: 360px !important; 
+  min-height: 200px !important;
 }
-/* -- Imagem de fundo "section 1" -- */
+/* ===- Img de fundo Página Home -=== */
+    /* -- Imagem de fundo (Sobre Assinatura) "section 1" -- */
 #section1 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
@@ -21,14 +24,101 @@
         top /* position */
         center/cover /* size */;
 }
-/* -- Imagem de fundo "section 2" -- */
+    /* -- Imagem de fundo (Nossos Serviços) "section 2" -- */
 #section2 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://img.freepik.com/fotos-premium/uma-tabua-preta-com-tesouras-e-uma-taboa-preta-com-um-rotulo-que-diz-cabelo_955834-53974.jpg)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+    /* -- Imagem de fundo (Quem Somos) "section 3" -- */
+#section3 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://d1muf25xaso8hp.cloudfront.net/https://img.criativodahora.com.br/2024/03/criativo-660976974a019img-2024-03-31660976974a01e.jpg?w=1000&h=&auto=compress&dpr=1&fit=max)
+        no-repeat /* repeat */
+        center /* position */
+        center/cover /* size */;
+}
+    /* -- Imagem de fundo (Planos de Assinatura) "section 4" -- */
+#section4 .background-image {
     background: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
         url(../imgs/banner-2.png)
         no-repeat /* repeat */
         top /* position */
         center/cover /* size */;
+}
+    /* -- Imagem de fundo (Depoimentos) "section 5" -- */
+#section5 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://img.freepik.com/fotos-premium/palo-de-barbeiro-classico-em-fundo-de-madeira_1258195-1207.jpg?semt=ais_hybrid)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+
+/* ===- Img de fundo Página Sobre -=== */
+    /* -- Imagem de fundo (Sobre) "section 6" -- */
+#section6 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://www.celcoin.com.br/wp-content/uploads/2023/05/Barbearia-de-sucesso.jpg)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+    /* -- Imagem de fundo (Sobre) "section 6-1" -- */
+#section6-1 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://barbearia.zionstudio.com.br/wp-content/uploads/2024/08/Barbeiro-2.jpg)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+
+/* ===- Img de fundo Página Serviços -=== */
+    /* -- Imagem de fundo (Serviços) "section 7" -- */
+#section7 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://www.peluker.com/blog/wp-content/uploads/2024/03/%C2%BFcuanto-cuesta-una-barberia.jpeg)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover /* size */;
+}
+
+/* ===- Img de fundo Página Agendar -=== */
+    /* -- Imagem de fundo (Agendar) "section 8" -- */
+#section8 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://barbearia01.superservidor.info/medias/Barbearia-22.jpg)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover/* size */;
+        /* background-size: ; */
+}
+
+/* ===- Img de fundo Página Contatos -=== */
+    /* -- Imagem de fundo (Contatos) "section 9" -- */
+#section9 .background-image {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* opacidade */
+        url(https://thumbs.dreamstime.com/b/pincel-para-barba-junto-com-tigela-fundo-desfocado-de-sal%C3%A3o-cabelo-homens-barbearia-164077707.jpg)
+        no-repeat /* repeat */
+        top /* position */
+        center/cover/* size */;
+        /* background-size: ; */
+}
+
+/* Efeito desfoque imagem de fundo */
+.img-dfc {
+    filter: blur(5px); /* Aplica o efeito de desfoque */
 }
 /* === "div" global de texto === */
 .text-box {
@@ -38,6 +128,17 @@
     height: 100%;
     width: 100%;
     color: var(--branco);
+}
+.text-box-title {
+    z-index: 2;
+    padding: 5rem 0 0 0;
+}
+.text-box-decricao {
+    display: inline-block;
+    /* z-index: 2; */
+    /* padding: 5rem; */
+    height: 100%;
+    width: 100%;
 }
 /* === Texto da página === */
 .text-home {
@@ -49,6 +150,49 @@
     max-width: 540px;
     margin: 2rem 0 3rem 0;
 }
+/* hr personalizada (linha de divisão entre as seções) */
+.hr-custom {
+    border: none;
+    height: 8px;
+    /* width: 20px; */
+    background: linear-gradient(135deg, #ffc107 33%, #ffffff 33%, #ffffff 66%, #ffc107 66%);
+    /* border-radius: 10px; */
+    box-shadow: 2px 10px 16px 7px #212529b3;
+    margin: 0;
+}
+/* -- Ícone de "X" cards -- */
+.fa-xmark {
+    color: red;
+}
+/* class font-size BS personalizada */
+.jb-fs-7 {
+  font-size: 0.9rem;
+}
+
+/* --- Config formulário de agendamento --- */
+.form-step {
+    display: none;
+}
+.form-step.active {
+    display: block;
+}
+.summary {
+    display: none;
+}
+.summary.active {
+    display: block;
+}
+
+/* ===- Config Modo Claro/Escuro -=== */
+[data-bs-theme="dark"] .carousel .carousel-indicators [data-bs-target] {
+    background-color: var(--branco);
+}
+
+/* Classe para ajustar tamanho de texto dinamicamente */
+.js-titulo-responsivo {
+    font-size: 4rem; /* Tamanho padrão para mobile */
+}
+
 /* === Responsividade da "div" e texto da página === */
 @media (max-width: 768px) {
     /* class font-size BS personalizada */
@@ -61,15 +205,85 @@
     }
 }
 
-.fa-xmark {
-    color: red;
+@media (min-width: 375px) {
+    .jb-img-responsive, .jb-wm-100 {
+        width: 25%;
+    }
+}
+  
+@media (min-width: 768px) {
+    .jb-img-responsive, .jb-wm-100 {
+        width: 100%;
+    }
 }
 
-.jb-fs-7 {
-  font-size: 0.9rem;
+@media (min-width: 375px) {
+    .jb-wm-100 {
+        width: 100% !important;
+    }
+}
+  
+@media (min-width: 768px) {
+    .jb-wm-100 {
+        width: 75% !important;
+    }
 }
 
-.card {
-    max-width: 360px !important; 
-    min-height: 200px !important;
+@media (min-width: 768px) {
+    .js-titulo-responsivo {
+        font-size: 150px; /* Tamanho grande no desktop */
+    }
+}
+
+.carousel {
+    height: 360px !important;
+}
+@media (min-width: 344px) {
+    .carousel {
+        height: 540px !important;
+    }
+}
+@media (min-width: 375px) {
+    .carousel {
+        height: 500px !important;
+    }
+}
+@media (min-width: 360px) {
+    .carousel {
+        height: 500px !important;
+    }
+}
+@media (min-width: 768px) {
+    .carousel {
+        height: 400px !important;
+    }
+}
+/* ===- Bordas responsivas cards Página Serviços -=== */
+    /* Bordas superiores */
+.jb-rounded-start {
+    border-radius: 16px 16px 0 0;  /* Arredondado em cima */
+}
+    /* Bordas inferiores */
+.jb-rounded-end {
+    border-radius: 0 0 16px 16px;  /* Arredondado embaixo */
+}
+/* Mobile (< 768px) */
+@media (max-width: 767.98px) {
+    /* Remove borda superior no mobile */
+    .jb-rounded-end {
+        border-top: 0 !important;  
+    }
+}
+/* Desktop (≥ 768px) */
+@media (min-width: 768px) {
+    /* Arredondado na esquerda */
+    .jb-rounded-start {
+        border-radius: 16px 0 0 16px;  
+    }
+    
+    .jb-rounded-end {
+        border-radius: 0 16px 16px 0;  /* Arredondado na direita */
+        border-left: 0 !important;  /* Remove borda esquerda no desktop */
+        border-top: auto !important;  /* Restaura borda superior no desktop */
+    }
 }
