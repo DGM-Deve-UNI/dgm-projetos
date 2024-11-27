@@ -67,4 +67,34 @@ Este projeto está licenciado para uso exclusivo pelo grupo DGM Web Developers (
 
 Agradecemos a você por explorar nosso projeto e esperamos que ele possa servir de inspiração e aprendizado para outros desenvolvedores. Estamos ansiosos para apresentar o resultado do nosso trabalho e esperamos que ele atenda às expectativas dos usuários do site e docentes responsáveis.
 
-<!-- Agradecemos a você por explorar nosso projeto e esperamos que ele possa servir de inspiração e aprendizado para outros desenvolvedores. Estamos orgulhosos de apresentar o resultado do nosso trabalho e esperamos que ele atenda às expectativas da Telecall e dos usuários do site. -->
+---
+
+## Demo
+
+### Imagens do projeto
+
+##### Tela inicial
+<img src="./md-img/home.jpeg">
+
+
+##### Página Sobre
+<img src="./md-img/sobre.jpeg">
+
+##### Página Serviços
+<img src="./md-img/servicos.jpeg">
+
+##### Página Agendar
+<img src="./md-img/agendar.jpeg">
+
+##### Página Contatos
+<img src="./md-img/contatos.jpeg">
+
+##### Página de Login
+<img src="./md-img/login.jpeg">
+
+##### Página de Cadastro
+<img src="./md-img/cadastro.jpeg">
+
+****
+
+### **Teste o site clicando [aqui](https://johnbravo-dgm.web.app).**
