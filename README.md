@@ -11,7 +11,7 @@ Repositório de projetos do grupo DGM Unisuam 2024.2
 ### --= Analise e desenvolvimento de sistemas =--
 
 ----------------------------------------------
-**JahnBravo - Unisuam - Grupo 03 (DGM Web developer)**
+**JohnBravo - Unisuam - Grupo 03 (DGM Web developer)**
 
 *Integrantes:*
 
